@@ -2,5 +2,43 @@
 {% load static %}
 
 {% block content %}
-<h1>Yo Waddup</h1>
+    <div class="container-fluid fixed-top">
+        <div class="row" id="mainNavUpper">
+            <div class="col-4">
+                <a class="logo-font text-center" href="{% url 'home' %}" id="mainNavLogo">
+                    <h1 class="display-3">Cartridge Market</h1>
+                </a>
+            </div>
+            <div class="col-5"id="mainNavSearch">
+                <input class="form-control form-control-lg my-4" type="text" placeholder="Search games..." aria-label="search games">
+            </div>
+            <div class="col-3 text-end my-4" id="mainNavIcons">
+                <i class="fas fa-user fa-3x"></i>
+                <i class="fas fa-shopping-cart fa-3x"></i>
+            </div>
+        </div>
+        <div class="navbar-collapse" id="mainNavLower">
+            <div class="col-8 offset-md-2">
+                <ul class="navbar-nav">
+                    <li class="nav-item dropdown">
+                        <a href="#" class="btn dropdown-toggle" data-bs-toggle="dropdown" id="mainNintendoDropdown">
+                            Nintendo
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="mainNintendoDropdown">
+                            <li><a href="" class="dropdown-item"></a></li>
+                                <li><a href="" class="dropdown-item">Consoles</a></li>
+                                <li><a href="" class="dropdown-item">All Games</a></li>
+                                <li><a href="" class="dropdown-item">NES</a></li>
+                                <li><a href="" class="dropdown-item">SNES</a></li>
+                                <li><a href="" class="dropdown-item">N64</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">Sega</li>
+                    <li class="nav-item">Sony</li>
+                    <li class="nav-item">Atari</li>
+                    <li class="nav-item">Consoles</li>
+                </ul>
+            </div>
+        </div>
+    </div>
 {% endblock %}
