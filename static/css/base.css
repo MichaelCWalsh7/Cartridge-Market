@@ -1,0 +1,31 @@
+/* ----------------- General Css -----------------  */
+
+/* Colours */
+
+.white-text {
+    color: white;
+}
+
+/* Navbar */
+
+.navbar-nav {
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+
+#mainNavLower {
+    border-top: 1px solid black;
+}
+
+/* Hero Image */
+
+#heroImageContainer {
+    background: url('/media/images/hero-image/hero1.png') no-repeat center;
+    background-size: cover;
+    height: calc(100vh - 300px);
+    margin-top: 160px;
+}
+
+.hero-logo {
+    font-weight: 700;
+}
