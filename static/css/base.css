@@ -6,7 +6,7 @@
     color: white;
 }
 
-/* Navbar */
+/* ----------------- Navbar ----------------- */
 
 .navbar-nav {
     flex-direction: row;
@@ -17,13 +17,41 @@
     border-top: 1px solid black;
 }
 
-/* Hero Image */
+#mobileNav {
+    border-bottom: 1.5px black solid;
+}
+
+.mobile-nav-icon {
+    font-size: 25px;
+}
+
+.mobile-bag-link {
+    text-decoration: none;
+    color: #212529;
+}
+
+/* Navbar - Media Queries */
+
+@media (max-width: 1199px) {
+    #mainNavLogo .display-3 {
+        padding-top: 1.3rem;
+        font-size: 2.5rem !important;
+    }
+}
+
+@media (min-width: 1200px) and (max-width: 1440px) {
+    #mainNavLogo .display-3 {
+        padding-top: 1.2rem;
+        font-size: 3rem !important;
+    }
+}
+
+/* ----------------- Hero Image ----------------- */
 
 #heroImageContainer {
     background: url('/media/images/hero-image/hero1.png') no-repeat center;
     background-size: cover;
     height: calc(100vh - 300px);
-    margin-top: 160px;
 }
 
 .hero-logo {

@@ -33,7 +33,10 @@
     </head>
 
     <body>
-        
+
+        {% include 'includes/main-nav.html' %}
+        {% include 'includes/mobile-nav.html' %}
+
         {% if messages %}
             <div class="message-container"></div>
         {% endif %}
