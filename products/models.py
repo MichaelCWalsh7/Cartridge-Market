@@ -13,15 +13,11 @@ class Brand(models.Model):
     act as psuedo-categories.
     """
     name = models.CharField(max_length=254)
-    friendly_name = models.CharField(max_length=254, null=True, blank=True)  # noqa: DJ01,E501
 
     # The below lines converts the object into a string to more easily
     # manage it.
     def __str__(self):
         return self.name
-
-    def get_friendly_name(self):
-        return self.friendly_name
 
 
 class Console(models.Model):
@@ -74,8 +70,11 @@ class Game(models.Model):
     )
     sku = models.CharField(max_length=254, null=True, blank=True)  # noqa: DJ01,E501
     name = models.CharField(max_length=254)
-    description = models.TextField()
-    price = models.DecimalField(max_digits=6, decimal_places=2)
+    description = models.TextField(null=True, blank=True)  # noqa: DJ01
+    developer = models.CharField(max_length=254, null=True, blank=True)  # noqa: DJ01,E501
+    price = models.DecimalField(
+        max_digits=6, decimal_places=2, null=True, blank=True
+    )
     rating = models.DecimalField(
         max_digits=6, decimal_places=2, null=True, blank=True
     )
