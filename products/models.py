@@ -75,9 +75,7 @@ class Game(models.Model):
     price = models.DecimalField(
         max_digits=6, decimal_places=2, null=True, blank=True
     )
-    rating = models.DecimalField(
-        max_digits=6, decimal_places=2, null=True, blank=True
-    )
+    rating = models.IntegerField(null=True, blank=True)
     release_year = models.IntegerField()
     multiplayer = models.BooleanField()
     image_url = models.URLField(max_length=254, null=True, blank=True)  # noqa: DJ01,E501

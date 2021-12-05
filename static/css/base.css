@@ -46,14 +46,25 @@
     }
 }
 
-/* ----------------- Hero Image ----------------- */
+/* ----------------- Home Page ----------------- */
 
 #heroImageContainer {
-    background: url('/media/images/hero-image/hero1.png') no-repeat center;
-    background-size: cover;
-    height: calc(100vh - 300px);
+    padding: 0 !important;
+}
+
+#heroImageContainer img {
+    /* background: url('/media/images/hero-image/hero1.png') no-repeat center;
+    background-size: cover; */
+    height: calc(100vh - 370px);
+    width: 100%;
+    
 }
 
 .hero-logo {
     font-weight: 700;
+}
+
+
+.card-image {
+    width: 100%;
 }

@@ -3,12 +3,32 @@
 
 {% block content %}
 
-    <!-- Hero Image -->
+<!-- Hero Image -->
 
-    <div class="container-fluid" id="heroImageContainer"></div>
+<div class="container-fluid" id="heroImageContainer">
+    <img src="/media/images/hero-image/hero1.png" alt="">
+</div>
+<div class="container-fluid">
     <div class="row">
-        <div class="col text-center">
-            <h1><i class="fas fa-caret-down"></i>  FEATURED GAMES <i class="fas fa-caret-down"></i></h1>
+        <div class="col text-center" id="featuredTitle">
+            <h1><i class="fas fa-caret-down"></i> FEATURED GAMES <i class="fas fa-caret-down"></i></h1>
         </div>
     </div>
+    <div class="row">
+        <div class="col-sm-10 col-md-5 offset-md-1 col-lg-3 card">
+            <div class="card-body">
+                {% for game in sm64 %}
+                    <h4 class="card-title text-center">{{ game.name }}</h4>
+                    <img class="card-image" src="{{ game.image_url }}" alt="{{ game.name }}">
+                {% endfor %}
+            </div>
+            <div class="card-footer px-5">
+                {% for game in sm64 %}
+                    <span class="float-start"><strong>{{ game.console }}</strong></span>
+                    <span class="float-end"><strong>Rating: {{ game.rating }}</strong></span>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</div>
 {% endblock %}
