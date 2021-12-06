@@ -82,6 +82,20 @@
     border-top: 1px solid green;
 }
 
+#publishersTitle {
+    margin-top: 4%;
+}
+
+.publisher-link-container {
+    margin: 4%;
+    border: solid 4px #1F211F;
+    border-radius: 12px;
+}
+
+.publisher-image {
+    width: 100%;
+}
+
 /* Home Page - Media Queries */
 
 @media (max-width: 575px) {
