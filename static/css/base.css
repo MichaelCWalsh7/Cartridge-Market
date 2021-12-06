@@ -30,6 +30,10 @@
     color: #212529;
 }
 
+#mainNavAllGamesLink:hover {
+    text-decoration: underline;
+}
+
 /* Navbar - Media Queries */
 
 @media (max-width: 1199px) {

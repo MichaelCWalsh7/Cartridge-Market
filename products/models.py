@@ -13,6 +13,8 @@ class Brand(models.Model):
     act as psuedo-categories.
     """
     name = models.CharField(max_length=254)
+    image_url = models.URLField(max_length=254, null=True, blank=True)  # noqa: DJ01,E501
+    image = models.ImageField(null=True, blank=True)
 
     # The below lines converts the object into a string to more easily
     # manage it.
@@ -46,7 +48,7 @@ class Console(models.Model):
 class Genre(models.Model):
     """
     Here, the genres of games on the website are initialized, they also act as
-    psuedo-categories.
+    categories.
     """
     name = models.CharField(max_length=254)
 
