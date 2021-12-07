@@ -19,6 +19,7 @@
 
 #mainNavSearchButton {
     border: 2px solid black;
+    border-radius: 4px;
     height: 46px;
     margin-top: 25px;
 }
