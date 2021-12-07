@@ -50,6 +50,7 @@
     }
 }
 
+
 /* ----------------- Home Page ----------------- */
 
 #heroImageContainer {
@@ -66,11 +67,46 @@
     font-weight: 700;
 }
 
+#publishersTitle {
+    margin-top: 4%;
+}
+
+.publisher-link-container {
+    margin-left: 4%;
+    margin-right: 4%;
+    margin-bottom: 2%;
+    margin-top: 1%;
+    border: solid 4px #1F211F;
+    border-radius: 12px;
+}
+
+.publisher-image {
+    width: 100%;
+}
+
+
+/* ----------------- Game Card ----------------- */
+
 .game-card {
     background-color: #1F211F;
     color: white;
     margin-top: 6px;
     margin-bottom: 6px;
+    border: solid 4px #1F211F;
+    border-radius: 12px;
+}
+
+.game-card:hover {
+    background-color: white;
+}
+
+.game-card-link {
+    text-decoration: none;
+    color: inherit;
+}
+
+.game-card-link:hover {
+    color: #1F211F;
 }
 
 .card-image {
@@ -82,31 +118,35 @@
     border-top: 1px solid green;
 }
 
-#publishersTitle {
-    margin-top: 4%;
+/* Game Card - Media Queries */
+
+@media (min-width: 460px) and (max-width: 576px) {
+    .card-image {  
+        height: 360px;
+        width: 95%;
+
+    }
 }
 
-.publisher-link-container {
-    margin: 4%;
-    border: solid 4px #1F211F;
-    border-radius: 12px;
-}
-
-.publisher-image {
-    width: 100%;
-}
-
-/* Home Page - Media Queries */
 
 @media (max-width: 575px) {
     .card-image {
-        height: 230px;
+        height: 290px;
+        width: 95%;
+    }
+}
+
+@media (min-width: 576px) and (max-width: 745px) {
+    .card-image {  
+        height: 350px;
+        width: 80%;
+
     }
 }
 
 @media (min-width: 746px) and (max-width: 991px) {
     .card-image {  
-        height: 270px;
+        height: 378px;
         width: 80%;
 
     }
@@ -117,6 +157,10 @@
         margin-left: 4%;
         margin-right: 4%;
     }
+
+    .card-image {
+        height: 350px;
+    }
 }
 
 @media (min-width: 1200px) {
@@ -124,5 +168,17 @@
         margin-left: 1%;
         margin-right: 1%;
         width: 23% !important;
+    }
+}
+
+@media (min-width: 1400px) {
+    .card-image {
+        height: 320px;
+    }
+}
+
+@media (min-width: 1600px) {
+    .card-image {
+        height: 360px;
     }
 }

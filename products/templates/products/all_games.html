@@ -2,5 +2,24 @@
 {% load static %}
 
 {% block content %}
-    <h1>Working as Nintended</h1>
+    <div class="container-fluid">
+        <h1 class="text-center">Games</h1>
+        
+        <div class="row">
+            {% for game in games %}
+                <div class="col-10 offset-1 col-sm-8 offset-sm-2 col-lg-5 offset-lg-1 col-xl-3 offset-xl-0 card game-card">
+                    <a class="game-card-link" href="">
+                        <div class="card-body text-center">
+                                <h4 class="card-title text-center pb-3">{{ game.name }}</h4>
+                                <img class="card-image" src="{{ game.image_url }}" alt="{{ game.name }}">
+                        </div>
+                        <div class="card-footer px-2">
+                                <span class="float-start"><strong>{{ game.console }}</strong></span>
+                                <span class="float-end"><strong>Rating: {{ game.rating }}</strong></span>
+                        </div>
+                    </a>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
 {% endblock %}
