@@ -17,6 +17,12 @@
     border-top: 1px solid black;
 }
 
+#mainNavSearchButton {
+    border: 2px solid black;
+    height: 46px;
+    margin-top: 25px;
+}
+
 #mobileNav {
     border-bottom: 1.5px black solid;
 }
@@ -181,4 +187,28 @@
     .card-image {
         height: 360px;
     }
+}
+
+/* ----------------- All Games ----------------- */
+
+.filter-container {
+    border: solid 4px #1F211F;
+    border-radius: 12px;
+}
+
+.selector-container {
+    margin: 15px 4%;
+}
+
+.selector-container select {
+    width: 100%;
+    border-radius: 5px;
+}
+
+#filterButton {
+    background-color: blue;
+    color: white;
+    margin-bottom: 10px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 2px 4px rgb(0 0 0 / 51%);
 }

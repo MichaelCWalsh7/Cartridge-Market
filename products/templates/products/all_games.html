@@ -4,6 +4,63 @@
 {% block content %}
     <div class="container-fluid">
         <h1 class="text-center">Games</h1>
+
+        <div class="filter-container">
+            <div class="row">
+                <div class="selector-container col-5">
+                    <select name="" id="">
+                        <option selected value="">Publisher...</option>
+                        <option value="">Nintendo</option>
+                        <option value="">Sega</option>
+                        <option value="">Sony</option>
+                        <option value="">Atari</option>
+                    </select>
+                </div>
+                <div class="selector-container col-5">
+                    <select name="" id="">
+                        <!-- use templating to generate consoles here -->
+                        <option selected value="">Console...</option>
+                        <option value="">Example 1</option>
+                        <option value="">Example 2</option>
+                        <option value="">Example 3</option>
+                        <option value="">Example 4</option>
+                    </select>
+                </div>
+            </div>
+            
+            <div class="row">                    
+                <div class="selector-container col-5">
+                    <select name="" id="">
+                        <!-- use templating to generate genres here -->
+                        <option selected value="">Genre...</option>
+                        <option value="">Example 1</option>
+                        <option value="">Example 2</option>
+                        <option value="">Example 3</option>
+                    </select>
+                </div>
+                <div class="selector-container col-5">
+                    <select name="" id="">
+                        <option selected value="">Sort by...</option>
+                        <option value="">Price (low to high)</option>
+                        <option value="">Price (high to low)</option>                            
+                        <option value="">Rating (low to high)</option>
+                        <option value="">Rating (high to low)</option>
+                        <option value="">Name (A-Z)</option>
+                        <option value="">Name (Z-A)</option>
+                        <option value="">Released (low to high)</option>
+                        <option value="">Released (high to low)</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-6 mx-auto text-center">
+                    <a href="" class="btn" id="filterButton">
+                        Filter Games
+                    </a>
+                </div>
+            </div>
+        </div>
         
         <div class="row">
             {% for game in games %}
