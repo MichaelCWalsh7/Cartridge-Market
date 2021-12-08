@@ -1,16 +1,16 @@
 
 """
 This is where the data schema for the products available on the site will be
-initialized, it includes the 4 brands available, their games and consoles.
+initialized, it includes the 4 publishers available, their games and consoles.
 """
 # pylint: disable=missing-function-docstring,invalid-str-returned
 from django.db import models
 
 
-class Brand(models.Model):
+class Publisher(models.Model):
     """
-    Here, the four available brands on the website are initialized, they also
-    act as psuedo-categories.
+    Here, the four available publishers on the website are initialized,
+    they also act as psuedo-categories.
     """
     name = models.CharField(max_length=254)
     image_url = models.URLField(max_length=254, null=True, blank=True)  # noqa: DJ01,E501
@@ -27,8 +27,8 @@ class Console(models.Model):
     Here, any consoles that the store supports are initialized, they also act
     as a kind of psuedo-subcategory
     """
-    brand = models.ForeignKey(
-        'Brand', null=True, blank=True, on_delete=models.SET_NULL
+    publisher = models.ForeignKey(
+        'Publisher', null=True, blank=True, on_delete=models.SET_NULL
     )
     sku = models.CharField(max_length=254, null=True, blank=True)  # noqa: DJ01,E501
     name = models.CharField(max_length=254)
@@ -61,8 +61,8 @@ class Game(models.Model):
     Here, the data schema for 'games', the main product of the site are
     intialized.
     """
-    brand = models.ForeignKey(
-        'Brand', null=True, blank=True, on_delete=models.SET_NULL
+    publisher = models.ForeignKey(
+        'Publisher', null=True, blank=True, on_delete=models.SET_NULL
     )
     console = models.ForeignKey(
         'Console', null=True, blank=True, on_delete=models.SET_NULL

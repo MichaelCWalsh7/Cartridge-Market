@@ -31,7 +31,7 @@ def all_games(request):
             ) | Q(
                     genre__name__icontains=query
             ) | Q(
-                    brand__name__icontains=query
+                    publisher__name__icontains=query
             ) | Q(
                     console__name__icontains=query
             )

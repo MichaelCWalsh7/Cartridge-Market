@@ -7,7 +7,7 @@
             </button>
             <ul class="dropdown-menu" aria-labelledby="mobileDropdownMenuButton">
                 <li><a class="dropdown-item" href="{% url 'all_games' %}" id="mobileNavNintendo">All Games</a></li>
-                <li><a class="dropdown-item" href="#" id="mobileNavNintendo">Nintendo</a></li>
+                <li><a class="dropdown-item" href="{% url 'all_games' %}?publisher=nintendo" id="mobileNavNintendo">Nintendo</a></li>
                 <li><a class="dropdown-item" href="#" id="mobileNavSega">Sega</a></li>
                 <li><a class="dropdown-item" href="#" id="mobileNavSony">Sony</a></li>
                 <li><a class="dropdown-item" href="#" id="mobileNavAtari">Atari</a></li>

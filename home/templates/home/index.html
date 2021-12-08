@@ -88,10 +88,10 @@
         </div>
     </div>
     <div class="row">
-        {% for brand in brands %}
+        {% for publisher in publishers %}
             <div class="publisher-link-container col-5 col-lg-2">
                 <a class="publisher-link" href="#">
-                    <img class="publisher-image" src="{{ brand.image_url }}" alt="{{ brand.name }}">
+                    <img class="publisher-image" src="{{ publisher.image_url }}" alt="{{ publisher.name }}">
                 </a>
             </div>
         {% endfor %}

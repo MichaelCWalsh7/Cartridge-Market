@@ -3,7 +3,7 @@ Views difined for the 'home' app
 """
 # pylint: disable=no-member
 from django.shortcuts import render
-from products.models import Game, Brand
+from products.models import Game, Publisher
 
 
 def index(request):
@@ -14,13 +14,13 @@ def index(request):
     crash = Game.objects.all().filter(sku='FG-2')
     sonic = Game.objects.all().filter(sku='FG-3')
     pac_man = Game.objects.all().filter(sku='FG-4')
-    brands = Brand.objects.all()
+    publishers = Publisher.objects.all()
 
     context = {
         'sm64': sm64,
         'crash': crash,
         'sonic': sonic,
         'pac_man': pac_man,
-        'brands': brands,
+        'publishers': publishers,
     }
     return render(request, 'home/index.html', context)
