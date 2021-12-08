@@ -1,6 +1,6 @@
 <div class="container-fluid d-lg-none">
-    <div class="row" id="mobileNav">
-        <div class="col-2 dropdown">
+    <ul class="list-inline" id="mobileNav">
+        <li class="list-inline-item dropdown">
             <button class="btn mt-2 ps-2" type="button" id="mobileDropdownMenuButton" data-bs-toggle="dropdown"
                 aria-expanded="false">
                 <i class="fas fa-bars mobile-nav-icon"></i>
@@ -13,18 +13,25 @@
                 <li><a class="dropdown-item" href="#" id="mobileNavAtari">Atari</a></li>
                 <li><a class="dropdown-item" href="#" id="mobileNavConsole">Consoles</a></li>
             </ul>
-        </div>
-        <div class="dropdown col-3 offset-1">
+        </li>
+        <li class="dropdown list-inline-item">
             <a class="btn mt-2 ps-2" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown"
                 aria-expanded="false">
                 <i class="fas fa-search mobile-nav-icon"></i>
             </a>
             <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                <li><input class="form-control dropdown-item border border-dark rounded-0" type="text"
-                        placeholder="Search games..." aria-label="search games"></li>
-            </ul>
-        </div>
-        <div class="dropdown col-3">
+                <form class="mobile-search" action="{% url 'all_games' %}" method="GET">
+                    <li class="input-group">
+                        <input class="form-control dropdown-item border border-dark rounded-0" type="text"
+                            placeholder="Search games..." name="q" aria-label="search games">
+                        <button class="btn" id="mobileNavSearchButton" type="submit">
+                            <i class="fas fa-search"></i>
+                        </button>
+                    </li>
+                </form>
+            </ul>                
+        </li>
+        <li class="list-inline-item dropdown">
             <button class="btn mt-2 ps-2" type="button" id="mobileUserDropdown" data-bs-toggle="dropdown"
                 aria-expanded="false">
                 <i class="fas fa-user mobile-nav-icon"></i>
@@ -33,13 +40,13 @@
                 <li><a href="" class="dropdown-item">Register</a></li>
                 <li><a href="" class="dropdown-item">Login</a></li>
             </ul>
-        </div>
-        <div class="col-3 mt-1 ps-1">
+        </li>
+        <li class="list-inline-item">
             <a href="" class="mobile-bag-link">
                 <div class="mt-2 ps-2">
                     <i class="fas fa-shopping-cart mobile-nav-icon"></i>
                 </div>                
             </a>            
-        </div>
-    </div>
+        </li>
+    </ul>
 </div>

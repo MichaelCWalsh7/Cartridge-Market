@@ -24,8 +24,14 @@
     margin-top: 25px;
 }
 
+#mainNavAllGamesLink:hover {
+    text-decoration: underline;
+}
+
 #mobileNav {
     border-bottom: 1.5px black solid;
+    display: flex;
+    justify-content: space-around;
 }
 
 .mobile-nav-icon {
@@ -37,8 +43,9 @@
     color: #212529;
 }
 
-#mainNavAllGamesLink:hover {
-    text-decoration: underline;
+.mobile-search {
+    width: 100%;
+    z-index: 200;
 }
 
 /* Navbar - Media Queries */

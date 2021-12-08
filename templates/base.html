@@ -38,7 +38,11 @@
         {% include 'includes/mobile-nav.html' %}
 
         {% if messages %}
-            <div class="message-container"></div>
+            <div class="message-container">
+                {% for message in messages %}
+                
+                {% endfor %}
+            </div>
         {% endif %}
 
         {% block page_header %}
