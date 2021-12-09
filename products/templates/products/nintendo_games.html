@@ -1,9 +1,17 @@
 {% extends 'base.html' %}
 {% load static %}
 
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'products/css/publishers/nintendo.css' %}">
+{% endblock %}
+
 {% block content %}
     <div class="container-fluid">
-        <h1 class="text-center">Games</h1>
+        <div class="row">
+            <div class="col-10 offset-1 title-image-container">
+                <img src="/media/images/dev-titles/nintendo-dev-title.png" alt="the nintendo logo" class="dev-page-title-image">
+            </div>            
+        </div>
 
         <div class="filter-container main-body-section">
             <div class="row">

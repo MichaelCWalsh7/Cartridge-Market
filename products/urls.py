@@ -7,4 +7,5 @@ from . import views
 
 urlpatterns = [
     path('', views.all_games, name='all_games'),
+    path('nintendo/', views.nintendo_games, name='nintendo_games'),
 ]
