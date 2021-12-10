@@ -1,0 +1,15 @@
+.main-body-section {
+    background-color: #17569b;
+}
+
+@media (min-width: 1400px) {
+    .title-image-container {
+        height: 390px;
+        margin-left: 17% !important;
+    }
+
+    .dev-page-title-image {
+        height: 100%;
+        width: 80%;
+    }
+}
