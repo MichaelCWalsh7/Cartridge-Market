@@ -1,0 +1,28 @@
+.main-body-section {
+    background-color: #3a3b3c;
+}
+
+.game-card {
+    background-color: white !important;
+    color: #1f211f !important;
+}
+
+.game-card:hover {
+    background-color: black !important;
+}
+
+.game-card-link:hover {
+    color: #bbbbbb !important;
+}
+
+@media (min-width: 1400px) {
+    .title-image-container {
+        height: 390px;
+        margin-left: 17% !important;
+    }
+
+    .dev-page-title-image {
+        height: 100%;
+        width: 80%;
+    }
+}
