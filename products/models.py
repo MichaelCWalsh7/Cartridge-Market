@@ -80,7 +80,7 @@ class Game(models.Model):
     rating = models.IntegerField(null=True, blank=True)
     release_year = models.IntegerField()
     multiplayer = models.BooleanField()
-    image_url = models.URLField(max_length=254, null=True, blank=True)  # noqa: DJ01,E501
+    image_url = models.CharField(max_length=254, null=True, blank=True)  # noqa: DJ01,E501
     image = models.ImageField(null=True, blank=True)
 
     def __str__(self):

@@ -1,5 +1,5 @@
 """
-Views difined for the 'home' app
+Views defined for the 'products' app
 """
 # pylint: disable=no-member
 from django.shortcuts import render, reverse, redirect
