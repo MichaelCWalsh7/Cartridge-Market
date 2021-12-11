@@ -37,6 +37,19 @@ def all_games(request):
             )
             games = games.filter(queries)
 
+        if 'filter_publisher' in request.GET:
+            publisher = request.GET['filter_publisher']
+            if publisher != "any":
+                games = games.filter(publisher__name=publisher)
+        if 'console' in request.GET:
+            console = request.GET['console']
+            if console != "any":
+                games = games.filter(console__name=console)
+        if 'genre' in request.GET:
+            genre = request.GET['genre']
+            if genre != "any":
+                games = games.filter(genre__name=genre)
+
     context = {
         'games': games,
         'search_term': query,
@@ -73,11 +86,11 @@ def publisher_games(request, publisher):
             )
             games = games.filter(queries)
 
+    lpublisher = publisher.lower()
+
     context = {
         'games': games,
         'search_term': query,
     }
-
-    lpublisher = publisher.lower()
 
     return render(request, f'products/{lpublisher}_games.html', context)
