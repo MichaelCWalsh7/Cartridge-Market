@@ -7,10 +7,10 @@
             </button>
             <ul class="dropdown-menu" aria-labelledby="mobileDropdownMenuButton">
                 <li><a class="dropdown-item" href="{% url 'all_games' %}" id="mobileNavNintendo">All Games</a></li>
-                <li><a class="dropdown-item" href="{% url 'nintendo_games' %}" id="mobileNavNintendo">Nintendo</a></li>
-                <li><a class="dropdown-item" href="{% url 'sega_games' %}" id="mobileNavSega">Sega</a></li>
-                <li><a class="dropdown-item" href="{% url 'sony_games' %}" id="mobileNavSony">Sony</a></li>
-                <li><a class="dropdown-item" href="{% url 'atari_games' %}" id="mobileNavAtari">Atari</a></li>
+                <li><a class="dropdown-item" href="{% url 'publisher_games' 'Nintendo' %}" id="mobileNavNintendo">Nintendo</a></li>
+                <li><a class="dropdown-item" href="{% url 'publisher_games' 'Sega' %}" id="mobileNavSega">Sega</a></li>
+                <li><a class="dropdown-item" href="{% url 'publisher_games' 'Sony' %}" id="mobileNavSony">Sony</a></li>
+                <li><a class="dropdown-item" href="{% url 'publisher_games' 'Atari' %}" id="mobileNavAtari">Atari</a></li>
                 <li><a class="dropdown-item" href="#" id="mobileNavConsole">Consoles</a></li>
             </ul>
         </li>

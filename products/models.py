@@ -13,7 +13,7 @@ class Publisher(models.Model):
     they also act as psuedo-categories.
     """
     name = models.CharField(max_length=254)
-    image_url = models.URLField(max_length=254, null=True, blank=True)  # noqa: DJ01,E501
+    image_url = models.CharField(max_length=254, null=True, blank=True)  # noqa: DJ01,E501
     image = models.ImageField(null=True, blank=True)
 
     # The below lines converts the object into a string to more easily
@@ -36,7 +36,7 @@ class Console(models.Model):
     price = models.DecimalField(
         max_digits=6, decimal_places=2, null=True, blank=True
     )
-    image_url = models.URLField(max_length=254, null=True, blank=True)  # noqa: DJ01,E501
+    image_url = models.CharField(max_length=254, null=True, blank=True)  # noqa: DJ01,E501
     image = models.ImageField(null=True, blank=True)
     release_year = models.IntegerField()
     controller_ports = models.IntegerField()

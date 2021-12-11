@@ -20,7 +20,7 @@
                 <div class="card-body text-center">
                     {% for game in sm64 %}
                         <h4 class="card-title text-center pb-3">{{ game.name }}</h4>
-                        <img class="card-image" src="{{ game.image_url }}" alt="{{ game.name }}">
+                        <img class="card-image" src="/media/images/game-images/{{ game.image_url }}" alt="{{ game.name }}">
                     {% endfor %}
                 </div>
                 <div class="card-footer px-2">
@@ -36,7 +36,7 @@
                 <div class="card-body text-center">
                     {% for game in crash %}
                         <h4 class="card-title text-center pb-3">{{ game.name }}</h4>
-                        <img class="card-image" src="{{ game.image_url }}" alt="{{ game.name }}">
+                        <img class="card-image" src="/media/images/game-images/{{ game.image_url }}" alt="{{ game.name }}">
                     {% endfor %}
                 </div>
                 <div class="card-footer px-2">
@@ -52,7 +52,7 @@
                 <div class="card-body text-center">
                     {% for game in sonic %}
                         <h4 class="card-title text-center pb-3">{{ game.name }}</h4>
-                        <img class="card-image" src="{{ game.image_url }}" alt="{{ game.name }}">
+                        <img class="card-image" src="/media/images/game-images/{{ game.image_url }}" alt="{{ game.name }}">
                     {% endfor %}
                 </div>
                 <div class="card-footer px-2">
@@ -68,7 +68,7 @@
                 <div class="card-body text-center">
                     {% for game in pac_man %}
                         <h4 class="card-title text-center pb-3">{{ game.name }}</h4>
-                        <img class="card-image" src="{{ game.image_url }}" alt="{{ game.name }}">
+                        <img class="card-image" src="/media/images/game-images/{{ game.image_url }}" alt="{{ game.name }}">
                     {% endfor %}
                 </div>
                 <div class="card-footer px-2">
@@ -90,8 +90,8 @@
     <div class="row">
         {% for publisher in publishers %}
             <div class="publisher-link-container col-5 col-lg-2">
-                <a class="publisher-link" href="#">
-                    <img class="publisher-image" src="{{ publisher.image_url }}" alt="{{ publisher.name }}">
+                <a class="publisher-link" href="">
+                    <img class="publisher-image" src="media/images/publisher-images/devs/{{ publisher.image_url }}" alt="{{ publisher.name }}">
                 </a>
             </div>
         {% endfor %}

@@ -45,11 +45,11 @@ def all_games(request):
     return render(request, 'products/all_games.html', context)
 
 
-def nintendo_games(request):
+def publisher_games(request, publisher):
     """
     A view to show all Nintendo games currently available on the site.
     """
-    games = Game.objects.filter(publisher__name="Nintendo")
+    games = Game.objects.filter(publisher__name=publisher)
     query = None
 
     if request.GET:
@@ -78,112 +78,6 @@ def nintendo_games(request):
         'search_term': query,
     }
 
-    return render(request, 'products/nintendo_games.html', context)
+    lpublisher = publisher.lower()
 
-
-def sega_games(request):
-    """
-    A view to show all Sega games currently available on the site.
-    """
-    games = Game.objects.filter(publisher__name="Sega")
-    query = None
-
-    if request.GET:
-        if 'q' in request.GET:
-            query = request.GET['q']
-            if not query:
-                messages.error(
-                    request, "You didn't enter any search criteria!")
-                return redirect(reverse('all_games'))
-
-            queries = Q(
-                name__icontains=query
-            ) | Q(
-                    description__icontains=query
-            ) | Q(
-                    genre__name__icontains=query
-            ) | Q(
-                    publisher__name__icontains=query
-            ) | Q(
-                    console__name__icontains=query
-            )
-            games = games.filter(queries)
-
-    context = {
-        'games': games,
-        'search_term': query,
-    }
-
-    return render(request, 'products/sega_games.html', context)
-
-
-def sony_games(request):
-    """
-    A view to show all Sony games currently available on the site.
-    """
-    games = Game.objects.filter(publisher__name="Sony")
-    query = None
-
-    if request.GET:
-        if 'q' in request.GET:
-            query = request.GET['q']
-            if not query:
-                messages.error(
-                    request, "You didn't enter any search criteria!")
-                return redirect(reverse('all_games'))
-
-            queries = Q(
-                name__icontains=query
-            ) | Q(
-                    description__icontains=query
-            ) | Q(
-                    genre__name__icontains=query
-            ) | Q(
-                    publisher__name__icontains=query
-            ) | Q(
-                    console__name__icontains=query
-            )
-            games = games.filter(queries)
-
-    context = {
-        'games': games,
-        'search_term': query,
-    }
-
-    return render(request, 'products/sony_games.html', context)
-
-
-def atari_games(request):
-    """
-    A view to show all Atari games currently available on the site.
-    """
-    games = Game.objects.filter(publisher__name="Atari")
-    query = None
-
-    if request.GET:
-        if 'q' in request.GET:
-            query = request.GET['q']
-            if not query:
-                messages.error(
-                    request, "You didn't enter any search criteria!")
-                return redirect(reverse('all_games'))
-
-            queries = Q(
-                name__icontains=query
-            ) | Q(
-                    description__icontains=query
-            ) | Q(
-                    genre__name__icontains=query
-            ) | Q(
-                    publisher__name__icontains=query
-            ) | Q(
-                    console__name__icontains=query
-            )
-            games = games.filter(queries)
-
-    context = {
-        'games': games,
-        'search_term': query,
-    }
-
-    return render(request, 'products/atari_games.html', context)
+    return render(request, f'products/{lpublisher}_games.html', context)

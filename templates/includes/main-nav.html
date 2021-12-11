@@ -34,7 +34,7 @@
                         Nintendo
                     </a>
                     <ul class="dropdown-menu" aria-labelledby="mainNintendoDropdown">                        
-                        <li><a href="{% url 'nintendo_games' %}" class="dropdown-item">All Games</a></li>
+                        <li><a href="{% url 'publisher_games' 'Nintendo' %}" class="dropdown-item">All Games</a></li>
                         <li><a href="" class="dropdown-item">NES</a></li>
                         <li><a href="" class="dropdown-item">SNES</a></li>
                         <li><a href="" class="dropdown-item">N64</a></li>
@@ -46,7 +46,7 @@
                         SEGA
                     </a>
                     <ul class="dropdown-menu" aria-labelledby="mainSegaDropdown">                        
-                        <li><a href="{% url 'sega_games' %}" class="dropdown-item">All Games</a></li>
+                        <li><a href="{% url 'publisher_games' 'Sega' %}" class="dropdown-item">All Games</a></li>
                         <li><a href="" class="dropdown-item">Genesis</a></li>
                         <li><a href="" class="dropdown-item">Dreamcast</a></li>
                         <li><a href="" class="dropdown-item">Consoles</a></li>
@@ -57,7 +57,7 @@
                         Sony
                     </a>
                     <ul class="dropdown-menu" aria-labelledby="mainSonyDropdown">                        
-                        <li><a href="{% url 'sony_games' %}" class="dropdown-item">All Games</a></li>
+                        <li><a href="{% url 'publisher_games' 'Sony' %}" class="dropdown-item">All Games</a></li>
                         <li><a href="" class="dropdown-item">PS1</a></li>
                         <li><a href="" class="dropdown-item">Consoles</a></li>
                     </ul>
@@ -67,7 +67,7 @@
                         Atari
                     </a>
                     <ul class="dropdown-menu" aria-labelledby="mainAtariDropdown">                        
-                        <li><a href="{% url 'atari_games' %}" class="dropdown-item">All Games</a></li>
+                        <li><a href="{% url 'publisher_games' 'Atari' %}" class="dropdown-item">All Games</a></li>
                         <li><a href="" class="dropdown-item">2600</a></li>
                         <li><a href="" class="dropdown-item">5200</a></li>
                         <li><a href="" class="dropdown-item">Consoles</a></li>
