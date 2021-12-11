@@ -9,7 +9,7 @@
             <form action="{% url 'all_games' %}" method="GET" name="filter">
                 <div class="row">
                     <div class="selector-container col-5">
-                        <select name="filter_publisher" id="">
+                        <select name="filter_publisher" id="publisherSelect">
                             <option selected value="any">Publisher...</option>
                             <option value="Nintendo">Nintendo</option>
                             <option value="Sega">Sega</option>
@@ -18,7 +18,7 @@
                         </select>
                     </div>
                     <div class="selector-container col-5">
-                        <select name="console" id="">
+                        <select name="console" id="consoleSelect">
                             <!-- use templating to generate consoles here -->
                             <option selected value="any">Console...</option>
                             <option value="Nintendo 64">N64</option>
@@ -31,7 +31,7 @@
                 
                 <div class="row">                    
                     <div class="selector-container col-5">
-                        <select name="genre" id="">
+                        <select name="genre" id="genreSelect">
                             <!-- use templating to generate genres here -->
                             <option selected value="any">Genre...</option>
                             <option value="Platformer">Platformer</option>
@@ -40,16 +40,16 @@
                         </select>
                     </div>
                     <div class="selector-container col-5">
-                        <select name="" id="">
-                            <option selected value="">Sort by...</option>
-                            <option value="">Price (low to high)</option>
-                            <option value="">Price (high to low)</option>                            
-                            <option value="">Rating (low to high)</option>
-                            <option value="">Rating (high to low)</option>
-                            <option value="">Name (A-Z)</option>
-                            <option value="">Name (Z-A)</option>
-                            <option value="">Released (low to high)</option>
-                            <option value="">Released (high to low)</option>
+                        <select name="sort" id="sortSelect">
+                            <option selected value="default">Sort by...</option>
+                            <option value="price-asc">Average Price (low to high)</option>
+                            <option value="price-dsc">Average Price (high to low)</option>                            
+                            <option value="rating-asc">Rating (low to high)</option>
+                            <option value="rating-dsc">Rating (high to low)</option>
+                            <option value="name-asc">Name (A-Z)</option>
+                            <option value="name-dsc">Name (Z-A)</option>
+                            <option value="release_year-asc">Released (low to high)</option>
+                            <option value="release_year-dsc">Released (high to low)</option>
                         </select>
                     </div>
                 </div>

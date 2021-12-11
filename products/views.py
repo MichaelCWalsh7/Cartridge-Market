@@ -17,6 +17,7 @@ def all_games(request):
     query = None
 
     if request.GET:
+        # Handles searches made on the site
         if 'q' in request.GET:
             query = request.GET['q']
             if not query:
@@ -24,6 +25,7 @@ def all_games(request):
                     request, "You didn't enter any search criteria!")
                 return redirect(reverse('all_games'))
 
+            # queries are applied to name, description, console and publisher
             queries = Q(
                 name__icontains=query
             ) | Q(
@@ -37,6 +39,7 @@ def all_games(request):
             )
             games = games.filter(queries)
 
+        # logic to filter games by publisher, genre or console
         if 'filter_publisher' in request.GET:
             publisher = request.GET['filter_publisher']
             if publisher != "any":
@@ -49,6 +52,20 @@ def all_games(request):
             genre = request.GET['genre']
             if genre != "any":
                 games = games.filter(genre__name=genre)
+
+        # logic to handle sorting from the site's filter container
+        if 'sort' in request.GET:
+            sort = request.GET['sort']
+            if sort != "default":
+                sortkeys = sort.split('-')
+                direction_string = sortkeys[1]
+                if direction_string == 'asc':
+                    direction = ''
+                elif direction_string == 'dsc':
+                    direction = '-'
+
+            category = sortkeys[0]
+            games = games.order_by(f'{direction}{category}')
 
     context = {
         'games': games,
@@ -67,6 +84,7 @@ def publisher_games(request, publisher):
 
     if request.GET:
         if 'q' in request.GET:
+            # Handles searches made on the site
             query = request.GET['q']
             if not query:
                 messages.error(
@@ -85,6 +103,34 @@ def publisher_games(request, publisher):
                     console__name__icontains=query
             )
             games = games.filter(queries)
+
+        # logic to filter games by publisher, genre or console
+        if 'filter_publisher' in request.GET:
+            filter_publisher = request.GET['filter_publisher']
+            if filter_publisher != "any":
+                games = games.filter(publisher__name=filter_publisher)
+        if 'console' in request.GET:
+            console = request.GET['console']
+            if console != "any":
+                games = games.filter(console__name=console)
+        if 'genre' in request.GET:
+            genre = request.GET['genre']
+            if genre != "any":
+                games = games.filter(genre__name=genre)
+
+        # logic to handle sorting from the site's filter container
+        if 'sort' in request.GET:
+            sort = request.GET['sort']
+            if sort != "default":
+                sortkeys = sort.split('-')
+                direction_string = sortkeys[1]
+                if direction_string == 'asc':
+                    direction = ''
+                elif direction_string == 'dsc':
+                    direction = '-'
+
+            category = sortkeys[0]
+            games = games.order_by(f'{direction}{category}')
 
     lpublisher = publisher.lower()
 
