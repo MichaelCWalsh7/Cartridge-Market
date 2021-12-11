@@ -90,7 +90,7 @@
     <div class="row">
         {% for publisher in publishers %}
             <div class="publisher-link-container col-5 col-lg-2">
-                <a class="publisher-link" href="">
+                <a class="publisher-link" href="{% url 'publisher_games' publisher.name %}">
                     <img class="publisher-image" src="media/images/publisher-images/devs/{{ publisher.image_url }}" alt="{{ publisher.name }}">
                 </a>
             </div>
