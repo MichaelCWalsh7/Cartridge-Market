@@ -63,9 +63,9 @@ def all_games(request):
                     direction = ''
                 elif direction_string == 'dsc':
                     direction = '-'
-
-            category = sortkeys[0]
-            games = games.order_by(f'{direction}{category}')
+            if sortkeys:
+                category = sortkeys[0]
+                games = games.order_by(f'{direction}{category}')
 
     context = {
         'games': games,
