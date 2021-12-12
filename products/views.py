@@ -77,7 +77,8 @@ def all_games(request):
 
 def publisher_games(request, publisher):
     """
-    A view to show all Nintendo games currently available on the site.
+    A view to show all games currently available on the site, ordered and
+    styled by publihser.
     """
     games = Game.objects.filter(publisher__name=publisher)
     query = None
