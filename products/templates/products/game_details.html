@@ -4,5 +4,24 @@
 {% block content %}
     <div class="container-fluid">
         <h1 class="page-title-text">{{ game.name }}</h1>
+
+        <div class="row main-body-section">
+            <div class="col-12 col-sm-6 col-lg-4 game-image-container">
+                <img src="{{ MEDIA_URL }}images/game-images/{{ game.image_url }}" alt="{{ game.name }}">
+            </div>
+            <div class="col-12 dropdown" id="mobileDetailsDropdown">
+                <button class="btn dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false" type="button"
+                    id="mobileDetailsDropdownButton">
+                    GAME DETAILS
+                </button>
+                <ul class="dropdown-menu" aria-labelledby="mobileDetailsDropdownButton">
+                    <li class="dropdown-item">Released in : {{ game.release_year }} </li>
+                    <li class="dropdown-item">Genre : {{ game.genre }} </li>
+                    <li class="dropdown-item">Developed by : {{ game.developer }} </li>
+                    <li class="dropdown-item">Multiplayer : {{ game.multiplayer }} </li>
+                    <li class="dropdown-item">Average Price : {{ game.price }} </li>
+                </ul>
+            </div>
+        </div>
     </div>
 {% endblock %}

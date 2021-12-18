@@ -242,3 +242,30 @@
 .dev-page-title-image {
     width: 100%;
 }
+
+/* ----------------- Game Pages ----------------- */
+
+.game-image-container img {
+    width: 100%;
+    padding: 10%;
+    background-color: #1F211F;
+    margin-top: 6%;
+}
+
+#mobileDetailsDropdown {
+    text-align: center;
+}
+
+#mobileDetailsDropdownButton {
+    font-size: 1.2rem;
+    font-weight: 500;
+    width: 100%;
+    margin-top: 2%;
+}
+
+#mobileDetailsDropdownButton,
+#mobileDetailsDropdown ul,
+#mobileDetailsDropdown ul li {
+    color: white;
+    background-color: #1F211F;
+}
