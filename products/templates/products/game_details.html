@@ -4,23 +4,128 @@
 {% block content %}
     <div class="container-fluid">
         <h1 class="page-title-text">{{ game.name }}</h1>
-
-        <div class="row main-body-section">
-            <div class="col-12 col-sm-6 col-lg-4 game-image-container">
-                <img src="{{ MEDIA_URL }}images/game-images/{{ game.image_url }}" alt="{{ game.name }}">
+        <div class="main-body-section">
+            <div class="row">
+                <div class="col-12 col-sm-6 col-lg-4 game-image-container">
+                    <img src="{{ MEDIA_URL }}images/game-images/{{ game.image_url }}" alt="{{ game.name }}">
+                </div>
+                <div class="col-12 d-sm-none dropdown" id="mobileDetailsDropdown">
+                    <button class="btn dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false"
+                        type="button" id="mobileDetailsDropdownButton">
+                        Game Details
+                    </button>
+                    <ul class="dropdown-menu" aria-labelledby="mobileDetailsDropdownButton">
+                        <li class="dropdown-item">
+                            Released in :
+                            {% if game.release_year %}
+                                {{ game.release_year }}
+                            {% else %}
+                                Unknown
+                            {% endif %}
+                        </li>
+                        <li class="dropdown-item">
+                            Genre : 
+                            {% if game.genre %}
+                                {{ game.genre }}
+                            {% else %}
+                                N/A
+                            {% endif %}
+                        </li>
+                        <li class="dropdown-item">
+                            Developed by : 
+                            {% if game.developer %}
+                                {{ game.developer }}
+                            {% else %}
+                                N/A
+                            {% endif %}
+                        </li>
+                        <li class="dropdown-item">
+                            Multiplayer : 
+                            {% if game.multiplayer  %}
+                                Yes
+                            {% else %}
+                                No
+                            {% endif %}
+                        </li>
+                        <li class="dropdown-item">
+                            Average Price : 
+                            {% if game.price  %}
+                                {{ game.price }}
+                            {% else %}
+                                Unknown
+                            {% endif %}
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-sm-6 col-lg-4 d-none d-sm-block" id="largerScreensDetailsContainer">
+                    <h3 class="game-category-title">Game Details</h3>
+                    <ul id="largerScreensDetailsList">
+                        <li>
+                            <strong>Released in :</strong>
+                            {% if game.release_year %}
+                                {{ game.release_year }}
+                            {% else %}
+                                Unknown
+                            {% endif %}
+                        </li>
+                        <li>
+                            <strong>Genre : </strong>
+                            {% if game.genre %}
+                                {{ game.genre }}
+                            {% else %}
+                                N/A
+                            {% endif %}
+                        </li>
+                        <li>
+                            <strong>Developed by : </strong>
+                            {% if game.developer %}
+                                {{ game.developer }}
+                            {% else %}
+                                N/A
+                            {% endif %}
+                        </li>
+                        <li>
+                            <strong>Multiplayer : </strong>
+                            {% if game.multiplayer  %}
+                                Yes
+                            {% else %}
+                                No
+                            {% endif %}
+                        </li>
+                        <li>
+                            <strong>Average Price : </strong>
+                            {% if game.price  %}
+                                {{ game.price }}
+                            {% else %}
+                                Unknown
+                            {% endif %}
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-12 col-lg-4" id="gameDescriptionContainer">
+                    <h3 class="game-category-title">Description</h3>
+                    <p id="gameDescription">
+                        {% if game.description %}
+                            {{ game.description }}
+                        {% else %}
+                            We're sorry, there doesn't seem to be any description for {{ game.name }} 
+                            available at this time. If you have played this game, and feel like you
+                            can offer an apt description, please 
+                            <a href="#">
+                                get in touch with us here.
+                            </a> 
+                        {% endif %}
+                    </p>
+                </div>
             </div>
-            <div class="col-12 dropdown" id="mobileDetailsDropdown">
-                <button class="btn dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false" type="button"
-                    id="mobileDetailsDropdownButton">
-                    GAME DETAILS
-                </button>
-                <ul class="dropdown-menu" aria-labelledby="mobileDetailsDropdownButton">
-                    <li class="dropdown-item">Released in : {{ game.release_year }} </li>
-                    <li class="dropdown-item">Genre : {{ game.genre }} </li>
-                    <li class="dropdown-item">Developed by : {{ game.developer }} </li>
-                    <li class="dropdown-item">Multiplayer : {{ game.multiplayer }} </li>
-                    <li class="dropdown-item">Average Price : {{ game.price }} </li>
-                </ul>
+            <div class="row">
+                <div class="col-12 col-sm-6" id="commentsContainer">
+                    <form action="" method="post">
+                        <i class="fas fa-user fa-3x"></i>
+                        <textarea name="comment" id="commentBox" cols="30" rows="3"
+                            placeholder="Tell us what you think!"></textarea>
+                    </form>
+                </div>
             </div>
         </div>
     </div>

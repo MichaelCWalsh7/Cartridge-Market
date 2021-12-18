@@ -243,7 +243,8 @@
     width: 100%;
 }
 
-/* ----------------- Game Pages ----------------- */
+
+/* ----------------- Game Page ----------------- */
 
 .game-image-container img {
     width: 100%;
@@ -256,11 +257,11 @@
     text-align: center;
 }
 
-#mobileDetailsDropdownButton {
-    font-size: 1.2rem;
-    font-weight: 500;
+#mobileDetailsDropdownButton {    
     width: 100%;
     margin-top: 2%;
+    font-size: 1.2rem;
+    font-weight: 500;
 }
 
 #mobileDetailsDropdownButton,
@@ -268,4 +269,28 @@
 #mobileDetailsDropdown ul li {
     color: white;
     background-color: #1F211F;
+}
+
+#mobileDetailsDropdown ul {
+    width: 95%;
+    overflow: scroll;
+}
+
+.game-category-title {
+    text-align: center;
+    margin-top: 25px;
+}
+
+#largerScreensDetailsList {
+    list-style: none;
+    line-height: 3;
+    margin-left: 8%;
+}
+
+
+/* Game Page - Media Queries */
+@media (max-width: 992px) {
+    #gameDescription {
+        text-align: center;
+    }
 }
