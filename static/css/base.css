@@ -20,6 +20,11 @@
     }
 }
 
+.page-title-text {
+    text-align: center !important;
+    margin-top: 2%;
+}
+
 /* ----------------- Navbar ----------------- */
 
 .navbar-nav {
@@ -93,10 +98,6 @@
 
 .hero-logo {
     font-weight: 700;
-}
-
-#publishersTitle {
-    margin-top: 4%;
 }
 
 .publisher-link-container {

@@ -2,7 +2,7 @@
 Views defined for the 'products' app
 """
 # pylint: disable=no-member
-from django.shortcuts import render, reverse, redirect
+from django.shortcuts import render, reverse, redirect, get_object_or_404
 from django.contrib import messages
 from django.db.models import Q
 
@@ -141,3 +141,16 @@ def publisher_games(request, publisher):
     }
 
     return render(request, f'products/{lpublisher}_games.html', context)
+
+
+def game_details(request, game_id):
+    """
+    A view to show an indidvidual game on the site.
+    """
+    game = get_object_or_404(Game, pk=game_id)
+
+    context = {
+        'game': game,
+    }
+
+    return render(request, 'products/game_details.html', context)
