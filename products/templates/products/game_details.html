@@ -10,8 +10,8 @@
                     <img src="{{ MEDIA_URL }}images/game-images/{{ game.image_url }}" alt="{{ game.name }}">
                 </div>
                 <div class="col-12 d-sm-none dropdown" id="mobileDetailsDropdown">
-                    <button class="btn dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false"
-                        type="button" id="mobileDetailsDropdownButton">
+                    <button class="btn dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false" type="button"
+                        id="mobileDetailsDropdownButton">
                         Game Details
                     </button>
                     <ul class="dropdown-menu" aria-labelledby="mobileDetailsDropdownButton">
@@ -24,15 +24,15 @@
                             {% endif %}
                         </li>
                         <li class="dropdown-item">
-                            Genre : 
+                            Genre :
                             {% if game.genre %}
-                                {{ game.genre }}
+                            {{ game.genre }}
                             {% else %}
-                                N/A
+                            N/A
                             {% endif %}
                         </li>
                         <li class="dropdown-item">
-                            Developed by : 
+                            Developed by :
                             {% if game.developer %}
                                 {{ game.developer }}
                             {% else %}
@@ -40,16 +40,16 @@
                             {% endif %}
                         </li>
                         <li class="dropdown-item">
-                            Multiplayer : 
-                            {% if game.multiplayer  %}
+                            Multiplayer :
+                            {% if game.multiplayer %}
                                 Yes
                             {% else %}
                                 No
                             {% endif %}
                         </li>
                         <li class="dropdown-item">
-                            Average Price : 
-                            {% if game.price  %}
+                            Average Price :
+                            {% if game.price %}
                                 {{ game.price }}
                             {% else %}
                                 Unknown
@@ -86,7 +86,7 @@
                         </li>
                         <li>
                             <strong>Multiplayer : </strong>
-                            {% if game.multiplayer  %}
+                            {% if game.multiplayer %}
                                 Yes
                             {% else %}
                                 No
@@ -94,7 +94,7 @@
                         </li>
                         <li>
                             <strong>Average Price : </strong>
-                            {% if game.price  %}
+                            {% if game.price %}
                                 {{ game.price }}
                             {% else %}
                                 Unknown
@@ -108,22 +108,28 @@
                         {% if game.description %}
                             {{ game.description }}
                         {% else %}
-                            We're sorry, there doesn't seem to be any description for {{ game.name }} 
+                            We're sorry, there doesn't seem to be any description for {{ game.name }}
                             available at this time. If you have played this game, and feel like you
-                            can offer an apt description, please 
+                            can offer an apt description, please
                             <a href="#">
                                 get in touch with us here.
-                            </a> 
+                            </a>
                         {% endif %}
                     </p>
                 </div>
             </div>
-            <div class="row">
-                <div class="col-12 col-sm-6" id="commentsContainer">
+            <div class="row mt-4">
+                <div class="col-12 col-sm-9 offset-sm-1 col-lg-6 offset-lg-0" id="commentsContainer">
                     <form action="" method="post">
-                        <i class="fas fa-user fa-3x"></i>
-                        <textarea name="comment" id="commentBox" cols="30" rows="3"
-                            placeholder="Tell us what you think!"></textarea>
+                        <div class="row d-flex align-items-center">
+                            <div class="col-3 p-0">
+                                <img src="{{ MEDIA_URL }}images/user.png" id="userPlaceholderImage" alt="a user image">
+                            </div>
+                            <div class="col-9">
+                                <textarea name="comment" id="commentBox" rows="3"
+                                    placeholder="Tell us what you think!"></textarea>
+                            </div>
+                        </div>
                     </form>
                 </div>
             </div>

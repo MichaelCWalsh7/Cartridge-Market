@@ -287,6 +287,14 @@
     margin-left: 8%;
 }
 
+#userPlaceholderImage {
+    width: 100%;
+    padding: 0;
+}
+
+#commentBox {
+    width: 100%;
+}
 
 /* Game Page - Media Queries */
 @media (max-width: 992px) {
