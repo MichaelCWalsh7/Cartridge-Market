@@ -16,66 +16,50 @@
     </div>
     <div class="row">
         <div class="col-10 offset-1 col-sm-8 offset-sm-2 col-lg-5 offset-lg-1 col-xl-3 offset-xl-0 card game-card">
-            <a class="game-card-link" href="">
-                <div class="card-body text-center">
-                    {% for game in sm64 %}
-                        <h4 class="card-title text-center pb-3">{{ game.name }}</h4>
-                        <img class="card-image" src="{{ MEDIA_URL }}images/game-images/{{ game.image_url }}" alt="{{ game.name }}">
-                    {% endfor %}
+            <a class="game-card-link" href="{% url 'game_details' sm64.id %}">
+                <div class="card-body text-center">                    
+                    <h4 class="card-title text-center pb-3">{{ sm64.name }}</h4>
+                    <img class="card-image" src="{{ MEDIA_URL }}images/game-images/{{ sm64.image_url }}" alt="{{ game.name }}">
                 </div>
-                <div class="card-footer px-2">
-                    {% for game in sm64 %}
-                        <span class="float-start"><strong>{{ game.console }}</strong></span>
-                        <span class="float-end"><strong>Rating: {{ game.rating }}</strong></span>
-                    {% endfor %}
+                <div class="card-footer px-2">                    
+                    <span class="float-start"><strong>{{ sm64.console }}</strong></span>
+                    <span class="float-end"><strong>Rating: {{ sm64.rating }}</strong></span>                    
                 </div>
             </a>
         </div>
         <div class="col-10 offset-1 col-sm-8 offset-sm-2 col-lg-5 offset-lg-0 col-xl-3 offset-xl-0 card game-card">
-            <a class="game-card-link" href="">
+            <a class="game-card-link" href="{% url 'game_details' crash.id %}">
                 <div class="card-body text-center">
-                    {% for game in crash %}
-                        <h4 class="card-title text-center pb-3">{{ game.name }}</h4>
-                        <img class="card-image" src="{{ MEDIA_URL }}images/game-images/{{ game.image_url }}" alt="{{ game.name }}">
-                    {% endfor %}
+                    <h4 class="card-title text-center pb-3">{{ crash.name }}</h4>
+                    <img class="card-image" src="{{ MEDIA_URL }}images/game-images/{{ crash.image_url }}" alt="{{ crash.name }}">
                 </div>
                 <div class="card-footer px-2">
-                    {% for game in crash %}
-                        <span class="float-start"><strong>{{ game.console }}</strong></span>
-                        <span class="float-end"><strong>Rating: {{ game.rating }}</strong></span>
-                    {% endfor %}
+                    <span class="float-start"><strong>{{ crash.console }}</strong></span>
+                    <span class="float-end"><strong>Rating: {{ crash.rating }}</strong></span>
                 </div>
             </a>
         </div>
         <div class="col-10 offset-1 col-sm-8 offset-sm-2 col-lg-5 offset-lg-1 col-xl-3 offset-xl-0 card game-card">
-            <a class="game-card-link" href="">
+            <a class="game-card-link" href="{% url 'game_details' sonic.id %}">
                 <div class="card-body text-center">
-                    {% for game in sonic %}
-                        <h4 class="card-title text-center pb-3">{{ game.name }}</h4>
-                        <img class="card-image" src="{{ MEDIA_URL }}images/game-images/{{ game.image_url }}" alt="{{ game.name }}">
-                    {% endfor %}
-                </div>
-                <div class="card-footer px-2">
-                    {% for game in sonic %}
-                        <span class="float-start"><strong>{{ game.console }}</strong></span>
-                        <span class="float-end"><strong>Rating: {{ game.rating }}</strong></span>
-                    {% endfor %}
+                        <h4 class="card-title text-center pb-3">{{ sonic.name }}</h4>
+                        <img class="card-image" src="{{ MEDIA_URL }}images/game-images/{{ sonic.image_url }}" alt="{{ sonic.name }}">
+                    </div>
+                    <div class="card-footer px-2">
+                        <span class="float-start"><strong>{{ sonic.console }}</strong></span>
+                        <span class="float-end"><strong>Rating: {{ sonic.rating }}</strong></span>
                 </div>
             </a>
         </div>
         <div class="col-10 offset-1 col-sm-8 offset-sm-2 col-lg-5 offset-lg-0 col-xl-3 offset-xl-0 card game-card">
-            <a class="game-card-link" href="">
+            <a class="game-card-link" href="{% url 'game_details' pac_man.id %}">
                 <div class="card-body text-center">
-                    {% for game in pac_man %}
-                        <h4 class="card-title text-center pb-3">{{ game.name }}</h4>
-                        <img class="card-image" src="{{ MEDIA_URL }}images/game-images/{{ game.image_url }}" alt="{{ game.name }}">
-                    {% endfor %}
+                    <h4 class="card-title text-center pb-3">{{ pac_man.name }}</h4>
+                    <img class="card-image" src="{{ MEDIA_URL }}images/game-images/{{ pac_man.image_url }}" alt="{{ pac_man.name }}">
                 </div>
                 <div class="card-footer px-2">
-                    {% for game in pac_man %}
-                        <span class="float-start"><strong>{{ game.console }}</strong></span>
-                        <span class="float-end"><strong>Rating: {{ game.rating }}</strong></span>
-                    {% endfor %}
+                    <span class="float-start"><strong>{{ pac_man.console }}</strong></span>
+                    <span class="float-end"><strong>Rating: {{ pac_man.rating }}</strong></span>
                 </div>
             </a>
         </div>
@@ -91,7 +75,7 @@
         {% for publisher in publishers %}
             <div class="publisher-link-container col-5 col-lg-2">
                 <a class="publisher-link" href="{% url 'publisher_games' publisher.name %}">
-                    <img class="publisher-image" src="{{ MEDIA_URL }}/images/publisher-images/devs/{{ publisher.image_url }}" alt="{{ publisher.name }}">
+                    <img class="publisher-image" src="{{ MEDIA_URL }}images/publisher-images/devs/{{ publisher.image_url }}" alt="{{ publisher.name }}">
                 </a>
             </div>
         {% endfor %}
