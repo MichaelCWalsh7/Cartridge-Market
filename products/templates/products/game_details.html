@@ -118,7 +118,7 @@
                     </p>
                 </div>
             </div>
-            <div class="row mt-4">
+            <div class="row mt-3">
                 <div class="col-12 col-sm-9 offset-sm-1 col-lg-6 offset-lg-0" id="commentsContainer">
                     <form action="" method="post">
                         <div class="row d-flex align-items-center">
@@ -131,6 +131,29 @@
                             </div>
                         </div>
                     </form>
+                </div>
+                <div class="col-12 col-lg-6" id="vendorsContainer">
+                    <h3 class="text-center">Copies Available</h3>
+                    <div class="row">
+                        <div class="col-12 col-sm-5 offset-sm-1 vendor-card">
+                            <img class="w-100" src="{{ MEDIA_URL }}images/sample-vendor-1.png" 
+                                alt="an image of a vendor">
+                            <ul class="vendor-details-list">
+                                <li><strong>Seller </strong>Sample Vender 1</li>
+                                <li><strong>Price </strong>29.95</li>
+                                <li><strong>Condition </strong>Mint</li>                                
+                            </ul>
+                        </div>
+                        <div class="col-12 col-sm-5 ms-2 vendor-card">
+                            <img class="w-100" src="{{ MEDIA_URL }}images/sample-vendor-2.png" 
+                                alt="an image of a vendor">
+                                <ul class="vendor-details-list">
+                                    <li><strong>Seller </strong>Sample Vendor 2</li>
+                                    <li><strong>Price </strong>24.95</li>
+                                    <li><strong>Condition </strong>Good</li>  
+                                </ul>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>

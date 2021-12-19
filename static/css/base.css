@@ -296,6 +296,18 @@
     width: 100%;
 }
 
+.vendor-card {
+    background-color: #1F211F;
+    color: white;
+    margin-top: 2%;
+    margin-bottom: 2%;
+    padding: 5%;
+}
+
+#vendorsContainer div img {
+    height: 200px;
+}
+
 /* Game Page - Media Queries */
 @media (max-width: 992px) {
     #gameDescription {
