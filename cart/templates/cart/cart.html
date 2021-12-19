@@ -3,4 +3,29 @@
 
 {% block content %}
      
+    <div class="container-fluid">
+
+        <hr>
+        <h1 class="page-title-text">Your Cart</h1>
+        <hr>
+
+        <div class="row">
+            <div class="col">
+                {% if cart_items %}
+
+                {% else %}
+                    <h4 class="text-center">Your cart is empty...</h4>
+                    <div class="text-center">
+                        <a href="{% url 'all_games' %}" class="btn btn-lg back-to-all-games-button">
+                            <i class="fas fa-chevron-left"></i>
+                            Browse Our Games
+                        </a>
+                    </div>
+                {% endif %}
+            </div>
+        </div>
+
+
+    </div>
+
 {% endblock %}
