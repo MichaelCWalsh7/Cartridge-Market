@@ -25,6 +25,14 @@
     margin-top: 2%;
 }
 
+.see-more-button {
+    background-color: #d4af37;
+    color: black;
+    text-shadow: 0px 0px 2px black;
+    border: 2px solid black;
+    border-radius: 8px;
+}
+
 /* ----------------- Navbar ----------------- */
 
 .navbar-nav {
