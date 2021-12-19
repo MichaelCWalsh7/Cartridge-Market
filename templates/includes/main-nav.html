@@ -18,7 +18,9 @@
         </div>
         <div class="col-3 text-end my-4" id="mainNavIcons">
             <i class="fas fa-user fa-3x"></i>
-            <i class="fas fa-shopping-cart fa-3x"></i>
+            <a href="{% url 'view_cart' %}" class="main-nav-cart-link">
+                <i class="fas fa-shopping-cart fa-3x"></i>
+            </a>            
         </div>
     </div>
     <div class="navbar-collapse pt-3" id="mainNavLower">

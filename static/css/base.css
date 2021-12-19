@@ -65,9 +65,14 @@
     font-size: 25px;
 }
 
-.mobile-bag-link {
+.mobile-cart-link,
+.main-nav-cart-link {
     text-decoration: none;
     color: #212529;
+}
+
+.main-nav-cart-link:hover {
+    color: #bf8025;
 }
 
 .mobile-search {
