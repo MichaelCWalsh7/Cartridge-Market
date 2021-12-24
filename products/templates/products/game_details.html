@@ -133,8 +133,25 @@
                         </div>
                     </form>
                     <div class="add-to-cart-form">
-                        <form class="text-center" action="" method="post">
+                        <form class="text-center" action="{% url 'add_to_cart' game.id %}" method="post">
                             {% csrf_token %}
+                            <select class="form-select mb-3" name="quantity">
+                                <option selected>Quantity</option>
+                                <!-- DEV NOTE - If listings do indeed go ahead as a feature then
+                                    you'll have to use JavaScript to generate a number of select
+                                    options eqaul to the number copies the vendor indicated they
+                                    upon upload. Don't forget to disable button if no quantity
+                                    has been selected.
+                                    YOU WILL ALSO have to style this using JavaScript, see the link
+                                    below for further instructions:
+                                    https://codepen.io/dkellner/pen/yLBrQYV
+                                    In this link he manually makes the style changes but you can
+                                    do this with JS also. 
+                                 -->
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                              </select>
                             <a href="{% url 'all_games' %}" class="btn action-button"><i class="fas fa-chevron-left"></i> Keep Browsing</a>
                             <button type="submit" class="btn action-button-inverted"><i class="fas fa-cart-plus"></i> Add to Cart</button>
                             <input type="hidden" name="redirect_url" value="{{ request.path }}">

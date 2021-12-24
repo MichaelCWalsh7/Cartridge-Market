@@ -338,7 +338,27 @@
 
 .add-to-cart-form {
     margin-left: 7%;
+    padding: 2%;
+    border: 2px solid #d4af37;
 }
+
+.add-to-cart-form form select {
+    width: 33%;
+    margin-left: 33%;
+    margin-right: 33%;
+    border: black 1px solid
+}
+
+.add-to-cart-form form select:focus {
+    border-color: black;
+    outline: 1px;
+    box-shadow: 0 0 0 0.25rem #d4af37;
+}
+
+.add-to-cart-form form select option {
+    background-color: #d4af37;
+    color: black;
+} 
 
 /* Game Page - Media Queries */
 @media (max-width: 992px) {
