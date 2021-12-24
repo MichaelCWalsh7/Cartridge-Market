@@ -18,10 +18,17 @@
         </div>
         <div class="col-3 text-end my-4" id="mainNavIcons">
             <i class="fas fa-user fa-3x"></i>
-            <a href="{% url 'view_cart' %}" class="main-nav-cart-link">
+            <a href="{% url 'view_cart' %}" class="main-nav-cart-link {% if total %}text-warning fw-bold{% endif %}">
                 <i class="fas fa-shopping-cart fa-3x"></i>
-            </a>            
-        </div>
+            </a>
+            <p class="my-0 {% if total %}text-warning fw-bold{% endif %}">
+                {% if total %}
+                    ${{ total|floatformat:2 }}
+                {% else %}
+                    $00.00
+                {% endif %}
+            </p>
+        </div>        
     </div>
     <div class="navbar-collapse pt-3" id="mainNavLower">
         <div class="col-8 offset-md-2">

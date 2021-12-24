@@ -41,12 +41,19 @@
                 <li><a href="" class="dropdown-item">Login</a></li>
             </ul>
         </li>
-        <li class="list-inline-item">
+        <li class="list-inline-item {% if total %}text-warning fw-bold{% endif %}">
             <a href="{% url 'view_cart' %}" class="mobile-cart-link">
                 <div>
-                    <i class="fas fa-shopping-cart mobile-nav-icon"></i>
+                    <i class="fas fa-shopping-cart {% if total %}text-warning fw-bold{% endif %} mobile-nav-icon"></i>
                 </div>                
-            </a>            
+            </a>
+            <p class="my-0">
+                {% if total %}
+                    ${{ total|floatformat:2 }}
+                {% else %}
+                    $00.00
+                {% endif %}
+            </p>         
         </li>
     </ul>
 </div>

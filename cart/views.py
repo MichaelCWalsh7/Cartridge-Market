@@ -16,7 +16,7 @@ def add_to_cart(request, product_id):
     """
     A view that adds items to the cart
     """
-    quantity = request.POST.get('quantity')
+    quantity = int(request.POST.get('quantity'))
     redirect_url = request.POST.get('redirect_url')
     cart = request.session.get('cart', {})
 
