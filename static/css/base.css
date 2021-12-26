@@ -366,3 +366,28 @@
         text-align: center;
     }
 }
+
+
+/* ----------------- Cart ----------------- */
+
+.cart-item {
+    background-color: #1F211F;
+    color: white;
+    border: solid 4px #1F211F;
+    border-radius: 12px;
+    margin-bottom: 5px;
+}
+
+.vendor-cart-details ul {
+    padding-left: 0;
+}
+
+.vendor-cart-details ul li {
+    text-decoration: underline;
+    font-weight: 500;
+}
+
+.selector-button {
+    background-color: #1F211F;
+    color: white;
+}

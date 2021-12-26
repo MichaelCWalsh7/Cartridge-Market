@@ -13,26 +13,36 @@
             <div class="row">
                 <div class="col">
                     {% if cart_items %}
-                    <div class="row main-body-section">
+                    <div class="main-body-section">
                         {% for item in cart_items %}
-                            <div class="col-10 offset-1 col-sm-8 offset-sm-2 col-lg-5 offset-lg-1 col-xl-3 offset-xl-0 card game-card">
-                                <a class="game-card-link" href="{% url 'game_details' item.game.id %}">
-                                    <div class="card-body text-center">
-                                            <h4 class="card-title text-center pb-3">{{ item.game.name }}</h4>
-                                            <img class="card-image" src="{{ MEDIA_URL }}images/game-images/{{ item.game.image_url }}" alt="{{ item.game.name }}">
-                                    </div>
-                                    <div class="card-footer px-2">
-                                            <p class="my-0">
-                                                <strong>Vendor:</strong><span class="float-end">**vendor name**</span>
-                                            </p>                                            
-                                            <p class="my-0">
-                                                <strong>Quantity:</strong><span class="float-end">1</span>
-                                            </p>                                            
-                                            <p class="my-0">
-                                                <strong>Price</strong><span class="float-end">{{ item.game.price }}</span>
-                                            </p>
-                                    </div>
-                                </a>
+                            <div class="row cart-item">
+                                <div class="col-12 text-center">
+                                    <h4>{{ item.game.name }}</h4>
+                                    <img class="card-image" src="{{ MEDIA_URL }}images/game-images/{{ item.game.image_url }}"
+                                        alt="{{ item.game.name }}">
+                                        <p class="my-2"><strong>Details:</strong></p>
+                                </div>
+                                <div class="col-6">                                                                  
+                                    <img class="w-100" src="{{ MEDIA_URL }}images/sample-vendor-1.png" 
+                                        alt="an image of a vendor">                                    
+                                </div>
+                                <div class="col-6 vendor-cart-details">
+                                    <ul>
+                                        <li class="vendor-list-title">Sample Vendor 1</li>
+                                        <li>Mint Condition</span></li>
+                                        <li>{{ item.game.price }}</span></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="quantity-selector input-group mb-3"> 
+                                <button class="btn selector-button" type="button">
+                                    <i class="fas fa-minus"></i>
+                                </button>                                
+                                <input type="number" class="form-control" placeholder="1" 
+                                    aria-label="quantity selector">
+                                    <button class="btn selector-button" type="button">
+                                        <i class="fas fa-plus"></i>
+                                    </button>  
                             </div>
                         {% endfor %}
                     </div>
