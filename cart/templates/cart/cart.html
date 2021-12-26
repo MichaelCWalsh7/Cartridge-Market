@@ -2,83 +2,89 @@
 {% load static %}
 
 {% block content %}
-     
-    <div class="container-fluid">
-        <div class="main-body-section">
 
-            <hr>
-            <h1 class="page-title-text">Your Cart</h1>
-            <hr>
+<div class="container-fluid">
+    <div class="main-body-section">
 
-            <div class="row">
-                <div class="col">
-                    {% if cart_items %}
-                    <div class="main-body-section">
-                        {% for item in cart_items %}
-                            <div class="row cart-item">
-                                <div class="col-12 text-center">
-                                    <h4>{{ item.game.name }}</h4>
-                                    <a href="{% url 'game_details' item.game.id %}">
-                                        <img class="card-image" src="{{ MEDIA_URL }}images/game-images/{{ item.game.image_url }}"
-                                            alt="{{ item.game.name }}">
-                                    </a>
-                                    
-                                        <p class="my-2"><strong>Details:</strong></p>
-                                </div>
-                                <div class="col-6">
-                                    <a href="#">
-                                        <img class="w-100" src="{{ MEDIA_URL }}images/sample-vendor-1.png" 
-                                        alt="an image of a vendor">
-                                    </a>                                                              
-                                </div>
-                                <div class="col-6 vendor-cart-details">
-                                    <ul>
-                                        <li class="vendor-list-title">Sample Vendor 1</li>
-                                        <li>Mint Condition</span></li>
-                                        <li>{{ item.game.price }}</span></li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <div class="quantity-selector input-group mb-3"> 
-                                <button class="btn selector-button" type="button">
-                                    <i class="fas fa-minus"></i>
-                                </button>                                
-                                <input type="number" class="form-control" placeholder="1" 
-                                    aria-label="quantity selector">
-                                    <button class="btn selector-button" type="button">
-                                        <i class="fas fa-plus"></i>
-                                    </button>  
-                            </div>
-                            <div class="remove-from-cart-button text-center">
-                                <button class="btn">X Remove</button>                                
-                            </div>
-                        {% endfor %}
-                        <div class="row" id="cartTotalCheckoutButton">
-                            <div class="col-12 text-center">
-                                <h3>
-                                    <strong>
-                                        Cart Total : ${{ total|floatformat:2 }}
-                                    </strong>
-                                </h3>
-                                <button class="btn action-button">
-                                    Checkout
-                                    <i class="fas fa-cart-arrow-down"></i>
-                                </button>
-                            </div>
+        <hr>
+        <h1 class="page-title-text">Your Cart</h1>
+        <hr>
+
+        <div class="row">
+            <div class="col">
+                {% if cart_items %}
+                <div class="main-body-section">
+                    {% for item in cart_items %}
+                    <div class="row cart-item">
+                        <div class="col-12 col-sm-4 text-center">
+                            <h4>{{ item.game.name }}</h4>
+                            <a class="cart-item-image" href="{% url 'game_details' item.game.id %}">
+                                <img class="w-100" src="{{ MEDIA_URL }}images/game-images/{{ item.game.image_url }}"
+                                    alt="{{ item.game.name }}">
+                            </a>
+
+                            <p class="my-2 d-sm-none"><strong>Details:</strong></p>
                         </div>
-                    </div>
-                    {% else %}
-                        <h4 class="text-center">Your cart is empty...</h4>
-                        <div class="text-center">
-                            <a href="{% url 'all_games' %}" class="btn btn-lg action-button">
-                                <i class="fas fa-chevron-left"></i>
-                                Browse Our Games
+                        <div class="col-6 col-sm-4 text-center">
+                            <h4 class="d-none d-sm-block">Details:</h4>
+                            <a class="cart-item-image" href="#">
+                                <img class="w-100" src="{{ MEDIA_URL }}images/sample-vendor-1.png"
+                                    alt="an image of a vendor">
                             </a>
                         </div>
-                    {% endif %}
+                        <div class="col-6 col-sm-4 vendor-cart-details">
+                            <ul>
+                                <li class="vendor-list-title">Sample Vendor 1</li>
+                                <li>Mint Condition</span></li>
+                                <li>{{ item.game.price }}</span></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="row cart-quantity-and-delete">
+                        <div class="col-9 col-sm-3 offset-sm-2 quantity-selector input-group mb-3">
+                            <button class="btn selector-button" type="button">
+                                <i class="fas fa-minus"></i>
+                            </button>
+                            <input type="number" class="form-control quantity-selector-input" placeholder="1" aria-label="quantity selector">
+                            <button class="btn selector-button" type="button">
+                                <i class="fas fa-plus"></i>
+                            </button>
+                        </div>
+                        <div class="col-3">
+                            <strong>Total: </strong> $98.37
+                        </div>
+                        <div class="col-12 col-sm-3 remove-from-cart-button text-center">
+                            <button class="btn">X Remove</button>
+                        </div>
+                    </div>
+
+                    {% endfor %}
+                    <div class="row" id="cartTotalCheckoutButton">
+                        <div class="col-12 text-center">
+                            <h3>
+                                <strong>
+                                    Cart Total : ${{ total|floatformat:2 }}
+                                </strong>
+                            </h3>
+                            <button class="btn action-button">
+                                Checkout
+                                <i class="fas fa-cart-arrow-down"></i>
+                            </button>
+                        </div>
+                    </div>
                 </div>
+                {% else %}
+                <h4 class="text-center">Your cart is empty...</h4>
+                <div class="text-center">
+                    <a href="{% url 'all_games' %}" class="btn btn-lg action-button">
+                        <i class="fas fa-chevron-left"></i>
+                        Browse Our Games
+                    </a>
+                </div>
+                {% endif %}
             </div>
         </div>
     </div>
+</div>
 
 {% endblock %}

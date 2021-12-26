@@ -404,3 +404,34 @@
 .remove-from-cart-button {
     margin-bottom: 10px;
 }
+
+.quantity-selector {
+    width: 75% !important;
+}
+
+/* Cart - Media Queries */
+@media (min-width: 576px) {
+    .vendor-cart-details ul {
+        padding-top: 30%;
+        padding-left: 2rem;
+    }
+
+    .cart-item-image img {
+        height: 185px;
+    }
+
+    .cart-item {
+        background-color: white;
+        color: black;
+    }
+
+    .cart-quantity-and-delete {
+        margin-top: 10px;
+    }
+
+    .quantity-selector {
+        width: inherit !important;
+    }
+    
+}
+
