@@ -376,6 +376,7 @@
     border: solid 4px #1F211F;
     border-radius: 12px;
     margin-bottom: 5px;
+    padding-bottom: 10px;
 }
 
 .vendor-cart-details ul {
@@ -390,4 +391,16 @@
 .selector-button {
     background-color: #1F211F;
     color: white;
+}
+
+.remove-from-cart-button button {
+    border: 2px solid black;
+    border-radius: 12px;
+    background-color: red;
+    color: white;
+    font-weight: 500;
+}
+
+.remove-from-cart-button {
+    margin-bottom: 10px;
 }
