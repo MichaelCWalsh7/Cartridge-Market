@@ -22,8 +22,8 @@
                 <i class="fas fa-shopping-cart fa-3x"></i>
             </a>
             <p class="my-0 {% if total %}text-warning fw-bold{% endif %}">
-                {% if total %}
-                    ${{ total|floatformat:2 }}
+                {% if grand_total %}
+                    ${{ grand_total|floatformat:2 }}
                 {% else %}
                     $00.00
                 {% endif %}
