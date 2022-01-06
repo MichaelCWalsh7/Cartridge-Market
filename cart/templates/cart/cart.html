@@ -61,8 +61,9 @@
                                             <strong>Total: </strong> $98.37
                                         </div>
                                     </div>
-                                    <div class="col remove-from-cart-button text-center">
-                                        <button class="btn">X Remove</button>
+                                    <div class="col update-remove-buttons text-center">
+                                        <button class="btn update-cart-button">Update</button>
+                                        <button class="btn remove-from-cart-button">X Remove</button>                                        
                                     </div>
                                 </div>
                             </div>
@@ -97,11 +98,30 @@
                                                 <li>Mint Condition</span></li>
                                                 <li>Price: ${{ item.game.price }}</span></li>
                                                 <li>Quantity: {{ item.quantity }} </li>
-                                                <li></li>
+                                                <li>Subtotal: {{ item.total }}</li>
                                             </ul>
                                         </div>
                                     </div>
                                 </div>
+                                <div class="row cart-quantity-and-delete">
+                                    <div class="col-5 offset-md-1 large-quantity-selector input-group mb-3">
+                                        <button class="btn selector-button" type="button">
+                                            <i class="fas fa-minus"></i>
+                                        </button>
+                                        <input type="number" class="form-control quantity-selector-input" placeholder="1" aria-label="quantity selector">
+                                        <button class="btn selector-button" type="button">
+                                            <i class="fas fa-plus"></i>
+                                        </button>
+                                    </div>
+                                    <div class="col-3">
+                                        <strong>Total: </strong> {{ item.total }}
+                                    </div>
+                                    <div class="col-3 update-remove-buttons text-center">
+                                        <button class="btn update-cart-button">Update</button>
+                                        <button class="btn remove-from-cart-button">X Remove</button>                                        
+                                    </div>
+                                </div>
+                                
                             </div>                           
                         {% endfor %}
                     </div>
@@ -110,7 +130,7 @@
                         <div class="col-12 text-center">
                             <h3>
                                 <strong>
-                                    Cart Total : ${{ total|floatformat:2 }}
+                                    Cart Total : ${{ grand_total|floatformat:2 }}
                                 </strong>
                             </h3>
                             <button class="btn action-button">

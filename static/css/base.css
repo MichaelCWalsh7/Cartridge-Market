@@ -407,21 +407,30 @@
     color: white;
 }
 
-.remove-from-cart-button button {
+.update-remove-buttons button {
     border: 2px solid black;
-    border-radius: 12px;
-    background-color: red;
-    color: white;
+    border-radius: 12px;    
     font-weight: 500;
+    margin-bottom: 10px;
 }
 
-.remove-from-cart-button {
-    margin-bottom: 10px;
+.remove-from-cart-button {   
+    background-color: red;
+    color: white;
+}
+
+.update-cart-button {
+    background-color: blue;
+    color: white;
 }
 
 .quantity-selector {
     width: 65% !important;
     margin-left: 1em;
+}
+
+.large-quantity-selector {
+    width: 33% !important;
 }
 
 /* Cart - Media Queries */
