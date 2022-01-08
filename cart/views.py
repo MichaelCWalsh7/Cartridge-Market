@@ -39,7 +39,13 @@ def adjust_cart(request, product_id):
     if quantity > 0:
         cart[product_id] = quantity
     else:
-        cart.pop[product_id]
+        cart.pop(product_id)
 
     request.session['cart'] = cart
     return redirect(reverse('view_cart'))
+
+
+def remove_from_cart(request, product_id):
+    """
+    A view that removes items from the cart
+    """

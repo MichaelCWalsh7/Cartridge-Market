@@ -21,4 +21,9 @@
             $(this).prop("disabled", true);
         }
     })
+
+    $('.qty-input').change(function() {
+        var thisDecrement = $(this).closest('.input-group').find('.decrement-qty')[0]
+        $(thisDecrement).prop("disabled", false)
+    })
 </script>

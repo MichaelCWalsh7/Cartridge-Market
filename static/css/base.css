@@ -28,6 +28,18 @@
     border-radius: 8px;
 }
 
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
+}
+
 /* Colours */
 
 .white-text {
@@ -407,7 +419,8 @@
     color: white;
 }
 
-.update-remove-buttons button {
+.update-remove-buttons button,
+.update-remove-buttons a {
     border: 2px solid black;
     border-radius: 12px;    
     font-weight: 500;
