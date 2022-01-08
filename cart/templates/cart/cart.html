@@ -123,7 +123,7 @@
                                     </div>
                                     <div class="col-3 offset-md-1 update-remove-buttons text-center">
                                         <button type="submit" class="btn update-cart-button">Update</button>
-                                        <a href="#" class="btn remove-from-cart-button">X Remove</a>                                        
+                                        <a href="{% url 'remove_from_cart' item.item_id %}" class="btn remove-from-cart-button">X Remove</a>                                        
                                     </div>
                                 </form>                               
                             </div>                           

@@ -1,7 +1,8 @@
 """
 Views defined for the 'cart' app
 """
-from django.shortcuts import render, redirect, reverse
+# pylint: disable=unused-variable,broad-except,invalid-name
+from django.shortcuts import render, redirect, reverse, HttpResponse
 
 
 def view_cart(request):
@@ -49,3 +50,12 @@ def remove_from_cart(request, product_id):
     """
     A view that removes items from the cart
     """
+    cart = request.session.get('cart', {})
+    try:
+        cart.pop(product_id)
+        request.session['cart'] = cart
+
+        return redirect(reverse('view_cart'))
+
+    except Exception as e:  # noqa: F841
+        return HttpResponse(status=500)
