@@ -103,24 +103,28 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="row cart-quantity-and-delete">
-                                    <div class="col-5 offset-md-1 large-quantity-selector input-group mb-3">
-                                        <button class="btn selector-button" type="button">
-                                            <i class="fas fa-minus"></i>
-                                        </button>
-                                        <input type="number" class="form-control quantity-selector-input" placeholder="1" aria-label="quantity selector">
-                                        <button class="btn selector-button" type="button">
-                                            <i class="fas fa-plus"></i>
-                                        </button>
+                                <form action="" method="post">
+                                    {% csrf_token %}
+                                    <div class="row cart-quantity-and-delete">
+                                        <div class="col-5 offset-md-1 large-quantity-selector input-group mb-3">
+                                            <button class="btn selector-button decrement-qty" type="button">
+                                                <i class="fas fa-minus"></i>
+                                            </button>
+                                            <input type="number" class="form-control quantity-selector-input qty-input" value="{{ item.quantity }}"
+                                                aria-label="quantity selector" data-item_id="{{ item.item_id }}" id="id_qty_{{ item.item_id }}">
+                                            <button class="btn selector-button increment-qty" type="button">
+                                                <i class="fas fa-plus"></i>
+                                            </button>
+                                        </div>
+                                        <div class="col-3 offset-md-3">
+                                            <strong>Subtotal: </strong> {{ item.total }}
+                                        </div>                                    
                                     </div>
-                                    <div class="col-3 offset-md-3">
-                                        <strong>Subtotal: </strong> {{ item.total }}
-                                    </div>                                    
-                                </div>
-                                <div class="col-3 offset-md-1 update-remove-buttons text-center">
-                                        <button class="btn update-cart-button">Update</button>
+                                    <div class="col-3 offset-md-1 update-remove-buttons text-center">
+                                        <button type="submit" class="btn update-cart-button">Update</button>
                                         <button class="btn remove-from-cart-button">X Remove</button>                                        
                                     </div>
+                                </form>                               
                             </div>                           
                         {% endfor %}
                     </div>
@@ -153,4 +157,9 @@
     </div>
 </div>
 
+{% endblock %}
+
+{% block postloadjs %}
+{{ block.super }}
+    {% include 'cart/includes/quantity_input_script.html' %}
 {% endblock %}
