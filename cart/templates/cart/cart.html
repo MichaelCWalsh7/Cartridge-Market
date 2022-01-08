@@ -113,15 +113,14 @@
                                             <i class="fas fa-plus"></i>
                                         </button>
                                     </div>
-                                    <div class="col-3">
-                                        <strong>Total: </strong> {{ item.total }}
-                                    </div>
-                                    <div class="col-3 update-remove-buttons text-center">
+                                    <div class="col-3 offset-md-3">
+                                        <strong>Subtotal: </strong> {{ item.total }}
+                                    </div>                                    
+                                </div>
+                                <div class="col-3 offset-md-1 update-remove-buttons text-center">
                                         <button class="btn update-cart-button">Update</button>
                                         <button class="btn remove-from-cart-button">X Remove</button>                                        
                                     </div>
-                                </div>
-                                
                             </div>                           
                         {% endfor %}
                     </div>
