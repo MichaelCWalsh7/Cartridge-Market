@@ -136,7 +136,6 @@
                         <form class="text-center" action="{% url 'add_to_cart' game.id %}" method="post">
                             {% csrf_token %}
                             <select class="form-select mb-3" name="quantity">
-                                <option selected>Quantity</option>
                                 <!-- DEV NOTE - If listings do indeed go ahead as a feature then
                                     you'll have to use JavaScript to generate a number of select
                                     options eqaul to the number copies the vendor indicated they
@@ -148,7 +147,7 @@
                                     In this link he manually makes the style changes but you can
                                     do this with JS also. 
                                  -->
-                                <option value="1">1</option>
+                                <option selected value="1">1</option>
                                 <option value="2">2</option>
                                 <option value="3">3</option>
                               </select>
