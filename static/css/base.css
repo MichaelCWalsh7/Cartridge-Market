@@ -124,7 +124,7 @@ input[type=number] {
 }
 
 
-/* ----------------- Messages ----------------- */
+/* ----------------- Messages/Toasts ----------------- */
 
 .message-container {
     position: fixed;
@@ -139,6 +139,20 @@ input[type=number] {
 
 .toast-capper {
     height: 5px;
+}
+
+.cart-notification-wrapper {
+    height: 100px;
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
+/* Messages/Toasts - Media Queries */
+
+@media (max-width: 701px) {
+    .toast {
+        width: 250px !important;
+    }
 }
 
 /* ----------------- Home Page ----------------- */
