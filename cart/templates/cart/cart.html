@@ -46,26 +46,32 @@
                                     </div>                                    
                                 </div>
 
-                                <div class="cart-quantity-and-delete">
-                                    <div class="row">
-                                        <div class="col-6 quantity-selector input-group mb-3">
-                                            <button class="btn selector-button" type="button">
-                                                <i class="fas fa-minus"></i>
-                                            </button>
-                                            <input type="number" class="form-control quantity-selector-input" placeholder="1" aria-label="quantity selector">
-                                            <button class="btn selector-button" type="button">
-                                                <i class="fas fa-plus"></i>
-                                            </button>
+                                <form action="{% url 'adjust_cart' item.item_id %}" method="post">
+                                    {% csrf_token %}
+                                    <div class="cart-quantity-and-delete">
+                                        <div class="row">
+                                            <div class="col-6 quantity-selector input-group mb-3">
+                                                <button class="btn selector-button decrement-qty" type="button">
+                                                    <i class="fas fa-minus"></i>
+                                                </button>
+                                                <input type="number" class="form-control quantity-selector-input qty-input" 
+                                                    name="quantity" value="{{ item.quantity }}" aria-label="quantity selector" 
+                                                    data-item_id="{{ item.item_id }}" id="id_qty_{{ item.item_id }}">
+                                                <button class="btn selector-button increment-qty" type="button">
+                                                    <i class="fas fa-plus"></i>
+                                                </button>
+                                            </div>
+                                            <div class="col-3">
+                                                <strong>Subtotal: </strong> ${{ item.total }}
+                                            </div>
                                         </div>
-                                        <div class="col-3">
-                                            <strong>Total: </strong> $98.37
+                                        <div class="col update-remove-buttons text-center">
+                                            <button type="submit" class="btn update-cart-button">Update</button>
+                                            <a href="{% url 'remove_from_cart' item.item_id %}" class="btn remove-from-cart-button">X Remove</a>                                        
                                         </div>
                                     </div>
-                                    <div class="col update-remove-buttons text-center">
-                                        <button class="btn update-cart-button">Update</button>
-                                        <button class="btn remove-from-cart-button">X Remove</button>                                        
-                                    </div>
-                                </div>
+                                </form>
+                                
                             </div>
 
                         <!-- cart item - desktop and larger screens -->
@@ -118,7 +124,7 @@
                                             </button>
                                         </div>
                                         <div class="col-3 offset-md-3">
-                                            <strong>Subtotal: </strong> {{ item.total }}
+                                            <strong>Subtotal: </strong> ${{ item.total }}
                                         </div>                                    
                                     </div>
                                     <div class="col-3 offset-md-1 update-remove-buttons text-center">
