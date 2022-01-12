@@ -19,7 +19,6 @@ class Order(models.Model):
     This is the class for an order placed on the site that users will use to
     checkout with.
     """
-
     order_number = models.CharField(max_length=32, null=False, editable=False)
     full_name = models.CharField(max_length=50, null=False, blank=False)
     email = models.EmailField(max_length=254, null=False, blank=False)
@@ -69,7 +68,7 @@ class Order(models.Model):
 
 class OrderLineItem(models.Model):
     """
-    The class that delas with individual items in the bag, their quantity,
+    The class that deals with individual items in the bag, their quantity,
     price etc.
     """
     order = models.ForeignKey(
