@@ -143,10 +143,10 @@
                                     Cart Total : ${{ grand_total|floatformat:2 }}
                                 </strong>
                             </h3>
-                            <button class="btn action-button">
+                            <a href="{% url 'checkout' %}" class="btn action-button">
                                 Checkout
                                 <i class="fas fa-cart-arrow-down"></i>
-                            </button>
+                            </a>
                         </div>
                     </div>
                 </div>

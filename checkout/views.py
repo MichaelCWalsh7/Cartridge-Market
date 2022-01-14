@@ -11,10 +11,10 @@ def checkout(request):
     """
     A view to show the checkout form to the user.
     """
-    cart = request.session.get('bag', {})
+    cart = request.session.get('cart', {})
     if not cart:
-        messages.error(request, "There's nothing in your bag at the moment")
-        return redirect(reverse('products'))
+        messages.error(request, "There's nothing in your cart at the moment")
+        return redirect(reverse('all_games'))
 
     order_form = OrderForm()
     template = 'checkout/checkout.html'
