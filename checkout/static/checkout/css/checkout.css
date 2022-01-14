@@ -1,0 +1,44 @@
+/* ----------------- Much of the below css is taken from
+    https://github.com/Code-Institute-Solutions/boutique_ado_v1/blob/a75791ce63bfce9a05f614d7712199c893063ed9/checkout/static/checkout/css/checkout.css
+    Which in turn was taken from a page in the Stripe documentation which
+    seems to be no longer available.
+-----------------  */
+.StripeElement,
+.stripe-style-input {
+  box-sizing: border-box;
+  height: 40px;
+  padding: 10px 12px;
+  border: 1px solid transparent;
+  border-radius: 0px;
+  background-color: white;
+  box-shadow: 0 1px 3px 0 #e6ebf1;
+  -webkit-transition: box-shadow 150ms ease;
+  transition: box-shadow 150ms ease;
+}
+
+.StripeElement--focus,
+.stripe-style-input:focus,
+.stripe-style-input:active {
+  box-shadow: 0 1px 3px 0 #cfd7df;
+}
+
+.StripeElement--webkit-autofill {
+  background-color: #fefde5 !important;
+}
+
+.stripe-style-input::placeholder {
+    color: #aab7c4;
+}
+
+
+/* ----------------- Custom Css -----------------  */
+
+.fieldset-label {
+    position: relative;
+    right: .5rem;
+}
+
+#card-element {
+    color: #000;
+    border: 1px solid #000;
+}
