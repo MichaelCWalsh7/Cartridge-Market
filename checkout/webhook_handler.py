@@ -22,3 +22,21 @@ class StripeWH_Handler:  # pylint: disable=invalid-name
             content=f'Webhook received {event["type"]}',
             status=200
         )
+
+    def handle_payment_intent_succeeded(self, event):
+        """
+        Handles a payment intent succeeded webhook.
+        """
+        return HttpResponse(
+            content=f'Webhook received {event["type"]}',
+            status=200
+        )
+
+    def handle_payment_intent_failed(self, event):
+        """
+        Handles a payment intent failed webhook.
+        """
+        return HttpResponse(
+            content=f'Webhook received {event["type"]}',
+            status=200
+        )
