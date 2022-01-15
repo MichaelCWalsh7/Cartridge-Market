@@ -49,7 +49,7 @@ class Order(models.Model):
         Updates the total each time a new line is added.
         """
         self.order_total = self.lineitems.aggregate(
-            Sum('lineitem_total'))['lineitem_total__sum']
+            Sum('lineitem_total'))['lineitem_total__sum'] or 0
         self.grand_total = self.order_total
         self.save()
 
