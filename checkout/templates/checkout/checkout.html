@@ -133,7 +133,7 @@
 
 {% block postloadjs %}
     {{ block.super }}
-    <!-- The below code is template filters that allow to use django template variables in external js files -->
+    <!-- The below code is template filters that allow use of django template variables in external js files -->
     {{ stripe_public_key|json_script:"id_stripe_public_key" }}
     {{ client_secret|json_script:"id_client_secret" }}
     <script src="{% static 'checkout/js/stripe-elements.js' %}"></script>
