@@ -1,7 +1,7 @@
 """
 Defines the function that is called when Stripe webhooks are sent
 """
-# pylint: disable=broad-except,invalid-name
+# pylint: disable=broad-except,invalid-name,unused-variable
 from django.conf import settings
 from django.http import HttpResponse
 from django.views.decorators.http import require_POST
@@ -9,11 +9,11 @@ from django.views.decorators.csrf import csrf_exempt
 
 import stripe
 
-from checkout.webhook_handler import StripeWH_Handler
+from checkout.webhook_handler import StripeWH_Handler  # noqa: F401
 
 
-@require_POST
 @csrf_exempt
+@require_POST
 def webhook(request):
     """
     Listen for webhooks from Stripe
@@ -40,5 +40,21 @@ def webhook(request):
     except Exception as e:
         return HttpResponse(content=e, status=400)
 
-    print('Success!')
-    return HttpResponse(status=200)
+    # Sets up a webhook handler
+    handler = StripeWH_Handler(request)
+
+    # Maps webhook events to relevant handler functions
+    event_map = {
+        'payment_intent.succeeded': handler.handle_payment_intent_succeeded,
+        'payment_intent.payment_failed': handler.handle_payment_intent_failed,
+    }
+
+    # Gets the webhook type from Stripe
+    event_type = event['type']
+
+    # If there's a handler for it, gets it from the event map
+    event_handler = event_map.get(event_type, handler.handle_event)
+
+    # Calls the event handler with the event
+    response = event_handler(event)
+    return response

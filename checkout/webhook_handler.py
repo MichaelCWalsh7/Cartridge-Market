@@ -19,7 +19,7 @@ class StripeWH_Handler:  # pylint: disable=invalid-name
         Handles a generic/unknown/unexpected webhook.
         """
         return HttpResponse(
-            content=f'Webhook received {event["type"]}',
+            content=f'Unhandled webhook received {event["type"]}',
             status=200
         )
 
