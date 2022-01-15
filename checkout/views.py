@@ -40,22 +40,22 @@ def checkout(request):
             order = order_form.save()
             for item_id, item_data in cart.items():
                 try:
-                    product = Game.objects.get(id=item_id)
+                    game = Game.objects.get(id=item_id)
                     if isinstance(item_data, int):
                         order_line_item = OrderLineItem(
                             order=order,
-                            product=product,
+                            game=game,
                             quantity=item_data,
                         )
                         order_line_item.save()
 
                 except Game.DoesNotExist:
                     messages.error(request, (
-                        "One of the products in your bag wasn't found in our"
+                        "One of the products in your cart wasn't found in our"
                         "database. Please call us for assistance!")
                     )
                     order.delete()
-                    return redirect(reverse('view_bag'))
+                    return redirect(reverse('view_cart'))
 
             request.session['save_info'] = 'save-info' in request.POST
             return redirect(reverse('checkout_success',
