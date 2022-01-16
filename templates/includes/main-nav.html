@@ -17,17 +17,38 @@
             </form>
         </div>
         <div class="col-3 text-end my-4" id="mainNavIcons">
-            <i class="fas fa-user fa-3x"></i>
-            <a href="{% url 'view_cart' %}" class="main-nav-cart-link {% if total %}text-warning fw-bold{% endif %}">
-                <i class="fas fa-shopping-cart fa-3x"></i>
-            </a>
-            <p class="my-0 {% if total %}text-warning fw-bold{% endif %}">
-                {% if grand_total %}
-                    ${{ grand_total|floatformat:2 }}
-                {% else %}
-                    $00.00
-                {% endif %}
-            </p>
+            <div class="row">
+                <div class="col-4 offset-md-4 dropdown">
+                    <button class="btn" type="button" id="mainNavUserDropdown"
+                        data-bs-toggle="dropdown" aria-expanded="false">
+                        <i class="fas fa-user fa-3x"></i>
+                    </button>
+                    <ul class="dropdown-menu" aria-labelledby="mainNavUserDropdown">
+                        {% if request.user.is_authenticated %}
+                            {% if request.user.is_superuser %}
+                                <li class="dropdown-item"><a href="">Product Management</a></li>
+                            {% endif %}
+                            <li class="dropdown-item"><a href="">My Profile</a></li>
+                            <li class="dropdown-item"><a href="{% url 'account_logout' %}">Logout</a></li>
+                        {% else %}
+                            <li class="dropdown-item"><a href="{% url 'account_signup' %}">Register</a></li>
+                            <li class="dropdown-item"><a href="{% url 'account_login' %}">Login</a></li>
+                        {% endif %}
+                      </ul>                    
+                </div>         
+                <div class="col-3">
+                    <a href="{% url 'view_cart' %}" class="main-nav-cart-link {% if total %}text-warning fw-bold{% endif %}">
+                        <i class="fas fa-shopping-cart fa-3x"></i>
+                    </a>
+                    <p class="my-0 {% if total %}text-warning fw-bold{% endif %}">
+                        {% if grand_total %}
+                            ${{ grand_total|floatformat:2 }}
+                        {% else %}
+                            $00.00
+                        {% endif %}
+                    </p>
+                </div>  
+            </div>            
         </div>        
     </div>
     <div class="navbar-collapse pt-3" id="mainNavLower">
