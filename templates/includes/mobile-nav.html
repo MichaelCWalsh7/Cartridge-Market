@@ -37,8 +37,16 @@
                 <i class="fas fa-user mobile-nav-icon"></i>
             </button>
             <ul class="dropdown-menu" aria-labelledby="mobileUserDropdown">
-                <li><a href="" class="dropdown-item">Register</a></li>
-                <li><a href="" class="dropdown-item">Login</a></li>
+                {% if request.user.is_authenticated %}
+                    {% if request.user.is_superuser %}
+                        <li class="dropdown-item"><a href="">Product Management</a></li>
+                    {% endif %}
+                    <li class="dropdown-item"><a href="">My Profile</a></li>
+                    <li class="dropdown-item"><a href="{% url 'account_logout' %}">Logout</a></li>
+                {% else %}
+                    <li class="dropdown-item"><a href="{% url 'account_signup' %}">Register</a></li>
+                    <li class="dropdown-item"><a href="{% url 'account_login' %}">Login</a></li>
+                {% endif %}
             </ul>
         </li>
         <li class="list-inline-item {% if total %}text-warning fw-bold{% endif %}">
