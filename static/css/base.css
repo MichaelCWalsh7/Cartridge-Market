@@ -107,6 +107,10 @@ input[type=number] {
     z-index: 200;
 }
 
+input[name='q']::placeholder {
+    color: #aab7c4;
+}
+
 /* Navbar - Media Queries */
 
 @media (max-width: 1199px) {
@@ -507,4 +511,25 @@ input[type=number] {
         height: 350px;
         max-height: 350px;
     }
+}
+
+
+/* ----------------- Allauth Template Customization ----------------- */
+
+.allauth-form-inner-content p {
+    margin-top: 1.5rem;
+    color: #6c757d;
+}
+
+.allauth-form-inner-content input {
+    border-color: #000;
+    border-radius: 0;
+}
+
+.allauth-form-inner-content label:not([for='id_remember']) {
+    display: none;
+}
+
+.allauth-form-inner-content input::placeholder {
+    color: #aab7c4;
 }
