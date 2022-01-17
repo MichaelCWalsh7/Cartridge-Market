@@ -1,0 +1,11 @@
+#div_id_default_country label {
+    display: none;
+  }
+
+#profileUpdateForm .form-control {
+    color: #000
+}
+
+#profileUpdateForm input::placeholder {
+    color: #aab7c4;
+}

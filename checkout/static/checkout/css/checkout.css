@@ -74,3 +74,7 @@ select:invalid,
 select option[value=""] {
   color: #aab7c4 !important;
 }
+
+#div_id_country label {
+  display: none;
+}
