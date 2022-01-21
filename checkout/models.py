@@ -76,7 +76,7 @@ class Order(models.Model):
 
 class OrderLineItem(models.Model):
     """
-    The class that deals with individual items in the bag, their quantity,
+    The class that deals with individual items in the cart, their quantity,
     price etc.
     """
     order = models.ForeignKey(
