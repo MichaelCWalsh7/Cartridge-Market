@@ -34,7 +34,7 @@ class StoreFront(models.Model):
         max_length=254, null=True, blank=True)
     image = models.ImageField(null=True, blank=True)
     description = models.TextField(null=True, blank=True)  # noqa: DJ01
-    rating = models.IntegerField(max_length=100, null=True, blank=True)
+    rating = models.IntegerField(null=True, blank=True)
 
     def __str__(self):
         """
