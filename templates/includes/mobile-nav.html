@@ -42,6 +42,9 @@
                         <li class="dropdown-item"><a href="">Product Management</a></li>
                     {% endif %}
                     <li class="dropdown-item"><a href="{% url 'profile' %}">My Profile</a></li>
+                    {% if not has_storefront %}
+                        <li class="dropdown-item"><a href="{% url 'storefront_preamble' %}">Storefront</a></li>
+                    {% endif %}
                     <li class="dropdown-item"><a href="{% url 'account_logout' %}">Logout</a></li>
                 {% else %}
                     <li class="dropdown-item"><a href="{% url 'account_signup' %}">Register</a></li>

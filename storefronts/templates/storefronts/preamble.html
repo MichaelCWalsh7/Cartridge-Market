@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block extra_css %}
+    <!-- Delete if no custom style ends up being applied to the storefronts pages. -->
+    <!-- <link rel="stylesheet" href="{% static 'profiles/css/profile.css' %}"> -->
+{% endblock %}
+
+{% block content %}
+
+    <div class="container-fluid">
+        <div class="main-body-section">
+
+            <hr>
+            <h1 class="page-title-text">Storefront</h1>
+            <hr>
+            <div class="row">
+                <div class="col text-center preamble-text">
+                    <h3 class="mb-3">Your chance to get into the retro games market!</h3>
+
+                    <p class="mt-5">
+                        Have a collection of old games you'd like to make some money off? Or perhaps just a
+                        keen eye for a deal in the retro games market? Well now's your chance to take 
+                        advantage of that with a storefront! 
+                    </p>
+
+                    <p>
+                        On Cartridge Market you can set up your own digital storefront, which allows you to 
+                        post listings for games and consoles, and let our community all about you.
+                    </p>
+
+                    <a href="" class="btn action-button">
+                        <i class="fas fa-exclamation"></i> 
+                        Click Here to Start your Storefront Now! 
+                        <i class="fas fa-exclamation"></i>
+                    </a>
+                </div>
+            </div>       
+        </div>
+    </div>
+
+
+{% endblock %}
