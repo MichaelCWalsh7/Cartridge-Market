@@ -32,7 +32,7 @@ class Console(models.Model):
     )
     sku = models.CharField(max_length=254, null=True, blank=True)  # noqa: DJ01,E501
     name = models.CharField(max_length=254)
-    description = models.TextField()
+    description = models.TextField(null=True, blank=True)  # noqa: DJ01
     price = models.DecimalField(
         max_digits=6, decimal_places=2, null=True, blank=True
     )
