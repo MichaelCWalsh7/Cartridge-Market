@@ -5,6 +5,7 @@ select option {
 
 select:invalid,
 input::placeholder,
+textarea::placeholder,
 select option[value=""] {
   color: #aab7c4 !important;
 }
@@ -12,5 +13,7 @@ select option[value=""] {
 #div_id_country label {
   display: none;
 }
-
  
+#div_id_description textarea {
+  height: 120px;
+}

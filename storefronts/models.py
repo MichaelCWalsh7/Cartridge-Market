@@ -43,7 +43,7 @@ class StoreFront(models.Model):
         return self.name
 
 
-@receiver(post_save, sender=User)
+@receiver(post_save, sender=StoreFront)
 def create_or_update_storefront(sender, instance, created, **kwargs):
     """
     Create or update the storefront

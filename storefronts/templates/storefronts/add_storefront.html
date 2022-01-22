@@ -37,6 +37,10 @@
                                 {{ form.country | as_crispy_field }}
                         </fieldset>
                         <fieldset class="rounded px-3 mb-4">
+                            <legend class="fieldset-label small px-2 w-auto">Storefront Image</legend>
+                                {{ form.image | as_crispy_field }}
+                        </fieldset>
+                        <fieldset class="rounded px-3 mb-4">
                             <legend class="fieldset-label small px-2 w-auto">Tell our users about your storefont!</legend>
                                 {{ form.description | as_crispy_field }}
                         </fieldset>
