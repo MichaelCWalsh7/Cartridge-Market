@@ -15,7 +15,7 @@ class StoreFrontForm(forms.ModelForm):
         to be rendered.
         """
         model = StoreFront
-        exclude = ('user',)
+        exclude = ('user', 'rating',)
 
     def __init__(self, *args, **kwargs):
         """
@@ -24,15 +24,18 @@ class StoreFrontForm(forms.ModelForm):
         """
         super().__init__(*args, **kwargs)
         placeholders = {
-            'name': 'Storefront Name',
+            'name': 'Name',
+            'email': 'Email Address',
             'contact_number1': 'Contact Number',
-            'contact_number2': 'Alternate Contact Number',
+            'contact_number2': 'Additional Contact Number',
             'street_address1': 'Street Address 1',
             'street_address2': 'Street Address 2',
             'town_or_city': 'Town/City',
             'county': 'County, State, Region, Province',
             'postcode': 'Post/Zip Code',
-            'description': 'Tell users about your storefront',
+            'image_url': 'Image Link',
+            'description': 'Description',
+            'image': 'placeholder',
         }
 
         self.fields['name'].widget.attrs['autofocus'] = True

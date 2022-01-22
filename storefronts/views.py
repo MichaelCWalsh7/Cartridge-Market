@@ -5,7 +5,7 @@ from django.shortcuts import render
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 
-from .models import StoreFront
+# from .models import StoreFront
 from .forms import StoreFrontForm
 
 
@@ -20,7 +20,7 @@ def storefront_preamble(request):
 
 
 @login_required
-def create_storefront(request):
+def add_storefront(request):
     """
     A view for users to create a storefront on the site.
     """
@@ -32,6 +32,11 @@ def create_storefront(request):
             messages.success(
                 request, "Congratulations, you've successfully started a \
                     storefront!")
+    else:
+        form = StoreFrontForm()
 
-    template = 'storefronts/storefront_form.html'
-    return render(request, template)
+    template = 'storefronts/add_storefront.html'
+    context = {
+        'form': form,
+    }
+    return render(request, template, context)

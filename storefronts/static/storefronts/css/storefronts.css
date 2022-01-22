@@ -1,0 +1,16 @@
+select,
+select option {
+  color: #000000;
+}
+
+select:invalid,
+input::placeholder,
+select option[value=""] {
+  color: #aab7c4 !important;
+}
+
+#div_id_country label {
+  display: none;
+}
+
+ 
