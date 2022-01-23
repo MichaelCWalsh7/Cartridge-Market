@@ -30,7 +30,8 @@ class StoreFront(models.Model):
         max_length=20, null=True, blank=True)
     image_url = models.CharField(  # noqa: DJ01
         max_length=254, null=True, blank=True)
-    image = models.ImageField(null=True, blank=True)
+    image = models.FileField(
+        upload_to='images/storefront-images', null=True, blank=True)
     description = models.TextField(null=True, blank=True)  # noqa: DJ01
     rating = models.IntegerField(null=True, blank=True)
 
