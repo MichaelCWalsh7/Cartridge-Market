@@ -14,8 +14,71 @@
             <hr>
             
             <div class="row">
-                <div class="col-12 col-sm-8 text-center storefront-image">
+                <div class="col-12 col-sm-6 mt-3 text-center storefront-image">
                     <img src="{{ MEDIA_URL }}images/storefront-images/{{ storefront.image_url }}" alt="{{ storefront.name }}">
+                </div>
+                <div class="col-12 col-sm-4 mt-3 border-black storefront-details">
+                    <p>
+                        <strong>Owner:</strong>
+                        <span class="float-end">{{ storefront.name }}</span>
+                    </p>
+                    <p>
+                        <strong>Email:</strong>
+                        <span class="float-end">{{ storefront.email }}</span>
+                    </p>
+                    <p>
+                        <strong>Phone Number(s):</strong>
+                        <span class="float-end">{{ storefront.contact_number1 }}</span>
+                        <br>
+                        {% if contact_number2 %}
+                            <span class="float-end">{{ storefront.contact_number2 }}</span>
+                        {% endif %}
+                    </p>
+                    <p>
+                        <strong>Address:</strong>
+                        <span class="float-end">{{ storefront.street_address1 }}</span>
+                        <br>
+                        {% if storefront.street_address2 %}
+                            <span class="float-end">{{ storefront.street_address2 }}</span>
+                            <br>
+                        {% endif %}
+                        <span class="float-end">{{ storefront.town_or_city }}</span>
+                        <br>
+                        {% if storefront.county %}
+                            <span class="float-end">{{ storefront.county }}</span>
+                            <br>
+                        {% endif %}
+                        <span class="float-end">{{ storefront.country }}</span>
+                        <br>
+                        {% if storefront.postcode %}
+                            <span class="float-end">{{ storefront.postcode }}</span>
+                        {% endif %}
+                    </p>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-12 col-sm-8 offset-sm-2 storefront-description">
+                    <h4 class="text-center">
+                        About {{ storefront.name }}
+                    </h4>
+                    {% if storefront.description %}
+                        <p>
+                            {{ storefront.description }}
+                        </p>                        
+                    {% else %}
+                        <p>
+                            It seems like this user hasn't add a description for their storefront yet.
+                            For more information about their products, stock or any other queries, please
+                            contact them using the information provided above. 
+                        </p>
+                    {% endif %}
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-12 col-sm-10 offset-sm-1 storefront-listings">
+                    
                 </div>
             </div>
         </div>
