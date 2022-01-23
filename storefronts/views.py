@@ -69,6 +69,20 @@ def edit_storefront(request, storefront_id):
     A view for users to edit their storefront on the site.
     """
     storefront = get_object_or_404(StoreFront, pk=storefront_id)
+    if request.method == 'POST':
+        form = StoreFrontForm(request.POST, request.FILES, instance=storefront)
+        if form.is_valid():
+            image_url = request.POST.get('image_url')
+            storefront = form.save(commit=False)
+            storefront.image_url = image_url
+            storefront.user = request.user
+            storefront.save()
+            messages.success(request, "Successfully updated storefront.")
+            return redirect(reverse('storefront', args=[storefront.id]))
+        else:
+            messages.error(request, 'Failed to update storefront. Please \
+                ensure your form is valid.')
+
     form = StoreFrontForm(instance=storefront)
     messages.info(
         request, f'You are editing your storefront, {storefront.name}')
