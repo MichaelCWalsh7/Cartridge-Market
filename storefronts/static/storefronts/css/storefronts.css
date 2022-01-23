@@ -17,3 +17,7 @@ select option[value=""] {
 #div_id_description textarea {
   height: 120px;
 }
+
+.storefront-image img {
+  max-width: 90%;
+}

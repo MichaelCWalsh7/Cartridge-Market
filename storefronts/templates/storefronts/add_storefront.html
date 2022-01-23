@@ -40,6 +40,7 @@
                         <fieldset class="rounded px-3 mb-4">
                             <legend class="fieldset-label small px-2 w-auto">Storefront Image</legend>
                                 {{ form.image | as_crispy_field }}
+                                <input type="hidden" name="image_url">
                         </fieldset>
                         <fieldset class="rounded px-3 mb-4">
                             <legend class="fieldset-label small px-2 w-auto">Tell our users about your storefont!</legend>
@@ -60,4 +61,11 @@
     </div>
 
 
+{% endblock %}
+
+{% block postloadjs %}
+    {{ block.super }}
+    <!-- The below code is template filters that allow use of django template variables in external js files -->
+    
+    <script src="{% static 'storefronts/js/image-field.js' %}"></script>
 {% endblock %}

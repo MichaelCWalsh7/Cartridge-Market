@@ -42,7 +42,9 @@ def add_storefront(request):
     if request.method == 'POST':
         form = StoreFrontForm(request.POST, request.FILES)
         if form.is_valid():
+            image_url = request.POST.get('image_url')
             storefront = form.save(commit=False)
+            storefront.image_url = image_url
             storefront.user = request.user
             storefront.save()
             messages.success(
