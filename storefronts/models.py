@@ -3,8 +3,6 @@ Models defining user profiles
 """
 # pylint: disable=no-member,unused-argument,invalid-str-returned
 from django.db import models
-from django.db.models.signals import post_save
-from django.dispatch import receiver
 from django.contrib.auth.models import User
 from django_countries.fields import CountryField
 
@@ -41,14 +39,3 @@ class StoreFront(models.Model):
         Returns the name of the storefront
         """
         return self.name
-
-
-@receiver(post_save, sender=StoreFront)
-def create_or_update_storefront(sender, instance, created, **kwargs):
-    """
-    Create or update the storefront
-    """
-    if created:
-        StoreFront.objects.create(storefront=instance)
-    # For existing stores, the data is merely saved
-    instance.storefront.save()
