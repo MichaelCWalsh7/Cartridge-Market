@@ -72,8 +72,8 @@ def edit_storefront(request, storefront_id):
     if request.method == 'POST':
         form = StoreFrontForm(request.POST, request.FILES, instance=storefront)
         if form.is_valid():
-            image_url = request.POST.get('image_url')
             storefront = form.save(commit=False)
+            image_url = request.POST.get('image_url')
             storefront.image_url = image_url
             storefront.user = request.user
             storefront.save()
@@ -94,3 +94,13 @@ def edit_storefront(request, storefront_id):
     }
 
     return render(request, template, context)
+
+
+def delete_storefront(request, storefront_id):
+    """
+    A view for users to delete their storefront on the site.
+    """
+    storefront = get_object_or_404(StoreFront, pk=storefront_id)
+    storefront.delete()
+    messages.success(request, 'Your storefront has been deleted.')
+    return redirect(reverse('all_games'))
