@@ -62,3 +62,21 @@ def add_storefront(request):
         'form': form,
     }
     return render(request, template, context)
+
+
+def edit_storefront(request, storefront_id):
+    """
+    A view for users to edit their storefront on the site.
+    """
+    storefront = get_object_or_404(StoreFront, pk=storefront_id)
+    form = StoreFrontForm(instance=storefront)
+    messages.info(
+        request, f'You are editing your storefront, {storefront.name}')
+
+    template = 'storefronts/edit_storefront.html'
+    context = {
+        'form': form,
+        'storefront': storefront,
+    }
+
+    return render(request, template, context)

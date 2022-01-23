@@ -20,7 +20,7 @@
                 <div class="col-12 col-sm-4 mt-3 border-black storefront-details">
                     <p>
                         <strong>Owner:</strong>
-                        <span class="float-end">{{ storefront.name }}</span>
+                        <span class="float-end">{{ storefront.user }}</span>
                     </p>
                     <p>
                         <strong>Email:</strong>
@@ -58,7 +58,7 @@
             </div>
 
             <div class="row">
-                <div class="col-12 col-sm-8 offset-sm-2 storefront-description">
+                <div class="col-12 col-sm-8 offset-sm-2 mt-5 storefront-description">
                     <h4 class="text-center">
                         About {{ storefront.name }}
                     </h4>
@@ -77,10 +77,26 @@
             </div>
 
             <div class="row">
-                <div class="col-12 col-sm-10 offset-sm-1 storefront-listings">
-                    
+                <div class="col-12 col-sm-10 offset-sm-1 mt-5 storefront-listings">
+                    <div class="listings-container">
+                        <h3 class="text-center">Games for Sale</h3>
+                    </div>
                 </div>
             </div>
+            {% if storefront.user.id == user.id %}
+                <div class="row">
+                    <div class="col text-center">
+                        <a href="{% url 'edit_storefront' storefront.id %}" class="btn action-button-inverted">
+                            Edit Your Storefront <i class="fas fa-edit"></i>
+                        </a>
+                    </div>
+                </div>
+            {% else %}
+                <a href="{% url 'home' %}" class="btn action-button">
+                    <i class="fas fa-chevron-left"></i> Return to Home
+                </a>
+            {% endif %}
+            
         </div>
     </div>
 
