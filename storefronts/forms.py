@@ -34,8 +34,8 @@ class StoreFrontForm(forms.ModelForm):
             'county': 'County, State, Region, Province',
             'postcode': 'Post/Zip Code',
             'image_url': 'Image Link',
+            'image': 'Image File',
             'description': 'Description',
-            'image': 'placeholder',
         }
 
         self.fields['name'].widget.attrs['autofocus'] = True
