@@ -29,8 +29,7 @@ class Listing(models.Model):
     image = models.ImageField(
         upload_to='images/listing-images', null=True, blank=True)
     description = models.TextField(null=True, blank=True)  # noqa: DJ01
-    copies_available = models.IntegerField(
-        max_length=100, null=False, blank=False)
+    copies_available = models.IntegerField(null=False, blank=False)
 
     def __str__(self):
         """
