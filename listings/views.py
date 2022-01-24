@@ -6,6 +6,7 @@ from django.shortcuts import render
 from django.contrib.auth.decorators import login_required
 
 from products.models import Game
+from .forms import ListingtForm
 
 
 @login_required
@@ -19,6 +20,8 @@ def add_listing(request):
     sega_games = games.filter(publisher__name='Sega')
     atari_games = games.filter(publisher__name='Atari')
 
+    form = ListingtForm(request.POST, request.FILES)
+
     template = 'listings/add_listing.html'
     context = {
         'games': games,
@@ -26,5 +29,6 @@ def add_listing(request):
         'sony_games': sony_games,
         'sega_games': sega_games,
         'atari_games': atari_games,
+        'form': form,
     }
     return render(request, template, context)

@@ -7,6 +7,7 @@ select:invalid,
 input::placeholder,
 textarea::placeholder,
 select option[value=""],
-select option[value="default"] {
+select option[value="default"],
+select option[value="game-placeholder"] {
   color: #aab7c4 !important;
 }

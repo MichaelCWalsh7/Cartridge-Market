@@ -1,5 +1,6 @@
 $(document).ready(function() {
     $('.dev-selector').css("color", "#aab7c4")
+    $('.game-selector').css("color", "#aab7c4")
     $('.nintendo-games').css("display", "none")
     $('.sony-games').css("display", "none")
     $('.sega-games').css("display", "none")
@@ -8,24 +9,41 @@ $(document).ready(function() {
 
 $('.dev-selector').change(function() {
     // Initializes variables for brevity within the function
-    let selector = $('.dev-selector')
-    let selectorOption = selector.val()
+    let devSelector = $('.dev-selector')
+    let devSelectorOption = devSelector.val()
 
-    if (selectorOption != 'default') {
+
+    if (devSelectorOption != 'default') {
         // If the option is not the default placeholder, the placeholder colour
         // is changed and only the correct options are displayed
-        selector.css("color", "black")
-        $(`.${selectorOption}-games`).css("display", "block")
+        devSelector.css("color", "black")
         $('.all-games').css("display", "none")
+        $('.nintendo-games').css("display", "none")
+        $('.sony-games').css("display", "none")
+        $('.sega-games').css("display", "none")
+        $('.atari-games').css("display", "none")
+        $(`.${devSelectorOption}-games`).css("display", "block")
 
-    } else if (selector.val() == 'default') {
+    } else if (devSelector.val() == 'default') {
         // If the the placeholder option is reselected, the selector div 
         // returns to normal
-        selector.css("color", "#aab7c4")
+        devSelector.css("color", "#aab7c4")
         $('.all-games').css("display", "block")
         $('.nintendo-games').css("display", "none")
         $('.sony-games').css("display", "none")
         $('.sega-games').css("display", "none")
         $('.atari-games').css("display", "none")
+    }
+})
+
+$('.game-selector').change(function() {
+    let gameSelector = $('.game-selector')
+    let gameSelectorOption = gameSelector.val()
+
+    if (gameSelectorOption != 'game-placeholder') {
+        gameSelector.css("color", "black")
+
+    } else if (gameSelectorOption == 'game-placeholder') {
+        gameSelector.css("color", "#aab7c4")
     }
 })
