@@ -21,3 +21,7 @@ select option[value=""] {
 .storefront-image img {
   max-width: 90%;
 }
+
+.danger-triangle {
+  color: red;
+}

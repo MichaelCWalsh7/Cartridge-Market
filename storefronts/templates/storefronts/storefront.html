@@ -91,13 +91,16 @@
                         </a>
 
                         <!-- Button trigger modal -->
-                        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#deleteModal">
-                            Launch demo modal
+                        <button type="button" class="btn action-button" data-bs-toggle="modal" 
+                            data-bs-target="#deleteModal">
+                            <i class="fas fa-exclamation-triangle danger-triangle"></i>
+                             Delete This Storefront 
+                            <i class="fas fa-exclamation-triangle danger-triangle"></i>
                         </button>
                         
                         <!-- Modal -->
                         <div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="deleteModalLabel" aria-hidden="true">
-                            <div class="modal-dialog">
+                            <div class="modal-dialog text-start">
                                 <div class="modal-content">
                                     <div class="modal-header">
                                         <h5 class="modal-title" id="deleteModalLabel">Delete Your Storefront</h5>
@@ -105,15 +108,18 @@
                                     </div>
                                     <div class="modal-body">
                                         WARNING!! Deleting your Storefront will delete all the listings you have posted under it's name.
-                                        <br>
-                                        This action cannot be undone.
-                                        <br>
-                                        Please type the word 'delete' into the input below and click the red button to continue.
-                                        <input type="text" name="deleteCheck" id="deleteCheck">
+                                        <hr>
+                                        This action CANNOT be undone.
+                                        <hr>
+                                        Please type the characters: 'delete' into the input below and click the red button to continue.
+                                        <hr>
+                                        <div class="text-center">
+                                            <input type="text" name="deleteCheck" id="deleteCheck">
+                                        </div>
                                     </div>
                                     <div class="modal-footer">
                                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                                        <a href="{% url 'delete_storefront' storefront.id %}" class="btn btn-danger"></a>
+                                        <a href="{% url 'delete_storefront' storefront.id %}" id="deleteStoreFrontButton" class="btn btn-danger">DELETE</a>
                                     </div>
                                 </div>
                             </div>
@@ -130,4 +136,12 @@
     </div>
 
 
+{% endblock %}
+
+{% block postloadjs %}
+    {{ block.super }}
+    <!-- The below script handles the delete confirmation button being disabled
+    until the delete check has been completed. -->
+    
+        <script src="{% static 'storefronts/js/storefront.js' %}"></script>
 {% endblock %}

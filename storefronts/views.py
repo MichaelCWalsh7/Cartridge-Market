@@ -103,4 +103,4 @@ def delete_storefront(request, storefront_id):
     storefront = get_object_or_404(StoreFront, pk=storefront_id)
     storefront.delete()
     messages.success(request, 'Your storefront has been deleted.')
-    return redirect(reverse('all_games'))
+    return redirect(reverse('home'))
