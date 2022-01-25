@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block extra_css %}
+    <link rel="stylesheet" href="{% static 'listings/css/listings.css' %}">
+{% endblock %}
+
+{% block content %}
+
+    <div class="container-fluid">
+        <div class="main-body-section">
+
+            <hr>
+            <h1 class="page-title-text">{{ listing.title }}</h1>
+            <hr>
+
+                       
+            
+            
+        </div>
+    </div>
+
+
+{% endblock %}

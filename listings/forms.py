@@ -5,7 +5,7 @@ from django import forms
 from .models import Listing
 
 
-class ListingtForm(forms.ModelForm):
+class ListingForm(forms.ModelForm):
     """
     Generates the form the user will complete to post a listing.
     """
