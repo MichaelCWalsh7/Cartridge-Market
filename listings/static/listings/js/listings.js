@@ -47,3 +47,10 @@ $('.game-selector').change(function() {
         gameSelector.css("color", "#aab7c4")
     }
 })
+
+// Grabs the image filename and passes it through to the form on the backend.
+$('#id_image').change(function() {
+    let filepath = $('#id_image').val()
+    let filename = filepath.split('\\').pop();
+    $('input[name="image_url"]').val(filename)
+})
