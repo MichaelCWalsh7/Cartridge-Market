@@ -11,3 +11,29 @@ select option[value="default"],
 select option[value="game-placeholder"] {
   color: #aab7c4 !important;
 }
+
+.card {
+  border: 2px solid black;
+  padding-top: 1rem;
+  margin-bottom: 1rem;
+}
+
+.card-details {
+  max-height: 230px;
+}
+
+.card-img-top {
+  max-height: 100%;
+}
+
+.game-card-details-list {
+  list-style: none;
+  padding-left: 0;
+}
+
+@media (min-width: 1200px) {
+  .card {
+    margin-left: 4% !important;
+  }
+}
+
