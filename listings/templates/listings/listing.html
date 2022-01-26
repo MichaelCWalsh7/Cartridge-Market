@@ -41,10 +41,76 @@
                         </div>
                     </div>
                 </div>
+                <div class="listing-details-payment col-12 offset-md-1 col-md-6">
+                    <div class="p-2 border border-dark mb-4">
+                        <div class="row" id="listingInfoSection">
+                            <div class="col">
+                                <small class="text-muted">Listing Info:</small>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-12 col-md-4">
+                                <p class="mb-0 text-black fw-bold">Storefront</p>
+                            </div>
+                            <div class="col-12 col-md-8 text-md-end">
+                                <p class="mb-0">{{ listing.storefront }}</p>
+                            </div>
+                        </div>    
+                        <div class="row">
+                            <div class="col-12 col-md-4">
+                                <p class="mb-0 text-black fw-bold">Game</p>
+                            </div>
+                            <div class="col-12 col-md-8 text-md-end">
+                                <p class="mb-0">{{ listing.game }}</p>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-12 col-md-4">
+                                <p class="mb-0 text-black fw-bold">Condition</p>
+                            </div>
+                            <div class="col-12 col-md-8 text-md-end">
+                                <p class="mb-0">{{ listing.condition }}</p>
+                            </div>
+                        </div>
+                        <hr>
+                        
+                        <div class="row" id="listingPriceSection">
+                            <div class="col">
+                                <small class="text-muted">Price & Copies Available:</small>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-12 col-md-4">
+                                <p class="mb-0 text-black fw-bold">Price:</p>
+                            </div>
+                            <div class="col-12 col-md-8 text-md-end">
+                                <p class="mb-0">{{ listing.price }}</p>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-12 col-md-4">
+                                <p class="mb-0 text-black fw-bold">Copies Available</p>
+                            </div>
+                            <div class="col-12 col-md-8 text-md-end">
+                                <p class="mb-0">{{ listing.copies_available }}</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="add-to-cart-form">
+                        <form class="text-center" action="{% url 'add_to_cart' listing.game.id %}" method="post">
+                            {% csrf_token %}
+                            <select class="form-select mb-3" name="quantity">
+                                <option selected value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                              </select>
+                            <a href="{% url 'all_games' %}" class="btn action-button"><i class="fas fa-chevron-left"></i> Keep Browsing</a>
+                            <button type="submit" class="btn action-button-inverted"><i class="fas fa-cart-plus"></i> Add to Cart</button>
+                            <input type="hidden" name="redirect_url" value="{{ request.path }}">
+                        </form>
+                    </div>
+                </div>
             </div>
-            
-
-
         </div>
     </div>
 
