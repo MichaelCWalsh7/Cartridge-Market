@@ -7,6 +7,7 @@ from django.contrib import messages
 from django.db.models import Q
 
 from products.models import Game
+from listings.models import Listing
 
 
 def all_games(request):
@@ -149,8 +150,12 @@ def game_details(request, game_id):
     """
     game = get_object_or_404(Game, pk=game_id)
 
+    all_listings = Listing.objects.all()
+    listings = all_listings.filter(game=game_id)
+
     context = {
         'game': game,
+        'listings': listings,
     }
 
     return render(request, 'products/game_details.html', context)

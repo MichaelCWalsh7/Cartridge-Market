@@ -374,13 +374,19 @@ input[name='q']::placeholder {
 .vendor-card {
     background-color: #1F211F;
     color: white;
-    margin-top: 2%;
-    margin-bottom: 2%;
-    padding: 5%;
+    padding: 3%;
 }
 
 #vendorsContainer div img {
     height: 200px;
+}
+
+.vendor-card-details-list {
+    list-style: none;
+}
+
+.vendor-card-body {
+    padding: .5rem;
 }
 
 .add-to-cart-form {
@@ -411,6 +417,12 @@ input[name='q']::placeholder {
 @media (max-width: 992px) {
     #gameDescription {
         text-align: center;
+    }
+}
+
+@media (max-width: 768px) {
+    .vendor-card {
+        padding: 5%;
     }
 }
 

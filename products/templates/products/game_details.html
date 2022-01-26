@@ -160,26 +160,39 @@
                 <div class="col-12 col-lg-6" id="vendorsContainer">
                     <h3 class="text-center">Copies Available</h3>
                     <div class="row">
-                        <div class="col-12 col-sm-5 offset-sm-1 vendor-card">
-                            <img class="w-100" src="{{ MEDIA_URL }}images/sample-vendor-1.png" 
-                                alt="an image of a vendor">
-                            <ul class="vendor-details-list">
-                                <li><strong>Seller </strong>Sample Vender 1</li>
-                                <li><strong>Price </strong>29.95</li>
-                                <li><strong>Condition </strong>Mint</li>                                
-                            </ul>
-                        </div>
-                        <div class="col-12 col-sm-5 ms-2 vendor-card">
-                            <img class="w-100" src="{{ MEDIA_URL }}images/sample-vendor-2.png" 
-                                alt="an image of a vendor">
-                                <ul class="vendor-details-list">
-                                    <li><strong>Seller </strong>Sample Vendor 2</li>
-                                    <li><strong>Price </strong>24.95</li>
-                                    <li><strong>Condition </strong>Good</li>  
-                                </ul>
-                        </div>
+                        {% for listing in listings %}
+                            {% if forloop.counter < 3 %}
+                                <div class="col-12 col-sm-5 offset-sm-1 card vendor-card">                            
+                                    <img src="{{ MEDIA_URL }}images/listing-images/{{ listing.image_url }}"
+                                        class="card-img-top" alt="{{ listing.game.name }}">
+                                    <div class="card-body vendor-card-body">
+                                        <p class="card-text">{{ listing.description }}</p>
+                                        <hr>
+                                        <h5 class="text-center">Game Details</h5>
+                                        <div class=" row">
+                                            <div class="col card-details">
+                                                <ul class="vendor-card-details-list">
+                                                    <li><strong>{{ listing.title }}</strong></li>
+                                                    <li><strong>Condition: </strong>{{ listing.condition }}</li>
+                                                    <li><strong>Price: </strong>{{ listing.price }}</li>
+                                                    <li><strong>Copies Available: </strong>{{ listing.copies_available }}</li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                        <div class="text-center">
+                                            <a href="{% url 'listing' listing.id %}" class="btn action-button">
+                                                View Item 
+                                                <i class="fas fa-chevron-circle-right"></i>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            {% endif %}
+                        {% empty %}
+                            No listing found
+                        {% endfor %}                       
                     </div>
-                    <div class="col text-center">
+                    <div class="col mt-4 text-center">
                         <a href="" class="btn action-button">See more copies</a>
                     </div>
                 </div>
