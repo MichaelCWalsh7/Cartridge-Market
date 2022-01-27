@@ -110,10 +110,10 @@
                         <form class="text-center" action="{% url 'add_to_cart' listing.game.id %}" method="post">
                             {% csrf_token %}
                             <select class="form-select mb-3" name="quantity">
-                                <option selected value="1">1</option>
-                                <option value="2">2</option>
-                                <option value="3">3</option>
-                              </select>
+                                {% for i in copy_range %}
+                                    <option value="{{ i }}">{{ i }}</option>
+                                {% endfor %}
+                            </select>
                             <a href="{% url 'all_games' %}" class="btn action-button"><i class="fas fa-chevron-left"></i> Keep Browsing</a>
                             <button type="submit" class="btn action-button-inverted"><i class="fas fa-cart-plus"></i> Add to Cart</button>
                             <input type="hidden" name="redirect_url" value="{{ request.path }}">

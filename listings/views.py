@@ -69,10 +69,12 @@ def listing(request, listing_id):
     A view to display a listing on the website
     """
     listing = get_object_or_404(Listing, pk=listing_id)
+    copy_range = range(1, listing.copies_available + 1)
 
     template = 'listings/listing.html'
     context = {
         'listing': listing,
+        'copy_range': copy_range,
     }
     return render(request, template, context)
 
