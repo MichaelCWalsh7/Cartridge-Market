@@ -75,3 +75,22 @@ def listing(request, listing_id):
         'listing': listing
     }
     return render(request, template, context)
+
+
+def listings_by_game(request, game_id):
+    """
+    A view to display all the listings that have been posted for a
+    particular game.
+    """
+    game = get_object_or_404(Game, pk=game_id)
+
+    all_listings = Listing.objects.all()
+    listings = all_listings.filter(game=game_id)
+
+    template = 'listings/listings_by_game.html'
+    context = {
+        'game': game,
+        'listings': listings,
+    }
+
+    return render(request, template, context)
