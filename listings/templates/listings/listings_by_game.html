@@ -15,7 +15,7 @@
             <hr>
             <div class="row">
                 {% for listing in listings %}
-                    <div class="col-12 col-sm-5 offset-sm-1 card listing-card">
+                    <div class="col-12 col-sm-5 col-lg-3 card listing-card">
                         <a href="{% url 'listing' listing.id %}">
                             <img src="{{ MEDIA_URL }}images/listing-images/{{ listing.image_url }}"
                             class="card-img-top" alt="{{ listing.game.name }}">
@@ -43,8 +43,14 @@
                         </div>
                     </div>
                 {% empty %}
-                    No Listings Available
+                    <h4>Sorry, no one seems to be selling this game right now!!</h4>
                 {% endfor %}
+                <div class="text-center mb-4">
+                    <a href="{% url 'game_details' game.id %}" class="btn action-button">
+                        <i class="fas fa-chevron-circle-left"></i> 
+                        Return to the game page
+                    </a>
+                </div>
             </div>
         </div>
     </div>

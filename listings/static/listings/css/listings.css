@@ -34,3 +34,15 @@ select option[value="game-placeholder"] {
 .add-to-cart-form {
   margin-left: 0;
 }
+
+@media (min-width: 577px) {
+  .listing-card {
+    margin-left: 5% !important;
+  }
+}
+
+@media (min-width: 993px) {
+  .listing-card {
+    margin-left: 6% !important;
+  }
+}

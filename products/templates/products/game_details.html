@@ -162,9 +162,11 @@
                     <div class="row">
                         {% for listing in listings %}
                             {% if forloop.counter < 3 %}
-                                <div class="col-12 col-sm-5 offset-sm-1 card listing-card">                            
-                                    <img src="{{ MEDIA_URL }}images/listing-images/{{ listing.image_url }}"
+                                <div class="col-12 col-sm-5 offset-sm-1 card listing-card">
+                                    <a href="{% url 'listing' listing.id %}">
+                                        <img src="{{ MEDIA_URL }}images/listing-images/{{ listing.image_url }}"
                                         class="card-img-top" alt="{{ listing.game.name }}">
+                                    </a>                                    
                                     <div class="card-body listing-card-body">
                                         <p class="card-text">{{ listing.description }}</p>
                                         <hr>
