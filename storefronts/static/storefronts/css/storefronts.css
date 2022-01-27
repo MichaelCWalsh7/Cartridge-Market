@@ -25,3 +25,8 @@ select option[value=""] {
 .danger-triangle {
   color: red;
 }
+
+.card {
+  margin-bottom: 1% !important;
+  margin-left: 6% !important;
+}

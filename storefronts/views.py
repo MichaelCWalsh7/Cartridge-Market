@@ -1,11 +1,12 @@
 """
 Views for the profiles app.
 """
-# pylint: disable=redefined-outer-name
+# pylint: disable=redefined-outer-name,no-member
 from django.shortcuts import render, redirect, reverse, get_object_or_404
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 
+from listings.models import Listing
 from .models import StoreFront
 from .forms import StoreFrontForm
 
@@ -26,9 +27,13 @@ def storefront(request, storefront_id):
     """
     storefront = get_object_or_404(StoreFront, pk=storefront_id)
 
+    all_listings = Listing.objects.all()
+    listings = all_listings.filter(storefront=storefront_id)
+
     template = 'storefronts/storefront.html'
     context = {
         'storefront': storefront,
+        'listings': listings,
     }
     return render(request, template, context)
 
