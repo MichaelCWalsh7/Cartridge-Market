@@ -34,17 +34,3 @@ select option[value="game-placeholder"] {
 .add-to-cart-form {
   margin-left: 0;
 }
-
-@media (min-width: 769px) {
-  .listing-details-payment {
-    margin-top: 4% !important;
-  }
-}
-
-
-@media (min-width: 1200px) {
-  .card {
-    margin-left: 4% !important;
-  }
-}
-

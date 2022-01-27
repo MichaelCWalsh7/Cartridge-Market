@@ -138,7 +138,7 @@
                             <select class="form-select mb-3" name="quantity">
                                 <!-- DEV NOTE - If listings do indeed go ahead as a feature then
                                     you'll have to use JavaScript to generate a number of select
-                                    options eqaul to the number copies the vendor indicated they
+                                    options eqaul to the number copies the listing indicated they
                                     upon upload. Don't forget to disable button if no quantity
                                     has been selected.
                                     YOU WILL ALSO have to style this using JavaScript, see the link
@@ -157,21 +157,21 @@
                         </form>
                     </div>
                 </div>                
-                <div class="col-12 col-lg-6" id="vendorsContainer">
+                <div class="col-12 col-lg-6" id="listingsContainer">
                     <h3 class="text-center">Copies Available</h3>
                     <div class="row">
                         {% for listing in listings %}
                             {% if forloop.counter < 3 %}
-                                <div class="col-12 col-sm-5 offset-sm-1 card vendor-card">                            
+                                <div class="col-12 col-sm-5 offset-sm-1 card listing-card">                            
                                     <img src="{{ MEDIA_URL }}images/listing-images/{{ listing.image_url }}"
                                         class="card-img-top" alt="{{ listing.game.name }}">
-                                    <div class="card-body vendor-card-body">
+                                    <div class="card-body listing-card-body">
                                         <p class="card-text">{{ listing.description }}</p>
                                         <hr>
                                         <h5 class="text-center">Game Details</h5>
                                         <div class=" row">
                                             <div class="col card-details">
-                                                <ul class="vendor-card-details-list">
+                                                <ul class="listing-card-details-list">
                                                     <li><strong>{{ listing.title }}</strong></li>
                                                     <li><strong>Condition: </strong>{{ listing.condition }}</li>
                                                     <li><strong>Price: </strong>{{ listing.price }}</li>

@@ -13,8 +13,39 @@
             <hr>
             <h1 class="page-title-text">Listings for {{ game.name }}</h1>
             <hr>
-
-            
+            <div class="row">
+                {% for listing in listings %}
+                    <div class="col-12 col-sm-5 offset-sm-1 card listing-card">
+                        <a href="{% url 'listing' listing.id %}">
+                            <img src="{{ MEDIA_URL }}images/listing-images/{{ listing.image_url }}"
+                            class="card-img-top" alt="{{ listing.game.name }}">
+                        </a>
+                        <div class="card-body listing-card-body">
+                            <p class="card-text">{{ listing.description }}</p>
+                            <hr>
+                            <h5 class="text-center">Game Details</h5>
+                            <div class=" row">
+                                <div class="col card-details">
+                                    <ul class="listing-card-details-list">
+                                        <li><strong>{{ listing.title }}</strong></li>
+                                        <li><strong>Condition: </strong>{{ listing.condition }}</li>
+                                        <li><strong>Price: </strong>{{ listing.price }}</li>
+                                        <li><strong>Copies Available: </strong>{{ listing.copies_available }}</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="text-center">
+                                <a href="{% url 'listing' listing.id %}" class="btn action-button">
+                                    View Item 
+                                    <i class="fas fa-chevron-circle-right"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                {% empty %}
+                    No Listings Available
+                {% endfor %}
+            </div>
         </div>
     </div>
 

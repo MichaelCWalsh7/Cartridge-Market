@@ -16,16 +16,19 @@
 
             <div class="row">
                 <div class="card col-10 offset-1 offset-md-0 col-md-5 col-xl-4">
-                    <img src="{{ MEDIA_URL }}images/listing-images/{{ listing.image_url }}" class="card-img-top" alt="{{ listing.game.name }}">
+                    <img src="{{ MEDIA_URL }}images/listing-images/{{ listing.image_url }}"
+                        class="card-img-top" alt="{{ listing.game.name }}">
                     <div class="card-body">
                         <p class="card-text">{{ listing.description }}</p>
                         <hr>
                         <h5 class="text-center">Game Details</h5>
                         <div class=" row">
                             <div class="col-6 card-details">
-                                <img src="{{ MEDIA_URL }}images/game-images/{{ listing.game.image_url }}" class="card-img-top" alt="{{ listing.game.name }}">
+                                <img src="{{ MEDIA_URL }}images/game-images/{{ listing.game.image_url }}"
+                                    class="card-img-top" alt="{{ listing.game.name }}">
                             </div>
                             <div class="col-6 card-details">
+                                
                                 <ul class="game-card-details-list">
                                     <li><strong>{{ listing.game.name }}</strong></li>
                                     <li>{{ listing.game.console }}</li>
@@ -42,6 +45,13 @@
                     </div>
                 </div>
                 <div class="listing-details-payment col-12 offset-md-1 col-md-6">
+                    <div class="col mb-3 text-center storefront-overview">
+                        <h4>{{ listing.storefront.name }}</h4>
+                        <a href="{% url 'storefront' listing.storefront.id %}">
+                            <img src="{{ MEDIA_URL }}images/storefront-images/{{ listing.storefront.image_url }}"
+                                alt="listing.storefront.name" class="w-100">
+                        </a>
+                    </div>
                     <div class="p-2 border border-dark mb-4">
                         <div class="row" id="listingInfoSection">
                             <div class="col">

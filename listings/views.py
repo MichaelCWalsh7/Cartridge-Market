@@ -72,7 +72,7 @@ def listing(request, listing_id):
 
     template = 'listings/listing.html'
     context = {
-        'listing': listing
+        'listing': listing,
     }
     return render(request, template, context)
 

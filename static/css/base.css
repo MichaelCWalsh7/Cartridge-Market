@@ -371,21 +371,26 @@ input[name='q']::placeholder {
     width: 100%;
 }
 
-.vendor-card {
+.storefront-overview a img {
+    max-height: 290px;
+    max-width: 450px;
+}
+
+.listing-card {
     background-color: #1F211F;
     color: white;
     padding: 3%;
 }
 
-#vendorsContainer div img {
+#listingsContainer div img {
     height: 200px;
 }
 
-.vendor-card-details-list {
+.listing-card-details-list {
     list-style: none;
 }
 
-.vendor-card-body {
+.listing-card-body {
     padding: .5rem;
 }
 
@@ -421,11 +426,16 @@ input[name='q']::placeholder {
 }
 
 @media (max-width: 768px) {
-    .vendor-card {
+    .listing-card {
         padding: 5%;
     }
 }
 
+@media (min-width: 1200px) {
+    .card {
+      margin-left: 4% !important;
+    }
+}
 
 /* ----------------- Cart ----------------- */
 
@@ -438,26 +448,26 @@ input[name='q']::placeholder {
     padding-bottom: 10px;
 }
 
-.vendor-cart-details {
+.listing-cart-details {
     font-size: .9rem;
 }
 
-.vendor-cart-details ul {
+.listing-cart-details ul {
     padding-left: 0;
     list-style: none;
     font-weight: 700;
 }
 
-.large-vendor-cart-details {
+.large-listing-cart-details {
     font-size: 1.3em;
     font-weight: 700;
 }
 
-.large-vendor-cart-details ul {
+.large-listing-cart-details ul {
     padding-top: 10%;
 }
 
-.vendor-list-title { 
+.listing-list-title { 
     text-decoration: underline;
 }
 
@@ -512,13 +522,13 @@ input[name='q']::placeholder {
 }
 
 @media (min-width: 993px) {
-    .cart-vendor-image img {
+    .cart-listing-image img {
         max-height: 230px;
     }
 }
 
 @media (min-width: 1450px) {
-    .cart-vendor-image img,
+    .cart-listing-image img,
     .cart-game-image img {
         height: 350px;
         max-height: 350px;
