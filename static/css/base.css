@@ -56,6 +56,7 @@ input[type=number] {
 }
 
 
+
 /* ----------------- Navbar ----------------- */
 
 .navbar-nav {
@@ -92,6 +93,10 @@ input[type=number] {
 .main-nav-cart-link {
     text-decoration: none;
     color: #212529;
+}
+
+.mobile-cart-link {
+    text-align: center;
 }
 
 .mobile-cart-link div {
