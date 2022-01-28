@@ -32,7 +32,7 @@
                             {% if user.storefront %}
                             <li class="dropdown-item"><a href="{% url 'storefront' user.storefront.id %}">Storefront</a></li>
                             {% else %}
-                                <li class="dropdown-item"><a href="{% url 'storefront_preamble' %}">Storefront Preamble</a></li>
+                                <li class="dropdown-item"><a href="{% url 'storefront_preamble' %}">Storefront</a></li>
                             {% endif %}
                             <li class="dropdown-item"><a href="{% url 'account_logout' %}">Logout</a></li>
                         {% else %}
@@ -64,60 +64,30 @@
                         All Games
                     </a>
                 </li>
+                <li class="nav-item">
+                    <a href="{% url 'all_storefronts' %}" class="btn">
+                        All Storefronts
+                    </a>
+                </li>
                 <li class="nav-item dropdown">
-                    <a href="#" class="btn dropdown-toggle" data-bs-toggle="dropdown" id="mainNintendoDropdown">
+                    <a href="{% url 'publisher_games' 'Nintendo' %}" class="btn">
                         Nintendo
                     </a>
-                    <ul class="dropdown-menu" aria-labelledby="mainNintendoDropdown">                        
-                        <li><a href="{% url 'publisher_games' 'Nintendo' %}" class="dropdown-item">All Games</a></li>
-                        <li><a href="" class="dropdown-item">NES</a></li>
-                        <li><a href="" class="dropdown-item">SNES</a></li>
-                        <li><a href="" class="dropdown-item">N64</a></li>
-                        <li><a href="" class="dropdown-item">Consoles</a></li>
-                    </ul>
                 </li>
                 <li class="nav-item dropdown">
-                    <a href="#" class="btn dropdown-toggle" data-bs-toggle="dropdown" id="mainSegaDropdown">
-                        SEGA
+                    <a href="{% url 'publisher_games' 'Sega' %}" class="btn">
+                        Sega
                     </a>
-                    <ul class="dropdown-menu" aria-labelledby="mainSegaDropdown">                        
-                        <li><a href="{% url 'publisher_games' 'Sega' %}" class="dropdown-item">All Games</a></li>
-                        <li><a href="" class="dropdown-item">Genesis</a></li>
-                        <li><a href="" class="dropdown-item">Dreamcast</a></li>
-                        <li><a href="" class="dropdown-item">Consoles</a></li>
-                    </ul>
                 </li>
                 <li class="nav-item dropdown">
-                    <a href="#" class="btn dropdown-toggle" data-bs-toggle="dropdown" id="mainSonyDropdown">
+                    <a href="{% url 'publisher_games' 'Sony' %}" class="btn">
                         Sony
                     </a>
-                    <ul class="dropdown-menu" aria-labelledby="mainSonyDropdown">                        
-                        <li><a href="{% url 'publisher_games' 'Sony' %}" class="dropdown-item">All Games</a></li>
-                        <li><a href="" class="dropdown-item">PS1</a></li>
-                        <li><a href="" class="dropdown-item">Consoles</a></li>
-                    </ul>
                 </li>
                 <li class="nav-item dropdown">
-                    <a href="#" class="btn dropdown-toggle" data-bs-toggle="dropdown" id="mainAtariDropdown">
+                    <a href="{% url 'publisher_games' 'Atari' %}" class="btn">
                         Atari
                     </a>
-                    <ul class="dropdown-menu" aria-labelledby="mainAtariDropdown">                        
-                        <li><a href="{% url 'publisher_games' 'Atari' %}" class="dropdown-item">All Games</a></li>
-                        <li><a href="" class="dropdown-item">2600</a></li>
-                        <li><a href="" class="dropdown-item">5200</a></li>
-                        <li><a href="" class="dropdown-item">Consoles</a></li>
-                    </ul>
-                </li>
-                <li class="nav-item dropdown">
-                    <a href="#" class="btn dropdown-toggle" data-bs-toggle="dropdown" id="mainConsoleDropdown">
-                        Consoles
-                    </a>
-                    <ul class="dropdown-menu" aria-labelledby="mainConsoleDropdown">
-                        <li><a href="" class="dropdown-item">Nintendo</a></li>
-                        <li><a href="" class="dropdown-item">Sega</a></li>
-                        <li><a href="" class="dropdown-item">Sony</a></li>
-                        <li><a href="" class="dropdown-item">Atari</a></li>
-                    </ul>
                 </li>
             </ul>
         </div>

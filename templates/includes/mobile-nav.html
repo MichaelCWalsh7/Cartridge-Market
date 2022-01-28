@@ -6,12 +6,12 @@
                 <i class="fas fa-bars mobile-nav-icon"></i>
             </button>
             <ul class="dropdown-menu" aria-labelledby="mobileDropdownMenuButton">
-                <li><a class="dropdown-item" href="{% url 'all_games' %}" id="mobileNavNintendo">All Games</a></li>
+                <li><a class="dropdown-item" href="{% url 'all_games' %}" id="mobileNavAllGames">All Games</a></li>
+                <li><a class="dropdown-item" href="{% url 'all_storefronts' %}" id="mobileNavAllStorefronts">All Storefronts</a></li>
                 <li><a class="dropdown-item" href="{% url 'publisher_games' 'Nintendo' %}" id="mobileNavNintendo">Nintendo</a></li>
                 <li><a class="dropdown-item" href="{% url 'publisher_games' 'Sega' %}" id="mobileNavSega">Sega</a></li>
                 <li><a class="dropdown-item" href="{% url 'publisher_games' 'Sony' %}" id="mobileNavSony">Sony</a></li>
                 <li><a class="dropdown-item" href="{% url 'publisher_games' 'Atari' %}" id="mobileNavAtari">Atari</a></li>
-                <li><a class="dropdown-item" href="#" id="mobileNavConsole">Consoles</a></li>
             </ul>
         </li>
         <li class="dropdown list-inline-item">
