@@ -26,6 +26,7 @@ class ListingForm(forms.ModelForm):
         placeholders = {
             'title': 'Title',
             'price': 'Price',
+            'sku': 'SKU',
             'condition': 'Condtion (Mint, Like New, Well Used, etc.)',
             'copies_available': 'Copies Available',
             'image_url': 'Image Link',

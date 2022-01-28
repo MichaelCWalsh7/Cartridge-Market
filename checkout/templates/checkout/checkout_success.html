@@ -45,10 +45,10 @@
                     {% for item in order.lineitems.all %}
                         <div class="row">
                             <div class="col-12 col-md-4">
-                                <p class="small mb-0 text-black fw-bold">{{ item.game.name }}</p>
+                                <p class="small mb-0 text-black fw-bold">{{ item.listing.title }}</p>
                             </div>
                             <div class="col-12 col-md-8 text-md-end">
-                                <p class="small mb-0">{{ item.quantity }} @ $ {{ item.game.price }} each</p>
+                                <p class="small mb-0">{{ item.quantity }} @ $ {{ item.listing.price }} each</p>
                             </div>
                         </div>
                     {% endfor %}

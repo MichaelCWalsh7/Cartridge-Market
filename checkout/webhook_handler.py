@@ -9,7 +9,7 @@ from django.core.mail import send_mail
 from django.template.loader import render_to_string
 from django.conf import settings
 
-from products.models import Game
+from listings.models import Listing
 from profiles.models import UserProfile
 from .models import Order, OrderLineItem
 
@@ -135,11 +135,11 @@ class StripeWH_Handler:
                         stripe_pid=pid,
                     )
                 for item_id, item_data in json.loads(cart).items():
-                    game = Game.objects.get(id=item_id)
+                    listing = Listing.objects.get(id=item_id)
                     if isinstance(item_data, int):
                         order_line_item = OrderLineItem(
                             order=order,
-                            game=game,
+                            listing=listing,
                             quantity=item_data,
                         )
                         order_line_item.save()

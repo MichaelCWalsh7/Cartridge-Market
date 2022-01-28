@@ -12,7 +12,7 @@ from django.db.models import Sum
 from django_countries.fields import CountryField
 from django.conf import settings  # noqa: F401
 
-from products.models import Game
+from listings.models import Listing
 from profiles.models import UserProfile
 
 
@@ -82,8 +82,8 @@ class OrderLineItem(models.Model):
     order = models.ForeignKey(
         Order, null=False, blank=False, on_delete=models.CASCADE,
         related_name='lineitems')
-    game = models.ForeignKey(
-        Game, null=False, blank=False, on_delete=models.CASCADE)
+    listing = models.ForeignKey(
+        Listing, null=True, blank=False, on_delete=models.CASCADE)
     quantity = models.IntegerField(null=False, blank=False, default=0)
     lineitem_total = models.DecimalField(
         max_digits=6, decimal_places=2, null=False, blank=False,
@@ -94,8 +94,8 @@ class OrderLineItem(models.Model):
         Override the original save method to set the lineitem total if it
         hasn't been set already.
         """
-        self.lineitem_total = self.game.price * self.quantity
+        self.lineitem_total = self.listing.price * self.quantity
         super().save(*args, **kwargs)
 
     def __str__(self):
-        return f'SKU {self.game.sku} on order {self.order.order_number}'
+        return f'SKU {self.listing.sku} on order {self.order.order_number}'

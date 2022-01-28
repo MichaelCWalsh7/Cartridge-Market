@@ -12,7 +12,7 @@ from django.conf import settings
 import stripe
 
 from cart.contexts import cart_contents
-from products.models import Game
+from listings.models import Listing
 from profiles.models import UserProfile
 from profiles.forms import UserProfileForm
 from .forms import Order, OrderForm
@@ -72,16 +72,16 @@ def checkout(request):
             order.save()
             for item_id, item_data in cart.items():
                 try:
-                    game = Game.objects.get(id=item_id)
+                    listing = Listing.objects.get(id=item_id)
                     if isinstance(item_data, int):
                         order_line_item = OrderLineItem(
                             order=order,
-                            game=game,
+                            listing=listing,
                             quantity=item_data,
                         )
                         order_line_item.save()
 
-                except Game.DoesNotExist:
+                except Listing.DoesNotExist:
                     messages.error(request, (
                         "One of the products in your cart wasn't found in our"
                         "database. Please call us for assistance!")
