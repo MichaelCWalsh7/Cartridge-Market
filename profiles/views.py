@@ -3,13 +3,16 @@ Views for the profiles app.
 """
 from django.shortcuts import render, get_object_or_404
 from django.contrib import messages
+from django.contrib.auth.decorators import login_required
 
 from checkout.models import Order
+from storefronts.models import StoreFront
 
 from .models import UserProfile
 from .forms import UserProfileForm
 
 
+@login_required
 def profile(request):
     """
     A view to display the user's profile.
@@ -25,17 +28,20 @@ def profile(request):
 
     form = UserProfileForm(instance=profile)
     orders = profile.orders.all()
+    storefront = get_object_or_404(StoreFront, user=request.user)
 
     template = 'profiles/profile.html'
     context = {
         'form': form,
         'orders': orders,
+        'storefront': storefront,
         'on_profile_page': True,
     }
 
     return render(request, template, context)
 
 
+@login_required
 def order_history(request, order_number):
     """
     A view to display the users order history.

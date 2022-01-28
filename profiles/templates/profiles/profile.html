@@ -66,6 +66,20 @@
                 </div>
             </div>
 
+            <div class="text-center mt-5 user-storefront-section">
+                <h3>Your Storefront</h3>
+                {% if user.storefront %}
+                    <a href="{% url 'storefront' user.storefront.id %}" class="btn action-button mt-3">
+                        View Your Storefront
+                    </a>
+                {% else %}
+                <a href="{% url 'add_storefront' %}" class="btn action-button mt-3">
+                    <i class="fas fa-plus"></i> 
+                    Create a Storefont
+                </a>
+                {% endif %}
+            </div>
+
         </div>
     </div>
 
