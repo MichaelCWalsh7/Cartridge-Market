@@ -108,18 +108,26 @@
                             </div>
                         </div>
                     </div>
-                    <div class="add-to-cart-form">
-                        <form class="text-center" action="{% url 'add_to_cart' listing.id %}" method="post">
-                            {% csrf_token %}
-                            <select class="form-select mb-3" name="quantity">
-                                {% for i in copy_range %}
-                                    <option value="{{ i }}">{{ i }}</option>
-                                {% endfor %}
-                            </select>
-                            <a href="{% url 'all_games' %}" class="btn action-button"><i class="fas fa-chevron-left"></i> Keep Browsing</a>
-                            <button type="submit" class="btn action-button-inverted"><i class="fas fa-cart-plus"></i> Add to Cart</button>
-                            <input type="hidden" name="redirect_url" value="{{ request.path }}">
-                        </form>
+                    <div class="add-to-cart-form mb-4">
+                        {% if request.user.id == listing.storefront.user.id %}
+                            <div class="text-center">
+                                <a href="{% url 'edit_listing' listing.id %}" class="btn action-button">
+                                    Edit This Listing
+                                </a>
+                            </div>
+                        {% else %}
+                            <form class="text-center" action="{% url 'add_to_cart' listing.id %}" method="post">
+                                {% csrf_token %}
+                                <select class="form-select mb-3" name="quantity">
+                                    {% for i in copy_range %}
+                                        <option value="{{ i }}">{{ i }}</option>
+                                    {% endfor %}
+                                </select>
+                                <a href="{% url 'all_games' %}" class="btn action-button"><i class="fas fa-chevron-left"></i> Keep Browsing</a>
+                                <button type="submit" class="btn action-button-inverted"><i class="fas fa-cart-plus"></i> Add to Cart</button>
+                                <input type="hidden" name="redirect_url" value="{{ request.path }}">
+                            </form>
+                        {% endif %}
                     </div>
                 </div>
             </div>

@@ -64,6 +64,58 @@ def add_listing(request):
     return render(request, template, context)
 
 
+@login_required
+def edit_listing(request, listing_id):
+    """
+    A view for users to edit their listings on the site.
+    """
+    user = request.user
+    storefront = user.storefront
+    listing = get_object_or_404(Listing, pk=listing_id)
+
+    if user.id != listing.storefront.user.id:
+        messages.error(request, 'Sorry, only the storefront owner can \
+            do that.')
+        return redirect(reverse('home'))
+
+    if request.method == 'POST':
+        form = ListingForm(request.POST, request.FILES, instance=listing)
+        if form.is_valid():
+            image_url = request.POST.get('image_url')
+            listing = form.save(commit=False)
+            listing.image_url = image_url
+            game_id = request.POST.get('game')
+            game = get_object_or_404(Game, pk=game_id)
+            listing.game = game
+            listing.storefront = storefront
+            listing.save()
+            messages.success(request, "Listing updated successfully!")
+            return redirect(reverse('listing', args=[listing.id]))
+        else:
+            messages.error(request, 'Failed to edit listing. Please \
+                ensure your form is valid.')
+    else:
+        form = ListingForm(instance=listing)
+
+    games = Game.objects.all()
+    nintendo_games = games.filter(publisher__name='Nintendo')
+    sony_games = games.filter(publisher__name='Sony')
+    sega_games = games.filter(publisher__name='Sega')
+    atari_games = games.filter(publisher__name='Atari')
+
+    template = 'listings/edit_listing.html'
+    context = {
+        'listing': listing,
+        'games': games,
+        'nintendo_games': nintendo_games,
+        'sony_games': sony_games,
+        'sega_games': sega_games,
+        'atari_games': atari_games,
+        'form': form,
+    }
+    return render(request, template, context)
+
+
 def listing(request, listing_id):
     """
     A view to display a listing on the website
