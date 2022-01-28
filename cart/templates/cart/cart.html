@@ -20,26 +20,26 @@
                             <div class="col-12 col-sm-6 d-lg-none">
                                 <div class="cart-item">
                                     <div class="col-12 text-center">
-                                        <h4>{{ item.game.name }}</h4>
-                                        <a class="cart-game-image" href="{% url 'game_details' item.game.id %}">
-                                            <img class="w-100 px-1" src="{{ MEDIA_URL }}images/game-images/{{ item.game.image_url }}"
-                                                alt="{{ item.game.name }}">
+                                        <h4>{{ item.listing.name }}</h4>
+                                        <a class="cart-listing-image" href="{% url 'listing' item.listing.id %}">
+                                            <img class="w-100 px-1" src="{{ MEDIA_URL }}images/listing-images/{{ item.listing.image_url }}"
+                                                alt="{{ item.listing.name }}">
                                         </a>
                                     </div>
-                                    <div class="vendor-cart-section">
+                                    <div class="listing-cart-section">
                                         <p class="my-2 text-center"><strong>Details:</strong></p>
                                         <div class="row">
                                             <div class="col-6">
-                                                <a class="cart-vendor-image" href="#">
+                                                <a class="cart-storefront-image" href="#">
                                                     <img class="w-100 px-1" src="{{ MEDIA_URL }}images/sample-vendor-1.png"
-                                                        alt="an image of a vendor">
+                                                        alt="an image of a storefront">
                                                 </a>
                                             </div>
-                                            <div class="col-6 vendor-cart-details">
+                                            <div class="col-6 listing-cart-details">
                                                 <ul>
-                                                    <li class="vendor-list-title">Sample Vendor</li>
+                                                    <li class="listing-list-title">Sample Vendor</li>
                                                     <li>Mint Condition</span></li>
-                                                    <li>Price : ${{ item.game.price }}</span></li>
+                                                    <li>Price : ${{ item.listing.price }}</span></li>
                                                 </ul>
                                             </div>
                                         </div>                                        
@@ -78,31 +78,28 @@
                             <div class="d-none d-lg-block">
                                 <div class="cart-item">
                                     <div class="col-12 text-center">
-                                        <h4>{{ item.game.name }}</h4>
+                                        <h4>{{ item.listing.title }}</h4>
                                     </div>
                                     <div class="row">
                                         <div class="col-4">
-                                            <a class="cart-game-image" href="{% url 'game_details' item.game.id %}">
-                                                <img class="w-100 px-1" src="{{ MEDIA_URL }}images/game-images/{{ item.game.image_url }}"
-                                                    alt="{{ item.game.name }}">
+                                            <a class="cart-listing-image" href="{% url 'listing' item.listing.id %}">
+                                                <img class="w-100 px-1" src="{{ MEDIA_URL }}images/listing-images/{{ item.listing.image_url }}"
+                                                    alt="{{ item.listing.name }}">
                                             </a>
                                         </div>
                                         <div class="col-4">
-                                            <a class="cart-vendor-image" href="#">
-                                                <img class="w-100 px-1" src="{{ MEDIA_URL }}images/sample-vendor-1.png"
-                                                    alt="an image of a vendor">
+                                            <a class="cart-storefront-image" href="#">
+                                                <img class="w-100 px-1" src="{{ MEDIA_URL }}images/storefront-images/{{ item.listing.storefront.image_url }}"
+                                                    alt="an image of a storefront">
                                             </a>
                                         </div>
-                                        <div class="col-4 large-vendor-cart-details">
-                                            <a href="">
-                                                <p class="vendor-list-title">Sample Vendor</p>
-                                            </a>                                            
+                                        <div class="col-4 large-vendor-cart-details">                                          
                                             <ul>
-                                                <li>{{ item.game.console }}</li>
-                                                <li>{{ item.game.genre }}</li>
+                                                <li><strong>{{ item.listing.game.console }}</strong></li>
+                                                <li><strong>{{ item.listing.game.genre }}</strong></li>
                                                 <hr>
                                                 <li>Mint Condition</span></li>
-                                                <li>Price: ${{ item.game.price }}</span></li>
+                                                <li>Price: ${{ item.listing.price }}</span></li>
                                                 <li>Quantity: {{ item.quantity }} </li>
                                                 <li>Subtotal: {{ item.total }}</li>
                                             </ul>

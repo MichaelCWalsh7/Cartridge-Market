@@ -431,11 +431,6 @@ input[name='q']::placeholder {
     }
 }
 
-@media (min-width: 1200px) {
-    .card {
-      margin-left: 4% !important;
-    }
-}
 
 /* ----------------- Cart ----------------- */
 
@@ -516,20 +511,21 @@ input[name='q']::placeholder {
 
 /* Cart - Media Queries */
 @media (min-width: 576px) {
-    .cart-game-image img {
+    .cart-listing-image img {
         height: 230px;
     }  
 }
 
 @media (min-width: 993px) {
-    .cart-listing-image img {
-        max-height: 230px;
+    .cart-listing-image img,
+    .cart-storefront-image img  {
+        height: 230px;
     }
 }
 
 @media (min-width: 1450px) {
     .cart-listing-image img,
-    .cart-game-image img {
+    .cart-storefront-image img {
         height: 350px;
         max-height: 350px;
     }

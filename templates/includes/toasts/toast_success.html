@@ -21,11 +21,11 @@
                 {% for item in cart_items %}
                     <div class="row">
                         <div class="col-3 my-1">
-                            <img src="{{ MEDIA_URL }}images/game-images/{{ item.game.image_url }}" 
-                                alt="{{ item.game.name }}" class="w-100">
+                            <img src="{{ MEDIA_URL }}images/listing-images/{{ item.listing.image_url }}" 
+                                alt="{{ item.listing.title }}" class="w-100">
                         </div>
                         <div class="col-9">
-                            <p class="my-0"><strong>{{ item.game.name }}</strong></p>
+                            <p class="my-0"><strong>{{ item.listing.title }}</strong></p>
                             <p class="my-0 small text-muted">Quantity {{ item.quantity }} </p>
                         </div>
                     </div>

@@ -109,7 +109,7 @@
                         </div>
                     </div>
                     <div class="add-to-cart-form">
-                        <form class="text-center" action="{% url 'add_to_cart' listing.game.id %}" method="post">
+                        <form class="text-center" action="{% url 'add_to_cart' listing.id %}" method="post">
                             {% csrf_token %}
                             <select class="form-select mb-3" name="quantity">
                                 {% for i in copy_range %}
