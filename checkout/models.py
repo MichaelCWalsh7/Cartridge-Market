@@ -83,7 +83,7 @@ class OrderLineItem(models.Model):
         Order, null=False, blank=False, on_delete=models.CASCADE,
         related_name='lineitems')
     listing = models.ForeignKey(
-        Listing, null=True, blank=False, on_delete=models.CASCADE)
+        Listing, null=False, blank=False, on_delete=models.CASCADE)
     quantity = models.IntegerField(null=False, blank=False, default=0)
     lineitem_total = models.DecimalField(
         max_digits=6, decimal_places=2, null=False, blank=False,
@@ -98,4 +98,4 @@ class OrderLineItem(models.Model):
         super().save(*args, **kwargs)
 
     def __str__(self):
-        return f'SKU {self.listing.sku} on order {self.order.order_number}'
+        return f' SKU {self.listing.sku} order {self.order.order_number}'
