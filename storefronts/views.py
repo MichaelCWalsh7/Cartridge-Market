@@ -5,6 +5,7 @@ Views for the profiles app.
 from django.shortcuts import render, redirect, reverse, get_object_or_404
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
+from django.db.models import Q
 
 from listings.models import Listing
 from .models import StoreFront
@@ -69,6 +70,7 @@ def add_storefront(request):
     return render(request, template, context)
 
 
+@login_required
 def edit_storefront(request, storefront_id):
     """
     A view for users to edit their storefront on the site.
@@ -101,6 +103,7 @@ def edit_storefront(request, storefront_id):
     return render(request, template, context)
 
 
+@login_required
 def delete_storefront(request, storefront_id):
     """
     A view for users to delete their storefront on the site.
@@ -109,3 +112,35 @@ def delete_storefront(request, storefront_id):
     storefront.delete()
     messages.success(request, 'Your storefront has been deleted.')
     return redirect(reverse('home'))
+
+
+def all_storefronts(request):
+    """
+    A view to display all storefronts currently uploaded on the site.
+    """
+    storefronts = StoreFront.objects.all()
+    query = None
+
+    if request.GET:
+        # Handles searches made on the site
+        if 'q' in request.GET:
+            query = request.GET['q']
+            if not query:
+                messages.error(
+                    request, "You didn't enter any search criteria!")
+                return redirect(reverse('all_storefronts'))
+
+            # queries are applied to name, description, console and publisher
+            queries = Q(
+                name__icontains=query
+            ) | Q(
+                    description__icontains=query
+            )
+            storefronts = storefronts.filter(queries)
+
+    context = {
+        'storefronts': storefronts,
+        'search_term': query,
+    }
+
+    return render(request, 'storefronts/all_storefronts.html', context)

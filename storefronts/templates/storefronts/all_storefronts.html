@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block extra_css %}
+    <link rel="stylesheet" href="{% static 'storefronts/css/storefronts.css' %}">
+{% endblock %}
+
+{% block content %}
+    <div class="container-fluid">
+        <h1 class="page-title-text">Storefronts</h1>
+        <div class="main-body-section">
+
+            <div class="row">
+                <div class="col-10 offset-1 col-sm-8 offset-sm-2 col-lg-6 offset-lg-3 mb-5">
+                    <form action="{% url 'all_storefronts' %}" method="GET" name="filter" class="text-center input-group">
+                        <input class="form-control border border-dark rounded-0" type="text" id="storefrontSearchbar"
+                            placeholder="Search storefronts..." name="q" aria-label="search games">
+                        <button class="btn" type="submit">
+                            <i class="fas fa-search"></i>
+                        </button>
+                    </form>
+                </div>
+            </div>            
+        
+        
+            <div class="row">
+                {% for storefront in storefronts %}
+                    <div class="col-10 offset-1 col-sm-8 offset-sm-2 col-lg-5 offset-lg-1 col-xl-3 offset-xl-0 card storefront-card">
+                        <a class="storefront-card-link" href="{% url 'storefront' storefront.id %}">
+                            <div class="card-body text-center">
+                                    <h5 class="card-title text-center pb-3">{{ storefront.name|truncatechars:25 }}</h5>
+                                    <img class="card-image" src="{{ MEDIA_URL }}images/storefront-images/{{ storefront.image_url }}" 
+                                        alt="{{ storefront.name }}">
+                            </div>
+                            <div class="card-footer px-2">
+                                    <span class="float-start"><strong>{{ storefront.user }}</strong></span>
+                                    <span class="float-end"><strong>{{ storefront.country }}</strong></span>
+                            </div>
+                        </a>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+{% endblock %}

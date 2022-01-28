@@ -28,11 +28,4 @@ select option[value=""] {
 
 .card {
   margin-bottom: 1% !important;
-  margin-left: 6% !important;
-}
-
-@media (max-width: 576px) {
-  .card {
-      margin-left: 0 !important;
-  }
 }

@@ -75,7 +75,7 @@
                 <div class="col-10 offset-1 col-sm-8 offset-sm-2 col-lg-5 offset-lg-1 col-xl-3 offset-xl-0 card game-card">
                     <a class="game-card-link" href="{% url 'game_details' game.id %}">
                         <div class="card-body text-center">
-                                <h4 class="card-title text-center pb-3">{{ game.name }}</h4>
+                                <h4 class="card-title text-center pb-3">{{ game.name|truncatechars:20 }}</h4>
                                 <img class="card-image" src="{{ MEDIA_URL }}images/game-images/{{ game.image_url }}" alt="{{ game.name }}">
                         </div>
                         <div class="card-footer px-2">

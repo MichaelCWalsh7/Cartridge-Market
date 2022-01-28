@@ -196,7 +196,8 @@ input[name='q']::placeholder {
 
 /* ----------------- Game Card ----------------- */
 
-.game-card {
+.game-card,
+.storefront-card {
     background-color: #1F211F;
     color: white;
     margin-top: 6px;
@@ -205,17 +206,19 @@ input[name='q']::placeholder {
     border-radius: 12px;
 }
 
-.game-card:hover {
-    background-color: white;
-}
-
-.game-card-link {
+.game-card-link,
+.storefront-card-link  {
+    color: white !important;
     text-decoration: none;
-    color: inherit;
 }
 
-.game-card-link:hover {
-    color: #1F211F;
+.game-card:hover,
+.game-card-link:hover,
+.storefront-card:hover,
+.storefront-card-link:hover {
+    background-color: white;
+    color: #1F211F !important;
+    text-decoration: none;
 }
 
 .card-image {
@@ -225,6 +228,14 @@ input[name='q']::placeholder {
 
 .card-footer {
     border-top: 1px solid green;
+}
+
+.card-title {
+    height: 40px;
+}
+
+.card-body {
+    padding: .5rem .5rem;
 }
 
 /* Game Card - Media Queries */
@@ -262,7 +273,8 @@ input[name='q']::placeholder {
 }
 
 @media (min-width: 992px) and (max-width: 1199px) {
-    .game-card {  
+    .game-card,
+    .storefront-card  {  
         margin-left: 4%;
         margin-right: 4%;
     }
@@ -273,7 +285,8 @@ input[name='q']::placeholder {
 }
 
 @media (min-width: 1200px) {
-    .game-card {
+    .game-card,
+    .storefront-card  {
         margin-left: 1%;
         margin-right: 1%;
         width: 23% !important;
