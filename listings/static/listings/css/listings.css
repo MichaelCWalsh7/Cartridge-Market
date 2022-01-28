@@ -35,6 +35,10 @@ select option[value="game-placeholder"] {
   margin-left: 0;
 }
 
+.danger-triangle {
+  color: red;
+}
+
 @media (min-width: 577px) {
   .listing-card {
     margin-left: 5% !important;

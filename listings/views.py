@@ -116,6 +116,16 @@ def edit_listing(request, listing_id):
     return render(request, template, context)
 
 
+def delete_listing(request, listing_id):
+    """
+    Allows users to delete listings that they've posted to the marketplace.
+    """
+    listing = get_object_or_404(Listing, pk=listing_id)
+    listing.delete()
+    messages.success(request, 'Your listing has been removed.')
+    return redirect(reverse('home'))
+
+
 def listing(request, listing_id):
     """
     A view to display a listing on the website
