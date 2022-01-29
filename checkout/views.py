@@ -153,6 +153,8 @@ def checkout_success(request, order_number):
     # pylint: disable=unused-variable
     save_info = request.session.get('save_info')  # noqa: F841
     order = get_object_or_404(Order, order_number=order_number)
+    stripe_public_key = settings.STRIPE_PUBLIC_KEY  # noqa: F841
+    stripe_secret_key = settings.STRIPE_SECRET_KEY  # noqa: F841
 
     if request.user.is_authenticated:
         profile = UserProfile.objects.get(user=request.user)

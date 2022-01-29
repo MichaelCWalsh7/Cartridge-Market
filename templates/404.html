@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+    <div class="container-fluid">
+        <div class="main-body-section">
+
+            <hr>
+            <h1 class="page-title-text">Oops...</h1>
+            <hr>
+            <div class="row">
+                <div class="col text-center preamble-text">
+                    <h3 class="center mb-3">¯\_(ツ)_/¯</h3>
+                    <h3">Sorry, this page doesn't exist</h3>
+
+                    <a href="{% url 'home' %}" class="btn action-button">
+                        <i class="fas fa-chevron-left"></i> 
+                        Return to the Home Page                        
+                    </a>
+                </div>
+            </div>       
+        </div>
+    </div>
+
+
+{% endblock %}
