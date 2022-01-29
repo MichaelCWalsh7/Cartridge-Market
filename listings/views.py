@@ -116,6 +116,7 @@ def edit_listing(request, listing_id):
     return render(request, template, context)
 
 
+@login_required
 def delete_listing(request, listing_id):
     """
     Allows users to delete listings that they've posted to the marketplace.
