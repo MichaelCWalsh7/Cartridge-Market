@@ -146,17 +146,29 @@
                                 </div>
                             </div>
                         {% else %}
-                            <form class="text-center" action="{% url 'add_to_cart' listing.id %}" method="post">
-                                {% csrf_token %}
-                                <select class="form-select mb-3" name="quantity">
-                                    {% for i in copy_range %}
-                                        <option value="{{ i }}">{{ i }}</option>
-                                    {% endfor %}
-                                </select>
-                                <a href="{% url 'all_games' %}" class="btn action-button"><i class="fas fa-chevron-left"></i> Keep Browsing</a>
-                                <button type="submit" class="btn action-button-inverted"><i class="fas fa-cart-plus"></i> Add to Cart</button>
-                                <input type="hidden" name="redirect_url" value="{{ request.path }}">
-                            </form>
+                            {% if listing.copies_available > 0 %}
+                                <form class="text-center" action="{% url 'add_to_cart' listing.id %}" method="post">
+                                    {% csrf_token %}
+                                    <select class="form-select mb-3" name="quantity">
+                                        {% for i in copy_range %}
+                                            <option value="{{ i }}">{{ i }}</option>
+                                        {% endfor %}
+                                    </select>
+                                    <a href="{% url 'all_games' %}" class="btn action-button"><i class="fas fa-chevron-left"></i> Keep Browsing</a>
+                                    
+                                    <button type="submit" class="btn action-button-inverted"><i class="fas fa-cart-plus"></i> Add to Cart</button>
+                                    <input type="hidden" name="redirect_url" value="{{ request.path }}">
+                                </form>
+                            {% else %}
+                                <form class="text-center">
+                                    <select name="quantity" disabled aria-disabled="true" class="form-select mb-3">
+                                        <option>0</option>
+                                        </select>
+                                        <a href="{% url 'all_games' %}" class="btn action-button"><i class="fas fa-chevron-left"></i> Keep Browsing</a>
+                                        <button disabled class="btn action-button-inverted">Out of Stock!</button>
+                                        <input type="hidden" name="redirect_url" value="{{ request.path }}">
+                                </form>                                    
+                            {% endif %}
                         {% endif %}
                     </div>
                 </div>
