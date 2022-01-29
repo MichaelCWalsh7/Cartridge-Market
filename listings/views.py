@@ -178,6 +178,7 @@ def listing(request, listing_id):
     context = {
         'listing': listing,
         'copy_range': copy_range,
+        'show_cart': True
     }
     return render(request, template, context)
 

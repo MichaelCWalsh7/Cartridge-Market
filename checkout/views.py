@@ -74,6 +74,9 @@ def checkout(request):
             for item_id, item_data in cart.items():
                 try:
                     listing = Listing.objects.get(id=item_id)
+                    listing.copies_available = listing.copies_available - int(item_data)
+                    listing.save()
+                    print(f'item {item_id} - data {item_data}')
                     if isinstance(item_data, int):
                         order_line_item = OrderLineItem(
                             order=order,
@@ -187,6 +190,7 @@ def checkout_success(request, order_number):
     template = 'checkout/checkout_success.html'
     context = {
         'order': order,
+         'stripe_public_key': stripe_public_key
     }
 
     return render(request, template, context)

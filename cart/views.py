@@ -14,7 +14,7 @@ def view_cart(request):
     A view that renders the cart contents page
     """
 
-    return render(request, 'cart/cart.html')
+    return render(request, 'cart/cart.html', context={'show_cart': True})
 
 
 def add_to_cart(request, product_id):

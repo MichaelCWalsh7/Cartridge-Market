@@ -136,6 +136,7 @@ class StripeWH_Handler:
                     )
                 for item_id, item_data in json.loads(cart).items():
                     listing = Listing.objects.get(id=item_id)
+                    print(f'item {item_id} - data {item_data}')
                     if isinstance(item_data, int):
                         order_line_item = OrderLineItem(
                             order=order,
