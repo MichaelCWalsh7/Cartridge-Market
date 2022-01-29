@@ -110,46 +110,8 @@
                     </p>
                 </div>
             </div>
-            <div class="row mt-3">
-                <div class="col-12 col-sm-9 offset-sm-1 col-lg-6 offset-lg-0" id="commentsContainer">
-                    <form action="" method="post">
-                        {% csrf_token %}
-                        <div class="row d-flex align-items-center">
-                            <div class="col-3 p-0">
-                                <img src="{{ MEDIA_URL }}images/user.png" id="userPlaceholderImage" alt="a user image">
-                            </div>
-                            <div class="col-9">
-                                <textarea name="comment" id="commentBox" rows="3"
-                                    placeholder="Tell us what you think!"></textarea>
-                            </div>
-                        </div>
-                    </form>
-                    <div class="add-to-cart-form">
-                        <form class="text-center" action="{% url 'add_to_cart' game.id %}" method="post">
-                            {% csrf_token %}
-                            <select class="form-select mb-3" name="quantity">
-                                <!-- DEV NOTE - If listings do indeed go ahead as a feature then
-                                    you'll have to use JavaScript to generate a number of select
-                                    options eqaul to the number copies the listing indicated they
-                                    upon upload. Don't forget to disable button if no quantity
-                                    has been selected.
-                                    YOU WILL ALSO have to style this using JavaScript, see the link
-                                    below for further instructions:
-                                    https://codepen.io/dkellner/pen/yLBrQYV
-                                    In this link he manually makes the style changes but you can
-                                    do this with JS also. 
-                                 -->
-                                <option selected value="1">1</option>
-                                <option value="2">2</option>
-                                <option value="3">3</option>
-                              </select>
-                            <a href="{% url 'all_games' %}" class="btn action-button"><i class="fas fa-chevron-left"></i> Keep Browsing</a>
-                            <button type="submit" class="btn action-button-inverted"><i class="fas fa-cart-plus"></i> Add to Cart</button>
-                            <input type="hidden" name="redirect_url" value="{{ request.path }}">
-                        </form>
-                    </div>
-                </div>                
-                <div class="col-12 col-lg-6" id="listingsContainer">
+            <div class="row mt-3"> 
+                <div class="col-12 col-lg-6 offset-lg-3" id="listingsContainer">
                     <h3 class="text-center">Copies Available</h3>
                     <div class="row">
                         {% for listing in listings %}

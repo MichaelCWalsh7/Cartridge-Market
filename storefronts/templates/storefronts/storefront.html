@@ -77,40 +77,38 @@
             </div>
 
             <div class="row">
-                <div class="col-12 col-sm-10 offset-sm-1 mt-5 mb-5 storefront-listings">
+                <div class="col-11 col-sm-10 offset-sm-1 mt-5 mb-5 storefront-listings">
                     <div class="listings-container">
                         <h3 class="text-center">Games for Sale</h3>
                         <div class="row">
-                            {% for listing in listings %}
-                                
-                                    <div class="col-12 col-sm-5 col-lg-3 card listing-card">
-                                        <a href="{% url 'listing' listing.id %}">
-                                            <img src="{{ MEDIA_URL }}images/listing-images/{{ listing.image_url }}"
-                                            class="card-img-top" alt="{{ listing.game.name }}">
-                                        </a>
-                                        <div class="card-body listing-card-body">
-                                            <p class="card-text">{{ listing.description }}</p>
-                                            <hr>
-                                            <h5 class="text-center">Game Details</h5>
-                                            <div class=" row">
-                                                <div class="col card-details">
-                                                    <ul class="listing-card-details-list">
-                                                        <li><strong>{{ listing.title }}</strong></li>
-                                                        <li><strong>Condition: </strong>{{ listing.condition }}</li>
-                                                        <li><strong>Price: </strong>{{ listing.price }}</li>
-                                                        <li><strong>Copies Available: </strong>{{ listing.copies_available }}</li>
-                                                    </ul>
-                                                </div>
-                                            </div>
-                                            <div class="text-center">
-                                                <a href="{% url 'listing' listing.id %}" class="btn action-button">
-                                                    View Item 
-                                                    <i class="fas fa-chevron-circle-right"></i>
-                                                </a>
+                            {% for listing in listings %}                                
+                                <div class="col-12 col-sm-5 col-lg-3 card mx-2 listing-card">
+                                    <a href="{% url 'listing' listing.id %}">
+                                        <img src="{{ MEDIA_URL }}images/listing-images/{{ listing.image_url }}"
+                                        class="card-img-top" alt="{{ listing.game.name }}">
+                                    </a>
+                                    <div class="card-body listing-card-body">
+                                        <p class="card-text">{{ listing.description }}</p>
+                                        <hr>
+                                        <h5 class="text-center">Game Details</h5>
+                                        <div class=" row">
+                                            <div class="col card-details">
+                                                <ul class="listing-card-details-list">
+                                                    <li><strong>{{ listing.title }}</strong></li>
+                                                    <li><strong>Condition: </strong>{{ listing.condition }}</li>
+                                                    <li><strong>Price: </strong>{{ listing.price }}</li>
+                                                    <li><strong>Copies Available: </strong>{{ listing.copies_available }}</li>
+                                                </ul>
                                             </div>
                                         </div>
+                                        <div class="text-center">
+                                            <a href="{% url 'listing' listing.id %}" class="btn action-button">
+                                                View Item 
+                                                <i class="fas fa-chevron-circle-right"></i>
+                                            </a>
+                                        </div>
                                     </div>
-                                                            
+                                </div>                                                            
                             {% empty %}
                                 <h4 class="text-center">Sorry, this storefront doesn't seem to have any games for sale right now.</h4>
                             {% endfor %}
