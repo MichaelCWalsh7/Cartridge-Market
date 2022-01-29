@@ -65,6 +65,42 @@ def add_listing(request):
 
 
 @login_required
+def add_listing_by_game(request, game_id):
+    """
+    A view for users to create a listing on the site, for a specific game.
+    """
+    game = get_object_or_404(Game, pk=game_id)
+    if request.method == 'POST':
+        form = ListingForm(request.POST, request.FILES)
+        if form.is_valid():
+            user = request.user
+            storefront = user.storefront
+            image_url = request.POST.get('image_url')
+            today = date.today()
+            today_dd_mm_yy = today.strftime("%d/%m/%Y")
+            listing = form.save(commit=False)
+            listing.image_url = image_url
+            listing.game = game
+            listing.storefront = storefront
+            listing.date = today_dd_mm_yy
+            listing.save()
+            messages.success(request, "Listing uploaded successfully!")
+            return redirect(reverse('listing', args=[listing.id]))
+        else:
+            messages.error(request, 'Failed to add listing. Please ensure \
+                your form is valid.')
+    else:
+        form = ListingForm()
+
+    template = 'listings/add_listing_by_game.html'
+    context = {
+        'game': game,
+        'form': form,
+    }
+    return render(request, template, context)
+
+
+@login_required
 def edit_listing(request, listing_id):
     """
     A view for users to edit their listings on the site.

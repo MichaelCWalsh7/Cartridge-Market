@@ -1,0 +1,64 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block extra_css %}
+    <link rel="stylesheet" href="{% static 'listings/css/listings.css' %}">
+{% endblock %}
+
+{% block content %}
+
+    <div class="container-fluid">
+        <div class="main-body-section">
+
+            <hr>
+            <h1 class="page-title-text">Edit a Listing</h1>
+            <hr>
+            
+            <div class="row">
+                <div class="col-12 col-md-6">
+                    <form action="{% url 'add_listing_by_game' game.id %}" method="post"
+                        class="form mb-2" enctype="multipart/form-data">
+                        {% csrf_token %}
+                        <fieldset class="rounded px-3 mb-4">
+                            <legend class="fieldset-label small px-2 w-auto">Game & Title</legend>
+                            <p class="px-2"><strong>{{ game.name }}</strong></p>
+                            {{ form.title | as_crispy_field }}
+                        </fieldset>
+                        
+                        <fieldset class="rounded px-3">
+                            <legend class="fieldset-label small px-2 w-auto">Details</legend>
+                            {{ form.price | as_crispy_field }}
+                            {{ form.copies_available | as_crispy_field }}
+                            {{ form.sku | as_crispy_field }}
+                            {{ form.condition | as_crispy_field }}
+                        </fieldset>
+
+                        <fieldset class="rounded px-3">
+                            <legend class="fieldset-label small px-2 w-auto">Image & Description</legend>
+                            {{ form.image | as_crispy_field }}
+                            <input type="hidden" name="image_url">
+                            {{ form.description | as_crispy_field }}
+                        </fieldset>
+                        
+                        <a href="{% url 'home' %}" class="btn action-button-inverted">
+                            <i class="fas fa-chevron-left"></i>
+                            Cancel & Return Home
+                        </a>
+                        <button type="submit" class="btn action-button">
+                            Submit
+                            <i class="fas fa-check"></i>
+                        </button>
+                    </form>
+                </div>
+            </div>
+            
+        </div>
+    </div>
+
+
+{% endblock %}
+
+{% block postloadjs %}
+    {{ block.super }}
+    <script src="{% static 'listings/js/listings.js' %}"></script>
+{% endblock %}
