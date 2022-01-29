@@ -21,32 +21,8 @@
                         {% csrf_token %}
                         <fieldset class="rounded px-3 mb-4">
                             <legend class="fieldset-label small px-2 w-auto">Game & Title</legend>
+                            <p class="px-2"><strong>{{ listing.game.name }}</strong></p>
                             {{ form.title | as_crispy_field }}
-                            <select class="form-select mb-3 border-black dev-selector" aria-label="Select a developer">
-                                <option value="default">Choose a Developer</option>
-                                <option value="nintendo">Nintendo</option>
-                                <option value="sony">Sony</option>
-                                <option value="sega">SEGA</option>
-                                <option value="atari">Atari</option>
-                            </select>
-                            <select name="game" class="form-select mb-3 border-black game-selector" required>
-                                <option value="game-placeholder" id="gameSelectPlaceholder">Choose a Game *</option>
-                                {% for game in games %}
-                                    <option class="all-games" value="{{ game.id }}">{{ game.name }}</option>
-                                {% endfor %}
-                                {% for game in nintendo_games %}
-                                    <option class="nintendo-games" value="{{ game.id }}">{{ game.name }}</option>
-                                {% endfor %}
-                                {% for game in sony_games %}
-                                    <option class="sony-games" value="{{ game.id }}">{{ game.name }}</option>
-                                {% endfor %}
-                                {% for game in sega_games %}
-                                    <option class="sega-games" value="{{ game.id }}">{{ game.name }}</option>
-                                {% endfor %}
-                                {% for game in atari_games %}
-                                    <option class="atari-games" value="{{ game.id }}">{{ game.name }}</option>
-                                {% endfor %}
-                            </select>
                         </fieldset>
                         
                         <fieldset class="rounded px-3">

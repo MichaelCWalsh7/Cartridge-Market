@@ -8,6 +8,7 @@
 // Initializes the keys from the json template filters in html
 var stripePublicKey = $('#id_stripe_public_key').text().slice(1, -1);
 var clientSecret = $('#id_client_secret').text().slice(1, -1);
+console.log("Public key = " + stripePublicKey)
 // With the above key, initializes an instance of Stripe
 var stripe = Stripe(stripePublicKey);
 // Then initializes an instance of Stripe elements

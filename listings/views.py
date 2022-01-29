@@ -82,11 +82,11 @@ def edit_listing(request, listing_id):
         form = ListingForm(request.POST, request.FILES, instance=listing)
         if form.is_valid():
             image_url = request.POST.get('image_url')
-            listing = form.save(commit=False)
-            listing.image_url = image_url
-            game_id = request.POST.get('game')
+            game_id = listing.game.id
             game = get_object_or_404(Game, pk=game_id)
             listing.game = game
+            listing = form.save(commit=False)
+            listing.image_url = image_url
             listing.storefront = storefront
             listing.save()
             messages.success(request, "Listing updated successfully!")

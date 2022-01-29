@@ -66,6 +66,7 @@ def add_storefront(request):
     template = 'storefronts/add_storefront.html'
     context = {
         'form': form,
+        'no_cart_image': True,
     }
     return render(request, template, context)
 
@@ -98,6 +99,7 @@ def edit_storefront(request, storefront_id):
     context = {
         'form': form,
         'storefront': storefront,
+        'no_cart_image': True,
     }
 
     return render(request, template, context)
