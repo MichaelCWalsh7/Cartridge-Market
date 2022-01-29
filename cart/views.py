@@ -28,9 +28,13 @@ def add_to_cart(request, product_id):
     cart = request.session.get('cart', {})
 
     if product_id in list(cart.keys()):
-        cart[product_id] += quantity
-        messages.success(request,
-                         f'Updated {listing.title} quantity in your cart')
+        if cart[product_id] + quantity > listing.copies_available:
+            messages.error(request, "Sorry, the storefront doesn't have that \
+                many copies available.")
+        else:
+            cart[product_id] += quantity
+            messages.success(request,
+                             f'Updated {listing.title} quantity in your cart')
     else:
         cart[product_id] = quantity
         messages.success(request, f'Added {listing.title} to your cart')
@@ -48,9 +52,13 @@ def adjust_cart(request, product_id):
     cart = request.session.get('cart', {})
 
     if quantity > 0:
-        cart[product_id] = quantity
-        messages.success(request,
-                         f'Updated {listing.title} quantity in your cart')
+        if quantity > listing.copies_available:
+            messages.error(request, "Sorry, the storefront doesn't have that \
+                many copies available.")
+        else:
+            cart[product_id] = quantity
+            messages.success(request,
+                             f'Updated {listing.title} quantity in your cart')
     else:
         cart.pop(product_id)
         messages.success(request, f'Removed {listing.title} from your cart')
