@@ -66,7 +66,6 @@ def add_storefront(request):
     template = 'storefronts/add_storefront.html'
     context = {
         'form': form,
-        'no_cart_image': True,
     }
     return render(request, template, context)
 
@@ -77,6 +76,10 @@ def edit_storefront(request, storefront_id):
     A view for users to edit their storefront on the site.
     """
     storefront = get_object_or_404(StoreFront, pk=storefront_id)
+    if storefront.user != request.user:
+        messages.warning(request, "Sorry, only a storefront owner may edit a \
+            storefront.")
+        return redirect(reverse('home'))
     if request.method == 'POST':
         form = StoreFrontForm(request.POST, request.FILES, instance=storefront)
         if form.is_valid():
@@ -99,7 +102,6 @@ def edit_storefront(request, storefront_id):
     context = {
         'form': form,
         'storefront': storefront,
-        'no_cart_image': True,
     }
 
     return render(request, template, context)
@@ -111,6 +113,10 @@ def delete_storefront(request, storefront_id):
     A view for users to delete their storefront on the site.
     """
     storefront = get_object_or_404(StoreFront, pk=storefront_id)
+    if storefront.user != request.user:
+        messages.warning(request, "Sorry, only a storefront owner may delete \
+            a storefront.")
+        return redirect(reverse('home'))
     storefront.delete()
     messages.success(request, 'Your storefront has been deleted.')
     return redirect(reverse('home'))

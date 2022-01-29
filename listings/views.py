@@ -122,6 +122,10 @@ def delete_listing(request, listing_id):
     Allows users to delete listings that they've posted to the marketplace.
     """
     listing = get_object_or_404(Listing, pk=listing_id)
+    if request.user != listing.storefront.user:
+        messages.error(request, 'Sorry, only the storefront owner can \
+            do that.')
+        return redirect(reverse('home'))
     listing.delete()
     messages.success(request, 'Your listing has been removed.')
     return redirect(reverse('home'))
