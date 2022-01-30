@@ -31,7 +31,7 @@
                             <div class="col-6 card-details">
                                 <a href="{% url 'game_details' listing.game.id %}">
                                     {% if listing.game.image %}
-                                        <img class="w-100 px-1" src="{{ MEDIA_URL }}images/game-images/{{ listing.game.image_url }}"
+                                        <img class="w-100 px-1 listing-game-image" src="{{ MEDIA_URL }}images/game-images/{{ listing.game.image_url }}"
                                             alt="{{ listing.game.name }}">
                                     {% else %}
                                         <img class="w-100 px-1" src="{{ MEDIA_URL }}images/no-image.png"
