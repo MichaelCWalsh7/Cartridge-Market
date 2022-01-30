@@ -30,6 +30,12 @@
     border-radius: 8px;
 }
 
+.dropdown-item:focus,
+.dropdown-item:hover {
+    background-color: #bf8025 !important;
+    color: #1F211F !important;
+}
+
 /* Chrome, Safari, Edge, Opera */
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
@@ -108,7 +114,9 @@ input[type=number] {
     color: #bf8025 !important;
 }
 
-.navbar-nav .nav-item a:hover {
+.navbar-nav .nav-item a:hover,
+#mainNavUserDropdown li:hover,
+#mainNavUserDropdown li a:hover {
     background-color: #bf8025 !important;
     color: #1F211F !important;
 }
@@ -286,7 +294,8 @@ input[name='q']::placeholder {
 .game-card:hover,
 .game-card-link:hover,
 .storefront-card:hover,
-.storefront-card-link:hover {
+.storefront-card-link:hover,
+.user-storefront-card:hover {
     background-color: white;
     color: #1F211F !important;
     text-decoration: none;

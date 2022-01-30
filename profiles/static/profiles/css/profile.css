@@ -23,3 +23,12 @@
     max-height: 421px;
     overflow-y: auto;
 }
+
+.user-storefront-card {
+    background-color: #1F211F;
+    color: white;
+    margin-top: 6px;
+    margin-bottom: 6px;
+    border: solid 4px #1F211F;
+    border-radius: 12px;
+}
