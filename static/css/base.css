@@ -36,6 +36,19 @@
     color: #1F211F !important;
 }
 
+.footer {
+    background-color: #1F211F;
+    color: #bf8025;
+}
+
+.footer-links a {
+    color: #bf8025;
+}
+
+.footer-links a:hover {
+    color: white;
+}
+
 /* Chrome, Safari, Edge, Opera */
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
