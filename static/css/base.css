@@ -4,6 +4,7 @@
     padding-left: 2%;
     padding-right: 2%;
     margin-bottom: 3%;
+    font-family: 'Poppins', sans-serif;
 }
 
 .page-title-text {
@@ -45,6 +46,24 @@ input[type=number] {
 
 .white-text {
     color: white;
+}
+
+/* Fonts */
+
+.orbitron {
+    font-family: 'Orbitron', sans-serif;
+}
+
+.russo {
+    font-family: 'Russo One', sans-serif
+}
+
+.poppins {
+    font-family: 'Poppins', sans-serif;
+}
+
+.chakra-petch {
+    font-family: 'Chakra Petch', sans-serif;
 }
 
 /* General - Media Queries */
