@@ -174,11 +174,24 @@ def add_game(request):
         return reverse(redirect('home'))
 
     if request.method == 'POST':
-        form = GameForm()
+        form = GameForm(request.POST, request.FILES)
+        publisher = request.POST.get('publisher')
+        genre = request.POST.get('genre')
+        if publisher == "Nintendo":
+            console = "Nintendo 64"
+        elif publisher == "Sony":
+            console = "Playstation"
+        elif publisher == "Sega":
+            console = "Sega Genesis"
+        elif publisher == "Atari":
+            console = "Atari 2600"
+
         if form.is_valid():
-            user = request.user
             image_url = request.POST.get('image_url')
             game = form.save(commit=False)
+            game.console = console
+            game.genre = genre
+            game.publisher = publisher
             game.image_url = image_url
             game.save()
             messages.success(request, "Game uploaded successfully!")
@@ -191,19 +204,11 @@ def add_game(request):
 
     games = Game.objects.all()
     genres = Genre.objects.all()
-    nintendo_games = games.filter(publisher__name='Nintendo')
-    sony_games = games.filter(publisher__name='Sony')
-    sega_games = games.filter(publisher__name='Sega')
-    atari_games = games.filter(publisher__name='Atari')
 
     template = 'products/add_game.html'
     context = {
         'games': games,
         'genres': genres,
-        'nintendo_games': nintendo_games,
-        'sony_games': sony_games,
-        'sega_games': sega_games,
-        'atari_games': atari_games,
         'form': form,
     }
     return render(request, template, context)

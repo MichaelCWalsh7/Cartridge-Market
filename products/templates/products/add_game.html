@@ -16,16 +16,16 @@
                         class="form mb-2" enctype="multipart/form-data">
                         {% csrf_token %}
                         <fieldset class="rounded px-3 mb-4">
-                            <legend class="fieldset-label small px-2 w-auto">Name & Developer</legend>
+                            <legend class="fieldset-label small px-2 w-auto">Name</legend>
                             {{ form.name | as_crispy_field }}
-                            <select class="form-select mb-3 border-black dev-selector" name="publisher" aria-label="Select a developer">
-                                <option value="default">Choose a Developer</option>
-                                <option value="nintendo">Nintendo</option>
-                                <option value="sony">Sony</option>
-                                <option value="sega">SEGA</option>
-                                <option value="atari">Atari</option>
+                            <legend class="fieldset-label small px-2 w-auto">Name</legend>
+                            <select class="form-select mb-3 border-black dev-selector" name="publisher" aria-label="Choose a publisher" required>
+                                <option value="default">Choose a Publisher</option>
+                                <option value="Nintendo">Nintendo</option>
+                                <option value="Sony">Sony</option>
+                                <option value="Sega">SEGA</option>
+                                <option value="Atari">Atari</option>
                             </select>
-                            <input type="hidden" name="console">
                         </fieldset>
                         
                         <fieldset class="rounded px-3">
@@ -57,10 +57,13 @@
                         </button>
                     </form>
                 </div>
-            </div>
-            
+            </div>            
         </div>
     </div>
+{% endblock %}
 
 
+{% block postloadjs %}
+    {{ block.super }}
+    <script src="{% static 'products/js/products.js' %}"></script>
 {% endblock %}
