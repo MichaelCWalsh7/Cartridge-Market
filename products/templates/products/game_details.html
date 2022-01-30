@@ -7,7 +7,13 @@
         <div class="main-body-section">
             <div class="row">
                 <div class="col-12 col-sm-6 col-lg-4 game-image-container">
-                    <img src="{{ MEDIA_URL }}images/game-images/{{ game.image_url }}" alt="{{ game.name }}">
+                    {% if game.image %}
+                            <img src="{{ MEDIA_URL }}images/game-images/{{ game.image_url }}"
+                                alt="{{ game.name }}">
+                        {% else %}
+                            <img src="{{ MEDIA_URL }}images/no-image.png"
+                                alt="{{ game.name }}">
+                        {% endif %}
                 </div>
                 <div class="col-12 d-sm-none dropdown" id="mobileDetailsDropdown">
                     <button class="btn dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false" type="button"
@@ -110,16 +116,21 @@
                     </p>
                 </div>
             </div>
-            <div class="row mt-3"> 
-                <div class="col-12 col-lg-6 offset-lg-3" id="listingsContainer">
+            <div class="row"> 
+                <div class="col-12 col-lg-6 offset-lg-3 mt-3" id="listingsContainer">
                     <h3 class="text-center">Copies Available</h3>
                     <div class="row">
                         {% for listing in listings %}
                             {% if forloop.counter < 3 %}
-                                <div class="col-12 col-sm-5 offset-sm-1 card listing-card">
+                                <div class="col-12 col-sm-5 offset-sm-1 card  mt-3 listing-card">
                                     <a href="{% url 'listing' listing.id %}">
-                                        <img src="{{ MEDIA_URL }}images/listing-images/{{ listing.image_url }}"
-                                        class="card-img-top" alt="{{ listing.game.name }}">
+                                        {% if listing.image %}
+                                            <img class="w-100 px-1" src="{{ MEDIA_URL }}images/listing-images/{{ listing.image_url }}"
+                                                alt="{{ listing.title }}">
+                                        {% else %}
+                                            <img class="w-100 px-1" src="{{ MEDIA_URL }}images/no-image.png"
+                                                alt="{{ listing.title }}">
+                                        {% endif %}
                                     </a>                                    
                                     <div class="card-body listing-card-body">
                                         <p class="card-text">{{ listing.description }}</p>
@@ -155,6 +166,7 @@
                     {% if request.user.storefront %}
                         <div class="col my-4 text-center">
                             <a href="{% url 'add_listing_by_game' game.id %}" class="btn action-button">
+                                <i class="fas fa-plus-circle"></i> 
                                 Post a listing for this game
                             </a>
                         </div>
