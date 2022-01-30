@@ -3,16 +3,8 @@
 }
 
 .game-card {
-    background-color: white !important;
-    color: #1f211f !important;
-}
-
-.game-card:hover {
-    background-color: black !important;
-}
-
-.game-card-link:hover {
-    color: #bbbbbb !important;
+    background-color: black;
+    border: solid 4px black;
 }
 
 @media (min-width: 1400px) {

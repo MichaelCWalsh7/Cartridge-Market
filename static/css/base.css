@@ -315,7 +315,6 @@ input[name='q']::placeholder {
     .card-image {  
         height: 360px;
         width: 95%;
-
     }
 }
 
@@ -332,6 +331,12 @@ input[name='q']::placeholder {
         height: 350px;
         width: 80%;
 
+    }
+}
+
+@media (min-width: 577px) and (max-width: 991px) {
+    .game-card {  
+        margin-left: 5%;
     }
 }
 
