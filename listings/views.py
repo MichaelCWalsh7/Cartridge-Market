@@ -117,12 +117,16 @@ def edit_listing(request, listing_id):
     if request.method == 'POST':
         form = ListingForm(request.POST, request.FILES, instance=listing)
         if form.is_valid():
-            image_url = request.POST.get('image_url')
+            image_url_field = request.POST.get('image_url')
+            if image_url_field is None:
+                image_url = listing.image_url
+            else:
+                image_url = image_url_field
             game_id = listing.game.id
             game = get_object_or_404(Game, pk=game_id)
             listing.game = game
-            listing = form.save(commit=False)
             listing.image_url = image_url
+            listing = form.save(commit=False)
             listing.storefront = storefront
             listing.save()
             messages.success(request, "Listing updated successfully!")

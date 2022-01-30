@@ -36,7 +36,7 @@
                         <fieldset class="rounded px-3">
                             <legend class="fieldset-label small px-2 w-auto">Image & Description</legend>
                             {{ form.image | as_crispy_field }}
-                            <input type="hidden" name="image_url">
+                            <input type="hidden" value="{{ listing.image_url }}" name="image_url">
                             {{ form.description | as_crispy_field }}
                         </fieldset>
                         

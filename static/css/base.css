@@ -69,6 +69,11 @@ input[type=number] {
     border-top: 1px solid black;
 }
 
+#mainNavUpper {
+    background-color: #1F211F;
+    color: white !important;
+}
+
 #mainNavSearchButton {
     border: 2px solid black;
     border-radius: 4px;
@@ -93,7 +98,6 @@ input[type=number] {
 .mobile-cart-link,
 .main-nav-cart-link {
     text-decoration: none;
-    color: #212529;
 }
 
 .mobile-cart-link {

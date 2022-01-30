@@ -83,9 +83,13 @@ def edit_storefront(request, storefront_id):
     if request.method == 'POST':
         form = StoreFrontForm(request.POST, request.FILES, instance=storefront)
         if form.is_valid():
-            storefront = form.save(commit=False)
-            image_url = request.POST.get('image_url')
+            image_url_field = request.POST.get('image_url')
+            if image_url_field is None:
+                image_url = storefront.image_url
+            else:
+                image_url = image_url_field
             storefront.image_url = image_url
+            storefront = form.save(commit=False)
             storefront.user = request.user
             storefront.save()
             messages.success(request, "Successfully updated storefront.")
