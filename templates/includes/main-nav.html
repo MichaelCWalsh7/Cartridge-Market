@@ -19,11 +19,11 @@
         <div class="col-3 text-end my-4" id="mainNavIcons">
             <div class="row">
                 <div class="col-4 offset-md-4 dropdown">
-                    <button class="btn" type="button" id="mainNavUserDropdown"
+                    <button class="btn" type="button" id="mainNavUserDropdownButton"
                         data-bs-toggle="dropdown" aria-expanded="false">
                         <i class="fas fa-user fa-3x"></i>
                     </button>
-                    <ul class="dropdown-menu" aria-labelledby="mainNavUserDropdown">
+                    <ul class="dropdown-menu" id="mainNavUserDropdown" aria-labelledby="mainNavUserDropdownButton">
                         {% if request.user.is_authenticated %}
                             {% if request.user.is_superuser %}
                                 <li class="dropdown-item"><a href="">Product Management</a></li>

@@ -1,11 +1,11 @@
-<div class="container-fluid d-lg-none">
-    <ul class="list-inline" id="mobileNav">
+<div class="container-fluid d-lg-none" id="mobileNav">
+    <ul class="list-inline" id="mobileNavIconsList">
         <li class="list-inline-item dropdown">
             <button class="btn mt-2 ps-2" type="button" id="mobileDropdownMenuButton" data-bs-toggle="dropdown"
                 aria-expanded="false">
                 <i class="fas fa-bars mobile-nav-icon"></i>
             </button>
-            <ul class="dropdown-menu" aria-labelledby="mobileDropdownMenuButton">
+            <ul class="dropdown-menu mobile-dropdown-menu" aria-labelledby="mobileDropdownMenuButton">
                 <li><a class="dropdown-item" href="{% url 'all_games' %}" id="mobileNavAllGames">All Games</a></li>
                 <li><a class="dropdown-item" href="{% url 'all_storefronts' %}" id="mobileNavAllStorefronts">All Storefronts</a></li>
                 <li><a class="dropdown-item" href="{% url 'publisher_games' 'Nintendo' %}" id="mobileNavNintendo">Nintendo</a></li>
@@ -14,7 +14,7 @@
                 <li><a class="dropdown-item" href="{% url 'publisher_games' 'Atari' %}" id="mobileNavAtari">Atari</a></li>
             </ul>
         </li>
-        <li class="dropdown list-inline-item">
+        <li class="dropdown list-inline-item" id="mobileSearchContainer">
             <a class="btn mt-2 ps-2" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown"
                 aria-expanded="false">
                 <i class="fas fa-search mobile-nav-icon"></i>
@@ -36,7 +36,7 @@
                 aria-expanded="false">
                 <i class="fas fa-user mobile-nav-icon"></i>
             </button>
-            <ul class="dropdown-menu" aria-labelledby="mobileUserDropdown">
+            <ul class="dropdown-menu mobile-dropdown-menu" aria-labelledby="mobileUserDropdown">
                 {% if request.user.is_authenticated %}
                     {% if request.user.is_superuser %}
                         <li class="dropdown-item"><a href="">Product Management</a></li>
@@ -57,10 +57,10 @@
         <li class="list-inline-item {% if total %}text-warning fw-bold{% endif %}">
             <a href="{% url 'view_cart' %}" class="mobile-cart-link">
                 <div>
-                    <i class="fas fa-shopping-cart {% if total %}text-warning fw-bold{% endif %} mobile-nav-icon"></i>
+                    <i class="fas fa-shopping-cart {% if total %}text-white fw-bold{% endif %} mobile-nav-icon"></i>
                 </div>                
             </a>
-            <p class="my-0">
+            <p class="my-0 {% if total %}text-white fw-bold{% endif %}">
                 {% if total %}
                     ${{ total|floatformat:2 }}
                 {% else %}

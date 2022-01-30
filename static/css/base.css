@@ -97,6 +97,13 @@ input[type=number] {
     background-color: #1F211F;
 }
 
+#mainNavUserDropdown,
+#mainNavUserDropdown li a,
+.mobile-dropdown-menu {
+    background-color: #1F211F;
+    color: #bf8025;
+}
+
 .navbar-nav .nav-item a {
     color: #bf8025 !important;
 }
@@ -123,14 +130,23 @@ input[type=number] {
     margin-top: 25px;
 }
 
-#mainNavUserDropdown {
+#mainNavUserDropdownButton {
     color: white;
 }
 
 #mobileNav {
+    background-color: #1F211F !important;
+}
+
+#mobileNavIconsList {
     border-bottom: 1.5px black solid;
     display: flex;
     justify-content: space-around;
+}
+
+#mobileNavIconsList li button,
+#mobileNavIconsList li a {
+    color: #bf8025 !important;
 }
 
 .mobile-nav-icon {
@@ -157,6 +173,14 @@ input[type=number] {
 .mobile-search {
     width: 100%;
     z-index: 200;
+}
+
+#mobileSearchContainer ul {
+    width: 69vw;
+}
+
+.mobile-search .input-group input {
+    margin-left: 5px;
 }
 
 input[name='q']::placeholder {
