@@ -20,19 +20,29 @@
                             <div class="col-12 col-sm-6 d-lg-none">
                                 <div class="cart-item">
                                     <div class="col-12 text-center">
-                                        <h4>{{ item.listing.name }}</h4>
+                                        <h4 class="my-2">{{ item.listing.title }}</h4>
                                         <a class="cart-listing-image" href="{% url 'listing' item.listing.id %}">
-                                            <img class="w-100 px-1" src="{{ MEDIA_URL }}images/listing-images/{{ item.listing.image_url }}"
-                                                alt="{{ item.listing.name }}">
+                                            {% if item.listing.image %}
+                                                <img class="w-100 px-1" src="{{ MEDIA_URL }}images/listing-images/{{ item.listing.image_url }}"
+                                                    alt="{{ item.listing.title }}">
+                                            {% else %}
+                                                <img class="w-100 px-1" src="{{ MEDIA_URL }}images/no-image.png"
+                                                    alt="{{ item.listing.title }}">
+                                            {% endif %}
                                         </a>
                                     </div>
                                     <div class="listing-cart-section">
                                         <p class="my-2 text-center"><strong>Details:</strong></p>
                                         <div class="row">
                                             <div class="col-6">
-                                                <a class="cart-storefront-image" href="#">
-                                                    <img class="w-100 px-1" src="{{ MEDIA_URL }}images/sample-vendor-1.png"
-                                                        alt="an image of a storefront">
+                                                <a class="cart-storefront-image" href="{% url 'storefront' item.listing.storefront.id %}">
+                                                    {% if item.listing.storefront.image %}
+                                                        <img class="w-100 px-1" src="{{ MEDIA_URL }}images/storefront-images/{{ item.listing.storefront.image_url }}"
+                                                            alt="{{ item.listing.storefront.name }}">
+                                                    {% else %}
+                                                        <img class="w-100 px-1" src="{{ MEDIA_URL }}images/no-image.png"
+                                                            alt="{{ item.listing.storefront.name }}">
+                                                    {% endif %}
                                                 </a>
                                             </div>
                                             <div class="col-6 listing-cart-details">
@@ -83,14 +93,24 @@
                                     <div class="row">
                                         <div class="col-4">
                                             <a class="cart-listing-image" href="{% url 'listing' item.listing.id %}">
-                                                <img class="w-100 px-1" src="{{ MEDIA_URL }}images/listing-images/{{ item.listing.image_url }}"
-                                                    alt="{{ item.listing.name }}">
+                                                {% if item.listing.image %}
+                                                    <img class="w-100 px-1" src="{{ MEDIA_URL }}images/listing-images/{{ item.listing.image_url }}"
+                                                        alt="{{ item.listing.title }}">
+                                                {% else %}
+                                                    <img class="w-100 px-1" src="{{ MEDIA_URL }}images/no-image.png"
+                                                        alt="{{ item.listing.title }}">
+                                                {% endif %}
                                             </a>
                                         </div>
                                         <div class="col-4">
-                                            <a class="cart-storefront-image" href="#">
-                                                <img class="w-100 px-1" src="{{ MEDIA_URL }}images/storefront-images/{{ item.listing.storefront.image_url }}"
-                                                    alt="an image of a storefront">
+                                            <a class="cart-storefront-image" href="{% url 'storefront' item.listing.storefront.id %}">
+                                                {% if item.listing.storefront.image %}
+                                                    <img class="w-100 px-1" src="{{ MEDIA_URL }}images/storefront-images/{{ item.listing.storefront.image_url }}"
+                                                        alt="{{ item.listing.storefront.name }}">
+                                                {% else %}
+                                                    <img class="w-100 px-1" src="{{ MEDIA_URL }}images/no-image.png"
+                                                        alt="{{ item.listing.storefront.name }}">
+                                                {% endif %}
                                             </a>
                                         </div>
                                         <div class="col-4 large-vendor-cart-details">                                          
