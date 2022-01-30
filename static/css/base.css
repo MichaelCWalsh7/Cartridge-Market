@@ -48,6 +48,14 @@ input[type=number] {
     color: white;
 }
 
+.dark-gray {
+    color: #1F211F;
+}
+
+.burnt-orange {
+    color: #bf8025;
+}
+
 /* Fonts */
 
 .orbitron {
@@ -86,6 +94,16 @@ input[type=number] {
 
 #mainNavLower {
     border-top: 1px solid black;
+    background-color: #1F211F;
+}
+
+.navbar-nav .nav-item a {
+    color: #bf8025 !important;
+}
+
+.navbar-nav .nav-item a:hover {
+    background-color: #bf8025 !important;
+    color: #1F211F !important;
 }
 
 #mainNavUpper {
@@ -93,15 +111,20 @@ input[type=number] {
     color: white !important;
 }
 
+#mainNavSearchInput {
+    border: #bf8025 5px solid;
+    border-radius: 12px;
+}
+
 #mainNavSearchButton {
-    border: 2px solid black;
+    border: 2px solid #bf8025;
     border-radius: 4px;
-    height: 46px;
+    height: 55px;
     margin-top: 25px;
 }
 
-#mainNavAllGamesLink:hover {
-    text-decoration: underline;
+#mainNavUserDropdown {
+    color: white;
 }
 
 #mobileNav {
