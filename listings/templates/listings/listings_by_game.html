@@ -17,8 +17,13 @@
                 {% for listing in listings %}
                     <div class="col-12 col-sm-5 col-lg-3 card listing-card">
                         <a href="{% url 'listing' listing.id %}">
-                            <img src="{{ MEDIA_URL }}images/listing-images/{{ listing.image_url }}"
-                            class="card-img-top" alt="{{ listing.game.name }}">
+                            {% if listing.image %}
+                                <img class="w-100 px-1" src="{{ MEDIA_URL }}images/listing-images/{{ listing.image_url }}"
+                                    alt="{{ listing.title }}">
+                            {% else %}
+                                <img class="w-100 px-1" src="{{ MEDIA_URL }}images/no-image.png"
+                                    alt="{{ listing.title }}">
+                            {% endif %}
                         </a>
                         <div class="card-body listing-card-body">
                             <p class="card-text">{{ listing.description }}</p>

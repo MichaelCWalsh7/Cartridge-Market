@@ -39,14 +39,30 @@ select option[value="game-placeholder"] {
   color: red;
 }
 
+
+
 @media (min-width: 577px) {
   .listing-card {
     margin-left: 5% !important;
+  }
+
+  .listing-card a img {
+    height: 150px;
+  }
+
+  .listing-card-body p {
+    height: 100px;
   }
 }
 
 @media (min-width: 993px) {
   .listing-card {
     margin-left: 6% !important;
+  }
+}
+
+@media (min-width: 1450px) {
+  .listing-card a img {
+    height: 190px;
   }
 }
