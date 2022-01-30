@@ -29,3 +29,8 @@ select option[value=""] {
 .card {
   margin-bottom: 1% !important;
 }
+
+.card-text {
+  height: 120px;
+  overflow: auto;
+}

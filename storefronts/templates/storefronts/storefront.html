@@ -15,9 +15,15 @@
             
             <div class="row">
                 <div class="col-12 col-sm-6 mt-3 text-center storefront-image">
-                    <img src="{{ MEDIA_URL }}images/storefront-images/{{ storefront.image_url }}" alt="{{ storefront.name }}">
+                    {% if storefront.image %}
+                        <img class="w-100 px-1" src="{{ MEDIA_URL }}images/storefront-images/{{ storefront.image_url }}"
+                            alt="{{ storefront.name }}">
+                    {% else %}
+                        <img class="w-100 px-1" src="{{ MEDIA_URL }}images/no-image.png"
+                            alt="{{ storefront.name }}">
+                    {% endif %}
                 </div>
-                <div class="col-12 col-sm-4 mt-3 border-black storefront-details">
+                <div class="col-12 col-sm-6 mt-3 border-black storefront-details">
                     <p>
                         <strong>Owner:</strong>
                         <span class="float-end">{{ storefront.user }}</span>
@@ -77,18 +83,29 @@
             </div>
 
             <div class="row">
-                <div class="col-11 col-sm-10 offset-sm-1 mt-5 mb-5 storefront-listings">
+                <div class="col-12 col-sm-10 offset-sm-1 mt-5 mb-5 storefront-listings">
                     <div class="listings-container">
                         <h3 class="text-center">Games for Sale</h3>
                         <div class="row">
                             {% for listing in listings %}                                
-                                <div class="col-12 col-sm-5 col-lg-3 card mx-2 listing-card">
+                                <div class="col-12 col-sm-5 offset-sm-1 col-lg-3 offset-lg-1 card my-3 listing-card">
                                     <a href="{% url 'listing' listing.id %}">
-                                        <img src="{{ MEDIA_URL }}images/listing-images/{{ listing.image_url }}"
-                                        class="card-img-top" alt="{{ listing.game.name }}">
+                                        {% if listing.image %}
+                                            <img class="w-100 px-1" src="{{ MEDIA_URL }}images/listing-images/{{ listing.image_url }}"
+                                                alt="{{ listing.title }}">
+                                        {% else %}
+                                            <img class="w-100 px-1" src="{{ MEDIA_URL }}images/no-image.png"
+                                                alt="{{ listing.title }}">
+                                        {% endif %}
                                     </a>
                                     <div class="card-body listing-card-body">
-                                        <p class="card-text">{{ listing.description }}</p>
+                                        <p class="card-text">
+                                            {% if listing.description %}
+                                                {{ listing.description }}
+                                            {% else %}
+                                                <em>No description available...</em>
+                                            {% endif %}
+                                        </p>
                                         <hr>
                                         <h5 class="text-center">Game Details</h5>
                                         <div class=" row">

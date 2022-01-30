@@ -29,8 +29,13 @@
                         <a class="storefront-card-link" href="{% url 'storefront' storefront.id %}">
                             <div class="card-body text-center">
                                     <h5 class="card-title text-center pb-3">{{ storefront.name|truncatechars:25 }}</h5>
-                                    <img class="card-image" src="{{ MEDIA_URL }}images/storefront-images/{{ storefront.image_url }}" 
-                                        alt="{{ storefront.name }}">
+                                    {% if storefront.image %}
+                                        <img class="w-100 px-1" src="{{ MEDIA_URL }}images/storefront-images/{{ storefront.image_url }}"
+                                            alt="{{ storefront.name }}">
+                                    {% else %}
+                                        <img class="w-100 px-1" src="{{ MEDIA_URL }}images/no-image.png"
+                                            alt="{{ storefront.name }}">
+                                    {% endif %}
                             </div>
                             <div class="card-footer px-2">
                                     <span class="float-start"><strong>{{ storefront.user }}</strong></span>
