@@ -4,10 +4,12 @@ Views defined for the 'products' app
 # pylint: disable=no-member
 from django.shortcuts import render, reverse, redirect, get_object_or_404
 from django.contrib import messages
+from django.contrib.auth.decorators import login_required
 from django.db.models import Q
 
-from products.models import Game
+from products.models import Game, Genre
 from listings.models import Listing
+from .forms import GameForm
 
 
 def all_games(request):
@@ -159,3 +161,49 @@ def game_details(request, game_id):
     }
 
     return render(request, 'products/game_details.html', context)
+
+
+@login_required
+def add_game(request):
+    """
+    A view for users to create game on the site.
+    """
+    user = request.user
+    if not user.is_superuser:
+        messages.error(request, "Sorry, only an admin is allowed to do that.")
+        return reverse(redirect('home'))
+
+    if request.method == 'POST':
+        form = GameForm()
+        if form.is_valid():
+            user = request.user
+            image_url = request.POST.get('image_url')
+            game = form.save(commit=False)
+            game.image_url = image_url
+            game.save()
+            messages.success(request, "Game uploaded successfully!")
+            return redirect(reverse('game_details', args=[game.id]))
+        else:
+            messages.error(request, 'Failed to add game. Please ensure \
+                your form is valid.')
+    else:
+        form = GameForm()
+
+    games = Game.objects.all()
+    genres = Genre.objects.all()
+    nintendo_games = games.filter(publisher__name='Nintendo')
+    sony_games = games.filter(publisher__name='Sony')
+    sega_games = games.filter(publisher__name='Sega')
+    atari_games = games.filter(publisher__name='Atari')
+
+    template = 'products/add_game.html'
+    context = {
+        'games': games,
+        'genres': genres,
+        'nintendo_games': nintendo_games,
+        'sony_games': sony_games,
+        'sega_games': sega_games,
+        'atari_games': atari_games,
+        'form': form,
+    }
+    return render(request, template, context)

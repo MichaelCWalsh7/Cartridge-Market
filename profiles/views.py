@@ -19,6 +19,7 @@ def profile(request):
     """
     # pylint: disable=redefined-outer-name
     profile = get_object_or_404(UserProfile, user=request.user)
+    storefront = None
 
     if request.method == 'POST':
         form = UserProfileForm(request.POST, instance=profile)
