@@ -19,6 +19,7 @@
     text-shadow: 0px 0px 2px black;
     border: 2px solid black;
     border-radius: 8px;
+    font-family: 'Chakra Petch', sans-serif;
 }
 
 .action-button-inverted,
@@ -28,6 +29,7 @@
     text-shadow: 0px 0px 2px #d4af37;
     border: 2px solid #d4af37;
     border-radius: 8px;
+    font-family: 'Chakra Petch', sans-serif;
 }
 
 .dropdown-item:focus,
