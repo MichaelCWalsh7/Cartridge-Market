@@ -421,6 +421,10 @@ input[name='q']::placeholder {
     border-radius: 5px;
 }
 
+#publisherSelectorContainer {
+    margin-left: 30% !important;
+}
+
 #filterButton {
     background-color: blue;
     color: white;

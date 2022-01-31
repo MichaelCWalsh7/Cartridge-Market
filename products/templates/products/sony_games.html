@@ -15,43 +15,19 @@
 
         <div class="filter-container main-body-section">
             <form action="{% url 'publisher_games' 'Sony' %}" method="GET" name="filter">
-                <div class="row">
-                    <div class="selector-container col-5">
-                        <select name="filter_publisher" id="publisherSelect">
-                            <option selected value="any">Publisher...</option>
-                            <option value="Nintendo">Nintendo</option>
-                            <option value="Sega">Sega</option>
-                            <option value="Sony">Sony</option>
-                            <option value="Atari">Atari</option>
-                        </select>
-                    </div>
-                    <div class="selector-container col-5">
-                        <select name="console" id="consoleSelect">
-                            <!-- use templating to generate consoles here -->
-                            <option selected value="any">Console...</option>
-                            <option value="Nintendo 64">N64</option>
-                            <option value="">Example 2</option>
-                            <option value="">Example 3</option>
-                            <option value="">Example 4</option>
-                        </select>
-                    </div>
-                </div>
-                
                 <div class="row">                    
                     <div class="selector-container col-5">
                         <select name="genre" id="genreSelect">
                             <!-- use templating to generate genres here -->
                             <option selected value="any">Genre...</option>
-                            <option value="Platformer">Platformer</option>
-                            <option value="">Example 2</option>
-                            <option value="">Example 3</option>
+                            {% for genre in genres %}
+                               <option value="{{ genre }}">{{ genre }}</option>
+                            {% endfor %}
                         </select>
                     </div>
                     <div class="selector-container col-5">
                         <select name="sort" id="sortSelect">
-                            <option selected value="default">Sort by...</option>                         
-                            <option value="rating-asc">Rating (low to high)</option>
-                            <option value="rating-dsc">Rating (high to low)</option>
+                            <option selected value="default">Sort by...</option>                           
                             <option value="name-asc">Name (A-Z)</option>
                             <option value="name-dsc">Name (Z-A)</option>
                             <option value="release_year-asc">Released (low to high)</option>

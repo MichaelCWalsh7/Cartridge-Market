@@ -17,6 +17,7 @@ def all_games(request):
     A view to show all games currently available on the site.
     """
     games = Game.objects.all()
+    genres = Genre.objects.all()
     query = None
 
     if request.GET:
@@ -66,13 +67,17 @@ def all_games(request):
                     direction = ''
                 elif direction_string == 'dsc':
                     direction = '-'
+            else:
+                sortkeys = False
             if sortkeys:
                 category = sortkeys[0]
                 games = games.order_by(f'{direction}{category}')
 
     context = {
         'games': games,
+        'genres': genres,
         'search_term': query,
+
     }
 
     return render(request, 'products/all_games.html', context)
@@ -84,17 +89,19 @@ def publisher_games(request, publisher):
     styled by publihser.
     """
     games = Game.objects.filter(publisher__name=publisher)
+    genres = Genre.objects.all()
     query = None
 
     if request.GET:
+        # Handles searches made on the site
         if 'q' in request.GET:
-            # Handles searches made on the site
             query = request.GET['q']
             if not query:
                 messages.error(
                     request, "You didn't enter any search criteria!")
                 return redirect(reverse('all_games'))
 
+            # queries are applied to name, description, console and publisher
             queries = Q(
                 name__icontains=query
             ) | Q(
@@ -110,9 +117,9 @@ def publisher_games(request, publisher):
 
         # logic to filter games by publisher, genre or console
         if 'filter_publisher' in request.GET:
-            filter_publisher = request.GET['filter_publisher']
-            if filter_publisher != "any":
-                games = games.filter(publisher__name=filter_publisher)
+            publisher = request.GET['filter_publisher']
+            if publisher != "any":
+                games = games.filter(publisher__name=publisher)
         if 'console' in request.GET:
             console = request.GET['console']
             if console != "any":
@@ -132,17 +139,20 @@ def publisher_games(request, publisher):
                     direction = ''
                 elif direction_string == 'dsc':
                     direction = '-'
-
-            category = sortkeys[0]
-            games = games.order_by(f'{direction}{category}')
-
-    lpublisher = publisher.lower()
+            else:
+                sortkeys = False
+            if sortkeys:
+                category = sortkeys[0]
+                games = games.order_by(f'{direction}{category}')
 
     context = {
         'games': games,
+        'genres': genres,
         'search_term': query,
+
     }
 
+    lpublisher = publisher.lower()
     return render(request, f'products/{lpublisher}_games.html', context)
 
 
@@ -189,14 +199,26 @@ def add_game(request):
         if form.is_valid():
             image_url = request.POST.get('image_url')
             game = form.save(commit=False)
+            game.sku = "Placeholder Sku"
+            game.rating = 0
             game.console = console
             game.genre = genre
             game.publisher = publisher
             game.image_url = image_url
+            game.multiplayer = True
             game.save()
             messages.success(request, "Game uploaded successfully!")
             return redirect(reverse('game_details', args=[game.id]))
         else:
+            image_url = request.POST.get('image_url')
+            game = form.save(commit=False)
+            game.sku = "Placeholder Sku"
+            game.rating = 0
+            game.console = console
+            game.genre = genre
+            game.publisher = publisher
+            game.image_url = image_url
+            print(game)
             messages.error(request, 'Failed to add game. Please ensure \
                 your form is valid.')
     else:
