@@ -191,7 +191,7 @@ def add_game(request):
         if publisher.name == "Nintendo":
             console = get_object_or_404(Console, name="Nintendo 64")
         elif publisher.name == "Sony":
-            console = get_object_or_404(Console, name="Playstation")
+            console = get_object_or_404(Console, name="PlayStation")
         elif publisher.name == "Sega":
             console = get_object_or_404(Console, name="Sega Genesis")
         elif publisher.name == "Atari":
@@ -292,3 +292,18 @@ def edit_game(request, game_id):
         'form': form,
     }
     return render(request, template, context)
+
+
+@login_required
+def delete_game(request, game_id):
+    """
+    Allows users to delete games on the website.
+    """
+    user = request.user
+    game = get_object_or_404(Game, pk=game_id)
+    if not user.is_superuser:
+        messages.error(request, "Sorry, only an admin is allowed to do that.")
+        return reverse(redirect('home'))
+    game.delete()
+    messages.success(request, 'The game has been removed.')
+    return redirect(reverse('home'))

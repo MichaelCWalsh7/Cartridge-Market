@@ -12,6 +12,10 @@
     margin-top: 1%;
 }
 
+.danger-triangle {
+    color: red;
+  }
+
 .action-button,
 .action-button-inverted:hover {
     background-color: #d4af37;

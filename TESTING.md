@@ -29,27 +29,10 @@ The W3C Markup Validator and W3C CSS Validator Services were used to validate ev
 
 ### Testing User Stories from User Experience (UX) Section
 -   #### First Time Visitor Goals
-    1.  As a First Time Visitor, I want to easily understand the main purpose of the site and find definitions of words.
-        - Upon reaching the Home Page the user is immediately displayed with a short paragraph describing the site's purpose
-        - Also on the home page are some featured words, (the top four that have the highest rating) and their summaries, including links to the word pages themselves.
-        - Another thing that user is greeted with is a large, striking search bar on the top of the page, in it's traditional locaiton under the navbar. 
-        - The final point here is that there is also a metadescription that will inform any users of the site's purpose if they enter from Google, or if the site is linked in other applications. 
-    2. As a First Time Visitor, I want to be able to easily navigate throughout the site to find content.
-        - As mentioned above, a searchbar dominates the top of the page and many other relevant pages that it is appropriate for.
-        - Users can see on the navbar at the top of the screen there is a 'categories' dropdown tab, which allows users to look at all words, find words by letter, or find words via their applicable tags.
-        - Also on the bottom of every page, there is a 'return to home button' to stop the user getting "trapped" and having to the use the back buttons. It also ensures there is always a call-to-action on the page. On the home page itself, this button changes to a 'back to top' button
-        -  Also, on the footer, there is a back to top button on the bottom right, saving the user from having to scroll back up to the top of the page using their scroll wheel or use the vertical scrollbar.
-        - On many, many pages, short word cards, herein referred to as 'word summaries', have been employed. This includes on user profile pages if the user has ever created or edited a word, ensuring there is almost always a variety of words for the user to click on if interested.
-        - While the 404 and 500 error pages of course have the 'return to home button' located on every page on the site, they have an additional link to the 'all words' page of the site, to lessen the dampening effect of being taken to an error page. 
-    3. As a First Time Visitor, I want to easily be able to search or find a word that I'm interested in.
-        - There is a search bar that dominates the screen on many pages.
-        - If a user does not know exactly how to spell a word, they can find it by browsing through the 3 differing types of list pages: the first being a list of all the words on the page, the second being a list of each word on the site by it's initial letter, or if the user only knows the origin of the word or has a vague idea that does not include the first letter, they can find it through the website's tag system.
-        - Every word that has been tagged, has it's tags displayed very visibly at the bottom of it's word page. These tags can themselves be clicked to be taken to a list of words that share this tag. 
-    4. As a First Time Visitor, I want to learn extra information on words that I'm interested in, for instance how to spell or use a slang word.
-        - While each word summary merely provides the primary definition and a link to the word page, the word page itself can contain a myriad of information about each word. 
-        - Data systems are in place to provide information like multiple spellings, definitions and examples if there are any, along with the tag system which helps further categorize words. 
-        - While the root spelling and definition are the bare minimum of the UX expectations, the site also provides space for alternative spellings and multiple uses in a clean and non-cluttered way.
-        - Another feature in play is that when looking at the examples of a word on the word page, whenever the word appears in the example it will be underlined, so the user can more clearly see it in use in wordier examples.
+    1.  As a First Time Visitor, I want to be able to browse through different games.
+        - Upon enteriong the site there a large number of ways presented to the user for navigating games, firstly on the home page, there are some very popular featured games, there is also on the navbar a separate search a link to the 'all games pages' and links to various games pre-sorted by developer.
+    2. As a First Time Visitor, I want to be able to buy different games.
+        - Upon clicking on a game, regardless of registration status an option to add the game to the users cart is 
 
 -   #### Returning Visitor Goals
     1. As a Returning Visitor, I want to know what words are well-liked by the community and which have more dubious entries.

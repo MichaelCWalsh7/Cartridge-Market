@@ -156,12 +156,17 @@
                                 </div>
                             {% endif %}
                         {% empty %}
-                            No listing found
-                        {% endfor %}                       
+                            <p class="text-center">
+                                No listings were found for this game.
+                            </p>
+                        {% endfor %}
+                        {% if listings %}
+                            <div class="col my-3 text-center">
+                                <a href="{% url 'listings_by_game' game.id %}" class="btn action-button-inverted">See more copies</a>
+                            </div>
+                        {% endif %}                      
                     </div>
-                    <div class="col my-3 text-center">
-                        <a href="{% url 'listings_by_game' game.id %}" class="btn action-button-inverted">See more copies</a>
-                    </div>
+                    
 
                     {% if request.user.storefront %}
                         <div class="col my-4 text-center">
@@ -178,6 +183,45 @@
                                 <a href="{% url 'edit_game' game.id %}" class="btn action-button">
                                     Edit this game
                                 </a>
+                            </div>
+
+                            
+                            <div class="col my-4 text-center">
+                                <!-- Button trigger modal -->
+                                <button type="button" class="btn action-button" data-bs-toggle="modal" 
+                                    data-bs-target="#deleteModal">
+                                    <i class="fas fa-exclamation-triangle danger-triangle"></i>
+                                    Delete This Game 
+                                    <i class="fas fa-exclamation-triangle danger-triangle"></i>
+                                </button>
+
+                                 <!-- Modal -->
+                                <div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="deleteModalLabel" aria-hidden="true">
+                                    <div class="modal-dialog text-start">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h5 class="modal-title" id="deleteModalLabel">Delete this game!</h5>
+                                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                            </div>
+                                            <div class="modal-body">
+                                                WARNING!! Deleting this game will also remove it's listings from the site and may seriously negatively
+                                                impact storefront owners.
+                                                <hr>
+                                                This action CANNOT be undone.
+                                                <hr>
+                                                Please type the characters: 'delete' into the input below and click the red button to continue.
+                                                <hr>
+                                                <div class="text-center">
+                                                    <input type="text" name="deleteCheck" id="deleteCheck">
+                                                </div>
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                                <a href="{% url 'delete_game' game.id %}" id="deleteGameButton" class="btn btn-danger">DELETE</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         {% endif %}
                     {% endif %}
