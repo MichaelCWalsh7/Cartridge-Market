@@ -1,7 +1,6 @@
 """
 Models defining user profiles
 """
-# pylint: disable=no-member,unused-argument,invalid-str-returned
 from django.db import models
 from django.contrib.auth.models import User
 from django_countries.fields import CountryField

@@ -1,7 +1,6 @@
 """
 Views defined for the 'cart' app
 """
-# pylint: disable=broad-except,invalid-name
 from django.shortcuts import (render, redirect, reverse, HttpResponse,
                               get_object_or_404)
 from django.contrib import messages

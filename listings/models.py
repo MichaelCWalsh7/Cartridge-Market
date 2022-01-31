@@ -1,7 +1,6 @@
 """
 Models defining user profiles
 """
-# pylint: disable=no-member,unused-argument,invalid-str-returned
 from django.db import models
 
 from products.models import Game

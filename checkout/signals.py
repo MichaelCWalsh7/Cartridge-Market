@@ -2,7 +2,6 @@
 Below are the signals/decorators for updating the grand total when a lineitem
 is created, updated or deleted.
 """
-# pylint: disable=unused-argument
 from django.db.models.signals import post_save, post_delete
 from django.dispatch import receiver
 

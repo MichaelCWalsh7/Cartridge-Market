@@ -1,7 +1,6 @@
 """
 Views for the listings app.
 """
-# pylint: disable=no-member,redefined-outer-name
 
 from datetime import date
 

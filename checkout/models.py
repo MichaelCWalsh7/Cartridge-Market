@@ -2,7 +2,6 @@
 This is where the data schema and functionality for making secure purchases is
 implemented. It accounts for both registered and non-registered users.
 """
-# pylint: disable=no-member,unused-import,ungrouped-imports
 
 import uuid
 
@@ -10,7 +9,7 @@ from django.db import models
 from django.db.models import Sum
 
 from django_countries.fields import CountryField
-from django.conf import settings  # noqa: F401
+from django.conf import settings
 
 from listings.models import Listing
 from profiles.models import UserProfile

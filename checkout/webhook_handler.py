@@ -13,8 +13,6 @@ from listings.models import Listing
 from profiles.models import UserProfile
 from .models import Order, OrderLineItem
 
-# pylint: disable=invalid-name,no-member,unused-variable,broad-except
-
 
 class StripeWH_Handler:
     """

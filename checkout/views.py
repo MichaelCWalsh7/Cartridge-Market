@@ -1,7 +1,6 @@
 """
 Views defined for the 'checkout' app
 """
-# pylint: disable=no-member,broad-except,invalid-name
 import json
 from django.shortcuts import (render, redirect, reverse, get_object_or_404,
                               HttpResponse)
@@ -190,7 +189,7 @@ def checkout_success(request, order_number):
     template = 'checkout/checkout_success.html'
     context = {
         'order': order,
-         'stripe_public_key': stripe_public_key
+        'stripe_public_key': stripe_public_key
     }
 
     return render(request, template, context)

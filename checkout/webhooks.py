@@ -1,7 +1,6 @@
 """
 Defines the function that is called when Stripe webhooks are sent
 """
-# pylint: disable=broad-except,invalid-name,unused-variable
 from django.conf import settings
 from django.http import HttpResponse
 from django.views.decorators.http import require_POST

@@ -3,7 +3,6 @@
 This is where the data schema for the products available on the site will be
 initialized, it includes the 4 publishers available, their games and consoles.
 """
-# pylint: disable=missing-function-docstring,invalid-str-returned
 from django.db import models
 
 

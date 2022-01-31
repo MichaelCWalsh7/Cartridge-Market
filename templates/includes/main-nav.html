@@ -26,7 +26,7 @@
                     <ul class="dropdown-menu" id="mainNavUserDropdown" aria-labelledby="mainNavUserDropdownButton">
                         {% if request.user.is_authenticated %}
                             {% if request.user.is_superuser %}
-                                <li class="dropdown-item"><a href="{% url 'add_game' %}">Product Management</a></li>
+                                <li class="dropdown-item"><a href="{% url 'add_game' %}">Add a Game</a></li>
                             {% endif %}                            
                             <li class="dropdown-item"><a href="{% url 'profile' %}">My Profile</a></li>
                             {% if user.storefront %}

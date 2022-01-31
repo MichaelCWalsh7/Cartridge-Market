@@ -9,7 +9,6 @@ def cart_contents(request):
     """
     Returns the context dictionary for use in various templates.
     """
-    # pylint: disable=unused-argument
     cart_items = []
     total = 0
     grand_total = 0
