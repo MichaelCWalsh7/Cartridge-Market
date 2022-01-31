@@ -78,7 +78,8 @@ class Game(models.Model):
     release_year = models.IntegerField()
     multiplayer = models.BooleanField()
     image_url = models.CharField(max_length=254, null=True, blank=True)  # noqa: DJ01,E501
-    image = models.ImageField(null=True, blank=True)
+    image = models.ImageField(upload_to='images/game-images',
+                              null=True, blank=True)
 
     def __str__(self):
         return self.name

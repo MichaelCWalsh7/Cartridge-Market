@@ -18,13 +18,12 @@
                         <fieldset class="rounded px-3 mb-4">
                             <legend class="fieldset-label small px-2 w-auto">Name</legend>
                             {{ form.name | as_crispy_field }}
-                            <legend class="fieldset-label small px-2 w-auto">Name</legend>
+                            <legend class="fieldset-label small px-2 w-auto">Publisher</legend>
                             <select class="form-select mb-3 border-black dev-selector" name="publisher" aria-label="Choose a publisher" required>
                                 <option value="default">Choose a Publisher</option>
-                                <option value="Nintendo">Nintendo</option>
-                                <option value="Sony">Sony</option>
-                                <option value="Sega">SEGA</option>
-                                <option value="Atari">Atari</option>
+                                {% for publisher in publishers %}
+                                 <option value="{{ publisher.id }}">{{ publisher }}</option>
+                                {% endfor %}
                             </select>
                         </fieldset>
                         
@@ -32,10 +31,11 @@
                             <legend class="fieldset-label small px-2 w-auto">Details</legend>
                             {{ form.developer | as_crispy_field }}
                             {{ form.release_year | as_crispy_field }}
-                            {{ form.multiplayer | as_crispy_field }}
-                            <select name="genre" class="form-select border-black genre-selector">
+                            <legend class="fieldset-label small px-2 w-auto">Multiplayer?</legend>
+                            <input type="checkbox" name="multiplayer" id="multiplayerCheckbox">
+                            <select name="genre" class="form-select my-3 border-black genre-selector" required>
                                {% for genre in genres %}
-                               <option value="{{ genre }}">{{ genre }}</option>
+                               <option value="{{ genre.id }}">{{ genre }}</option>
                                {% endfor %}
                             </select>
                         </fieldset>

@@ -7,7 +7,7 @@ from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from django.db.models import Q
 
-from products.models import Game, Genre
+from products.models import Game, Genre, Publisher, Console
 from listings.models import Listing
 from .forms import GameForm
 
@@ -179,49 +179,39 @@ def add_game(request):
     A view for users to create game on the site.
     """
     user = request.user
-    # if not user.is_superuser:
-    #     messages.error(request, "Sorry, only an admin is allowed to do that.")
-    #     return reverse(redirect('home'))
-    print("POSTED")
+    if not user.is_superuser:
+        messages.error(request, "Sorry, only an admin is allowed to do that.")
+        return reverse(redirect('home'))
     if request.method == 'POST':
         form = GameForm(request.POST, request.FILES)
-        publisher = request.POST.get('publisher')
-        genre = request.POST.get('genre')
-        if publisher == "Nintendo":
-            console = "Nintendo 64"
-        elif publisher == "Sony":
-            console = "Playstation"
-        elif publisher == "Sega":
-            console = "Sega Genesis"
-        elif publisher == "Atari":
-            console = "Atari 2600"
-
-        print(form.errors)
+        publishers = Publisher.objects.all()
+        publisher_id = request.POST.get('publisher')
+        publisher = get_object_or_404(Publisher, pk=publisher_id)
+        genre_id = request.POST.get('genre')
+        if publisher.name == "Nintendo":
+            console = get_object_or_404(Console, name="Nintendo 64")
+        elif publisher.name == "Sony":
+            console = get_object_or_404(Console, name="Playstation")
+        elif publisher.name == "Sega":
+            console = get_object_or_404(Console, name="Sega Genesis")
+        elif publisher.name == "Atari":
+            console = get_object_or_404(Console, name="Atari 2600")
 
         if form.is_valid():
-            print("FORM WAS VALID")
-            image_url = request.POST.get('image_url')
             game = form.save(commit=False)
             game.sku = "Placeholder Sku"
             game.rating = 0
+            game.genre = get_object_or_404(Genre, pk=genre_id)
+            game.image_url = request.POST["image_url"]
+            game.description = request.POST["description"]
+            game.release_year = request.POST["release_year"]
+            game.developer = request.POST["developer"]
+            game.name = request.POST["name"]
             game.console = console
-            game.genre = genre
-            game.publisher = publisher
-            game.image_url = image_url
-            game.multiplayer = True
             game.save()
-            messages.success(request, "Game uploaded successfully!")
+            messages.success(request, "The game has been add successfully.")
             return redirect(reverse('game_details', args=[game.id]))
         else:
-            image_url = request.POST.get('image_url')
-            game = form.save(commit=False)
-            game.sku = "Placeholder Sku"
-            game.rating = 0
-            game.console = console
-            game.genre = genre
-            game.publisher = publisher
-            game.image_url = image_url
-            print(game)
             messages.error(request, 'Failed to add game. Please ensure \
                 your form is valid.')
     else:
@@ -229,11 +219,77 @@ def add_game(request):
 
     games = Game.objects.all()
     genres = Genre.objects.all()
+    publishers = Publisher.objects.all()
 
     template = 'products/add_game.html'
     context = {
         'games': games,
         'genres': genres,
+        'publishers': publishers,
+        'form': form,
+    }
+    return render(request, template, context)
+
+
+@login_required
+def edit_game(request, game_id):
+    """
+    A view for users to edit games on the site.
+    """
+    user = request.user
+    if not user.is_superuser:
+        messages.error(request, "Sorry, only an admin is allowed to do that.")
+        return reverse(redirect('home'))
+    game = get_object_or_404(Game, pk=game_id)
+    if request.method == 'POST':
+        form = GameForm(request.POST, request.FILES)
+        publishers = Publisher.objects.all()
+        publisher_id = request.POST.get('publisher')
+        publisher = get_object_or_404(Publisher, pk=publisher_id)
+        genre_id = request.POST.get('genre')
+        image_url_field = request.POST.get('image_url')
+        if image_url_field is None:
+            image_url = game.image_url
+        else:
+            image_url = image_url_field
+        if publisher.name == "Nintendo":
+            console = get_object_or_404(Console, name="Nintendo 64")
+        elif publisher.name == "Sony":
+            console = get_object_or_404(Console, name="Playstation")
+        elif publisher.name == "Sega":
+            console = get_object_or_404(Console, name="Sega Genesis")
+        elif publisher.name == "Atari":
+            console = get_object_or_404(Console, name="Atari 2600")
+
+        if form.is_valid():
+            game = form.save(commit=False)
+            game.sku = "Placeholder Sku"
+            game.rating = 0
+            game.genre = get_object_or_404(Genre, pk=genre_id)
+            game.image_url = image_url
+            game.description = request.POST["description"]
+            game.release_year = request.POST["release_year"]
+            game.developer = request.POST["developer"]
+            game.name = request.POST["name"]
+            game.console = console
+            game.save()
+            messages.success(request, "The game has been add successfully.")
+            return redirect(reverse('game_details', args=[game.id]))
+        else:
+            messages.error(request, 'Failed to add game. Please ensure \
+                your form is valid.')
+    else:
+        form = GameForm(instance=game)
+
+    games = Game.objects.all()
+    genres = Genre.objects.all()
+    publishers = Publisher.objects.all()
+
+    template = 'products/edit_game.html'
+    context = {
+        'games': games,
+        'genres': genres,
+        'publishers': publishers,
         'form': form,
     }
     return render(request, template, context)
