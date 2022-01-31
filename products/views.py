@@ -179,10 +179,10 @@ def add_game(request):
     A view for users to create game on the site.
     """
     user = request.user
-    if not user.is_superuser:
-        messages.error(request, "Sorry, only an admin is allowed to do that.")
-        return reverse(redirect('home'))
-
+    # if not user.is_superuser:
+    #     messages.error(request, "Sorry, only an admin is allowed to do that.")
+    #     return reverse(redirect('home'))
+    print("POSTED")
     if request.method == 'POST':
         form = GameForm(request.POST, request.FILES)
         publisher = request.POST.get('publisher')
@@ -196,7 +196,10 @@ def add_game(request):
         elif publisher == "Atari":
             console = "Atari 2600"
 
+        print(form.errors)
+
         if form.is_valid():
+            print("FORM WAS VALID")
             image_url = request.POST.get('image_url')
             game = form.save(commit=False)
             game.sku = "Placeholder Sku"

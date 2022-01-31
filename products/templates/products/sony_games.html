@@ -13,38 +13,41 @@
             </div>            
         </div>
 
-        <div class="filter-container main-body-section">
-            <form action="{% url 'publisher_games' 'Sony' %}" method="GET" name="filter">
-                <div class="row">                    
-                    <div class="selector-container col-5">
-                        <select name="genre" id="genreSelect">
-                            <!-- use templating to generate genres here -->
-                            <option selected value="any">Genre...</option>
-                            {% for genre in genres %}
-                               <option value="{{ genre }}">{{ genre }}</option>
-                            {% endfor %}
-                        </select>
+        <div class="container-fluid">
+            <div class="filter-container main-body-section">
+                <form action="{% url 'publisher_games' 'Sony' %}" method="GET" name="filter">
+                    <div class="row">                    
+                        <div class="selector-container col-5">
+                            <select name="genre" id="genreSelect">
+                                <!-- use templating to generate genres here -->
+                                <option selected value="any">Genre...</option>
+                                {% for genre in genres %}
+                                <option value="{{ genre }}">{{ genre }}</option>
+                                {% endfor %}
+                            </select>
+                        </div>
+                        <div class="selector-container col-5">
+                            <select name="sort" id="sortSelect">
+                                <option selected value="default">Sort by...</option>                           
+                                <option value="name-asc">Name (A-Z)</option>
+                                <option value="name-dsc">Name (Z-A)</option>
+                                <option value="release_year-asc">Released (low to high)</option>
+                                <option value="release_year-dsc">Released (high to low)</option>
+                            </select>
+                        </div>
                     </div>
-                    <div class="selector-container col-5">
-                        <select name="sort" id="sortSelect">
-                            <option selected value="default">Sort by...</option>                           
-                            <option value="name-asc">Name (A-Z)</option>
-                            <option value="name-dsc">Name (Z-A)</option>
-                            <option value="release_year-asc">Released (low to high)</option>
-                            <option value="release_year-dsc">Released (high to low)</option>
-                        </select>
-                    </div>
-                </div>
 
-                <div class="row">
-                    <div class="col-6 mx-auto text-center">
-                        <button class="btn" type="submit" id="filterButton">
-                            Filter Games
-                        </button>
+                    <div class="row">
+                        <div class="col-6 mx-auto text-center">
+                            <button class="btn" type="submit" id="filterButton">
+                                Filter Games
+                            </button>
+                        </div>
                     </div>
-                </div>
-            </form>
+                </form>
+            </div>
         </div>
+        
         
         <div class="row main-body-section">
             {% for game in games %}

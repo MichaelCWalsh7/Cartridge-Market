@@ -19,7 +19,6 @@ def profile(request):
     """
     # pylint: disable=redefined-outer-name
     profile = get_object_or_404(UserProfile, user=request.user)
-    storefront = None
 
     if request.method == 'POST':
         form = UserProfileForm(request.POST, instance=profile)
@@ -32,12 +31,18 @@ def profile(request):
     storefront = get_object_or_404(StoreFront, user=request.user)
 
     template = 'profiles/profile.html'
-    context = {
-        'form': form,
-        'orders': orders,
-        'storefront': storefront,
-        'on_profile_page': True,
-    }
+    if storefront:
+        context = {
+            'form': form,
+            'orders': orders,
+            'storefront': storefront,
+            'on_profile_page': True,
+        }
+    else:
+        context = {
+            'form': form,
+            'orders': orders,
+        }
 
     return render(request, template, context)
 
