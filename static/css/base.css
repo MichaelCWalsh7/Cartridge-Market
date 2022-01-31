@@ -51,6 +51,17 @@
     color: white;
 }
 
+.footer-links {
+    margin-bottom: 6%;
+}
+
+@media (min-width: 1200px) {
+    .footer {
+        margin-top: 6%;
+    }
+}
+
+
 /* Chrome, Safari, Edge, Opera */
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
