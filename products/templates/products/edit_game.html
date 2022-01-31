@@ -1,0 +1,72 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+    <div class="container-fluid">
+        <div class="main-body-section">
+
+            <hr>
+            <h1 class="page-title-text">Edit a Game</h1>
+            <hr>
+            
+            <div class="row">
+                <div class="col-12 col-md-6">
+                    <form action="{% url 'edit_game' game.id %}" method="post" 
+                        class="form mb-2" enctype="multipart/form-data">
+                        {% csrf_token %}
+                        <fieldset class="rounded px-3 mb-4">
+                            <legend class="fieldset-label small px-2 w-auto">Name</legend>
+                            {{ form.name | as_crispy_field }}
+                            <legend class="fieldset-label small px-2 w-auto">Publisher</legend>
+                            <select class="form-select mb-3 border-black dev-selector" name="publisher" aria-label="Choose a publisher" required>
+                                {% for publisher in publishers %}
+                                    {% if publisher.id == game.publisher.id %}
+                                        <option selected value="{{ publisher.id }}">{{ publisher }}</option>
+                                    {% else %}
+                                        <option value="{{ publisher.id }}">{{ publisher }}</option>
+                                    {% endif %}
+                                {% endfor %}
+                            </select>
+                        </fieldset>
+                        
+                        <fieldset class="rounded px-3">
+                            <legend class="fieldset-label small px-2 w-auto">Details</legend>
+                            {{ form.developer | as_crispy_field }}
+                            {{ form.release_year | as_crispy_field }}
+                            <legend class="fieldset-label small px-2 w-auto">Multiplayer?</legend>
+                            <input type="checkbox" name="multiplayer" id="multiplayerCheckbox">
+                            <select name="genre" class="form-select my-3 border-black genre-selector" required>
+                               {% for genre in genres %}
+                               <option value="{{ genre.id }}">{{ genre }}</option>
+                               {% endfor %}
+                            </select>
+                        </fieldset>
+
+                        <fieldset class="rounded px-3">
+                            <legend class="fieldset-label small px-2 w-auto">Image & Description</legend>
+                            {{ form.image | as_crispy_field }}
+                            <input type="hidden" value="{{ game.image_url }}"  name="image_url">
+                            {{ form.description | as_crispy_field }}
+                        </fieldset>
+                        
+                        <a href="{% url 'home' %}" class="btn action-button-inverted">
+                            <i class="fas fa-chevron-left"></i>
+                            Cancel & Return Home
+                        </a>
+                        <button type="submit" class="btn action-button">
+                            Submit
+                            <i class="fas fa-check"></i>
+                        </button>
+                    </form>
+                </div>
+            </div>            
+        </div>
+    </div>
+{% endblock %}
+
+
+{% block postloadjs %}
+    {{ block.super }}
+    <script src="{% static 'products/js/products.js' %}"></script>
+{% endblock %}

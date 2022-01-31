@@ -1,5 +1,9 @@
 $(document).ready(function() {
     $('.dev-selector').css("color", "#aab7c4")
+    let pageTitle = $('.page-title-text').text()
+    if (pageTitle =="Edit a Game") {
+        $('.dev-selector').css("color", "black")
+    }
 })
 
 $('.dev-selector').change(function() {

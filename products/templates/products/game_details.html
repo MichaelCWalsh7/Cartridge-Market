@@ -171,6 +171,16 @@
                             </a>
                         </div>
                     {% endif %}
+                    {% if request.user.is_authenticated %}
+                        {% if request.user.is_superuser %}
+                            <div class="col my-4 text-center">
+                                <p><strong>Admin actions:</strong></p>
+                                <a href="{% url 'edit_game' game.id %}" class="btn action-button">
+                                    Edit this game
+                                </a>
+                            </div>
+                        {% endif %}
+                    {% endif %}
                 </div>
             </div>
         </div>

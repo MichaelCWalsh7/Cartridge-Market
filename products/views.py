@@ -209,7 +209,7 @@ def add_game(request):
             game.name = request.POST["name"]
             game.console = console
             game.save()
-            messages.success(request, "The game has been add successfully.")
+            messages.success(request, "The game has been added successfully.")
             return redirect(reverse('game_details', args=[game.id]))
         else:
             messages.error(request, 'Failed to add game. Please ensure \
@@ -242,16 +242,11 @@ def edit_game(request, game_id):
         return reverse(redirect('home'))
     game = get_object_or_404(Game, pk=game_id)
     if request.method == 'POST':
-        form = GameForm(request.POST, request.FILES)
+        form = GameForm(request.POST, request.FILES, instance=game)
         publishers = Publisher.objects.all()
         publisher_id = request.POST.get('publisher')
         publisher = get_object_or_404(Publisher, pk=publisher_id)
         genre_id = request.POST.get('genre')
-        image_url_field = request.POST.get('image_url')
-        if image_url_field is None:
-            image_url = game.image_url
-        else:
-            image_url = image_url_field
         if publisher.name == "Nintendo":
             console = get_object_or_404(Console, name="Nintendo 64")
         elif publisher.name == "Sony":
@@ -262,32 +257,36 @@ def edit_game(request, game_id):
             console = get_object_or_404(Console, name="Atari 2600")
 
         if form.is_valid():
+            image_url_field = request.POST.get('image_url')
+            if image_url_field is None:
+                image_url = game.image_url
+            else:
+                image_url = image_url_field
+            game.image_url = image_url
             game = form.save(commit=False)
             game.sku = "Placeholder Sku"
             game.rating = 0
             game.genre = get_object_or_404(Genre, pk=genre_id)
-            game.image_url = image_url
             game.description = request.POST["description"]
             game.release_year = request.POST["release_year"]
             game.developer = request.POST["developer"]
             game.name = request.POST["name"]
             game.console = console
             game.save()
-            messages.success(request, "The game has been add successfully.")
+            messages.success(request, "The game has been edited successfully.")
             return redirect(reverse('game_details', args=[game.id]))
         else:
-            messages.error(request, 'Failed to add game. Please ensure \
+            messages.error(request, 'Failed to edit game. Please ensure \
                 your form is valid.')
     else:
         form = GameForm(instance=game)
 
-    games = Game.objects.all()
     genres = Genre.objects.all()
     publishers = Publisher.objects.all()
 
     template = 'products/edit_game.html'
     context = {
-        'games': games,
+        'game': game,
         'genres': genres,
         'publishers': publishers,
         'form': form,
