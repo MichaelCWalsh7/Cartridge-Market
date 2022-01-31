@@ -12,6 +12,8 @@ $('.dev-selector').change(function() {
     let devSelector = $('.dev-selector')
     let devSelectorOption = devSelector.val()
 
+    $('.game-selector').val("game-placeholder")
+
 
     if (devSelectorOption != 'default') {
         // If the option is not the default placeholder, the placeholder colour
