@@ -164,29 +164,35 @@
                             <div class="col my-3 text-center">
                                 <a href="{% url 'listings_by_game' game.id %}" class="btn action-button-inverted">See more copies</a>
                             </div>
-                        {% endif %}                      
+                        {% endif %}
                     </div>
-                    
+                </div>
+            </div>
 
-                    {% if request.user.storefront %}
-                        <div class="col my-4 text-center">
-                            <a href="{% url 'add_listing_by_game' game.id %}" class="btn action-button">
-                                <i class="fas fa-plus-circle"></i> 
-                                Post a listing for this game
-                            </a>
-                        </div>
-                    {% endif %}
-                    {% if request.user.is_authenticated %}
-                        {% if request.user.is_superuser %}
-                            <div class="col my-4 text-center">
+            {% if request.user.storefront %}
+                <div class="row">
+                    <div class="col my-4 text-center">
+                        <a href="{% url 'add_listing_by_game' game.id %}" class="btn action-button">
+                            <i class="fas fa-plus-circle"></i> 
+                            Post a listing for this game
+                        </a>
+                    </div>
+                </div>                
+            {% endif %}
+            {% if request.user.is_authenticated %}
+                {% if request.user.is_superuser %}
+                    <div class="admin-container">
+                        <div class="row">
+                            <div class="col my-2 text-center">
                                 <p><strong>Admin actions:</strong></p>
                                 <a href="{% url 'edit_game' game.id %}" class="btn action-button">
                                     Edit this game
                                 </a>
                             </div>
+                        </div>
 
-                            
-                            <div class="col my-4 text-center">
+                        <div class="row">
+                            <div class="col my-2 text-center">
                                 <!-- Button trigger modal -->
                                 <button type="button" class="btn action-button" data-bs-toggle="modal" 
                                     data-bs-target="#deleteModal">
@@ -195,7 +201,7 @@
                                     <i class="fas fa-exclamation-triangle danger-triangle"></i>
                                 </button>
 
-                                 <!-- Modal -->
+                                    <!-- Modal -->
                                 <div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="deleteModalLabel" aria-hidden="true">
                                     <div class="modal-dialog text-start">
                                         <div class="modal-content">
@@ -223,10 +229,11 @@
                                     </div>
                                 </div>
                             </div>
-                        {% endif %}
-                    {% endif %}
-                </div>
-            </div>
-        </div>
+                        </div>
+                        
+                    </div>
+                {% endif %}
+            {% endif %}
+        </div>        
     </div>
 {% endblock %}

@@ -519,6 +519,12 @@ input[name='q']::placeholder {
     padding: 3%;
 }
 
+#listingsContainer {
+    border: 2px solid #bf8025;
+    padding-right: 3%;
+    padding-left: 3%;
+}
+
 #listingsContainer div img {
     height: 200px;
 }
@@ -529,6 +535,10 @@ input[name='q']::placeholder {
 
 .listing-card-body {
     padding: .5rem;
+}
+
+.admin-container {
+    border: 2px solid red;
 }
 
 .add-to-cart-form {
