@@ -14,9 +14,8 @@ An e-commerce marketplace where users can create storefronts, and buy and sell g
     
     1. As a First Time Visitor, I want to be able to browse through different games.
     2. As a First Time Visitor, I want to be able to buy different games.
-    3. As a First Time Visitor, I want to be able to view different stores
-    4. As a First Time Visitor, I want to easily be able to see what stores have the game I want in stock
-    5. As a First Time Visitor, I want to easily view the total of my purchases at any time.
+    3. As a First Time Visitor, I want to easily be able to see what stores have the game I want in stock
+    4. As a First Time Visitor, I want to easily view the total of my purchases at any time.
 
     -   #### Site User Goals
 
@@ -24,7 +23,7 @@ An e-commerce marketplace where users can create storefronts, and buy and sell g
     2. As a Site User, I want to easily log in and out.
     3. As a Site User, I want to easily recover my password in case I forget it. 
     4. As a Site User, I want to receive an email confirmation after registering.
-    5. As a Site User, I want to have a personalized uer profile.
+    5. As a Site User, I want to have a personalized user profile.
 
     -   #### Frequent Visitor Goals
     1. As a Frequent Visitor, I want to categorize products by developer.
@@ -166,7 +165,7 @@ file. [Click anywhere on this sentence to be taken to the
 TESTING.md file.](https://github.com/MichaelCWalsh7/Yurt-Index/blob/main/TESTING.md)
 
 ## Data Schema
-- The data schema of the site (using MongoDB) employs the following 3 collections.
+- The data schema of the site (using relational databases) is explained by apps below:
 
     1. Products
         - Starting off in the products app we have the Publisher model.

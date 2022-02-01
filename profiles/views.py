@@ -28,21 +28,19 @@ def profile(request):
 
     form = UserProfileForm(instance=profile)
     orders = profile.orders.all()
-    storefront = get_object_or_404(StoreFront, user=request.user)
+    try:
+        storefront = get_object_or_404(StoreFront, user=request.user)
+    except Exception as e:
+        storefront = False
 
     template = 'profiles/profile.html'
-    if storefront:
-        context = {
-            'form': form,
-            'orders': orders,
-            'storefront': storefront,
-            'on_profile_page': True,
-        }
-    else:
-        context = {
-            'form': form,
-            'orders': orders,
-        }
+
+    context = {
+        'form': form,
+        'orders': orders,
+        'storefront': storefront,
+        'on_profile_page': True,
+    }
 
     return render(request, template, context)
 
