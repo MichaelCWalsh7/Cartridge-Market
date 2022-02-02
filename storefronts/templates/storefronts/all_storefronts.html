@@ -45,6 +45,20 @@
                     </div>
                 {% endfor %}
             </div>
+
+            <div class="row">
+                <div class="col text-center">
+                    {% if request.user.is_authenticated %}
+                        {% if not request.user.storefront %}
+                            <a href="{% url 'add_storefront' %}" class="btn action-button">
+                                <i class="fas fa-exclamation"></i> 
+                                Click Here to Start your Storefront Now! 
+                                <i class="fas fa-exclamation"></i>
+                            </a>
+                        {% endif %}
+                    {% endif %}
+                </div>
+            </div>
         </div>
     </div>
 {% endblock %}

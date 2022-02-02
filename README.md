@@ -29,7 +29,6 @@ An e-commerce marketplace where users can create storefronts, and buy and sell g
     1. As a Frequent Visitor, I want to categorize products by developer.
     2. As a Frequent Visitor, I want sort the list of available products. 
     3. As a Frequent Visitor, I want to search for a game by name of description. 
-    4. As a Frequent Visitor, I want to easily see what I've searched for and the number of results.
 
     -   #### Seller Goals
     1. As a Seller, I want to set up a digital store.
@@ -38,7 +37,7 @@ An e-commerce marketplace where users can create storefronts, and buy and sell g
 
     -   #### Buyer Goals
     1. As a Buyer, I want to easily select quantity of a product on purchase.
-    2. As a Buyer, I want to view items in my bag.
+    2. As a Buyer, I want to view items in my cart.
     3. As a Buyer, I want to adjust the quantity of individual items.
     4. As a Buyer, feel my personal and payment information is safe and secure.
     5. As a Buyer, I want to view an order confirmation post-checkout.
@@ -117,6 +116,7 @@ An e-commerce marketplace where users can create storefronts, and buy and sell g
 
 - Console sorting
     - While games can be sorted on the site by a variety of metrics, one idea that was unfortunately shelved due to time was to have even more personalized pages based on the console in question, for example for the Super Nintendo or Sega Megadrive. Image and image url fields exist on the console models still to incorporate this feature in the near future.
+    - For more information about console scope, please refer to [the TESTING section](https://github.com/MichaelCWalsh7/Cartridge-Market/blob/main/TESTING.md)
 
 - More Admin
     - Right now the scope of the admin is a little limited in the site in some cases. For example, right now there's no admin panel for suspending a fraudulent user rather than the default django admin UI. Again, with more time, this feature could be integrated without too many teething issues. 
