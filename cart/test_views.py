@@ -1,3 +1,6 @@
+"""
+Views defined for the 'cart' app
+"""
 # pylint: disable=no-member,attribute-defined-outside-init
 from django.test import TestCase
 from django.contrib.auth.models import User
@@ -6,15 +9,15 @@ from storefronts.models import StoreFront
 from listings.models import Listing
 
 
-class TestListingModel(TestCase):
+class TestCartViews(TestCase):
     """
-    Test models in Listings app
+    Test views in cart app
     """
     def setUp(self):
         """
         Instantiate objects for testing.
         """
-        self.test_user = User.objects.create(
+        self.test_user = User.objects.create_user(
             username='testuser',
             email='test@testviews.com',
             password='testpassword',
@@ -88,6 +91,26 @@ class TestListingModel(TestCase):
             copies_available=7,
         )
 
-    def test_string_method_returns_title(self):
-        "test listing class title returns as string"
-        self.assertIsInstance(self.test_listing.title, "testListing")
+        self.quantity = 2
+
+    def test_view_cart_view(self):
+        """
+        Test that cart is viewable
+        """
+        response = self.client.get('/cart/')
+        self.assertTrue(response.status_code, 200)
+        self.assertTemplateUsed('cart/cart.html')
+
+    def test_add_to_cart_view(self):
+        """
+        Test that items can be added to the cart
+        """
+        cart_data = {
+            'listing': Listing.objects.get(pk=self.test_listing.id),
+            'quantity': int(self.quantity),
+            'redirect_url': f'/listing/{self.test_listing.id}/'
+        }
+
+        response = self.client.post(
+            f'/cart/add/{self.test_listing.id}/', cart_data)
+        self.assertEqual(response.status_code, 302)
