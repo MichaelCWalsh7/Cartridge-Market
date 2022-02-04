@@ -44,7 +44,6 @@ def checkout(request):
     """
     stripe_public_key = settings.STRIPE_PUBLIC_KEY
     stripe_secret_key = settings.STRIPE_SECRET_KEY
-    print("Public key = " + stripe_public_key)
 
     if request.method == 'POST':
         cart = request.session.get('cart', {})
@@ -75,7 +74,6 @@ def checkout(request):
                     listing = Listing.objects.get(id=item_id)
                     listing.copies_available = listing.copies_available - int(item_data)
                     listing.save()
-                    print(f'item {item_id} - data {item_data}')
                     if isinstance(item_data, int):
                         order_line_item = OrderLineItem(
                             order=order,
