@@ -1,7 +1,7 @@
 """
 Views for the listings app.
 """
-
+# pylint: disable=no-member,redefined-outer-name
 from datetime import date
 
 from django.shortcuts import render, redirect, reverse, get_object_or_404
@@ -43,24 +43,31 @@ def add_listing(request):
     else:
         form = ListingForm()
 
-    games = Game.objects.all()
-    nintendo_games = games.filter(publisher__name='Nintendo')
-    sony_games = games.filter(publisher__name='Sony')
-    sega_games = games.filter(publisher__name='Sega')
-    atari_games = games.filter(publisher__name='Atari')
+    user = request.user
+    if user.storefront:
+        games = Game.objects.all()
+        nintendo_games = games.filter(publisher__name='Nintendo')
+        sony_games = games.filter(publisher__name='Sony')
+        sega_games = games.filter(publisher__name='Sega')
+        atari_games = games.filter(publisher__name='Atari')
 
-    form = ListingForm()
+        form = ListingForm()
 
-    template = 'listings/add_listing.html'
-    context = {
-        'games': games,
-        'nintendo_games': nintendo_games,
-        'sony_games': sony_games,
-        'sega_games': sega_games,
-        'atari_games': atari_games,
-        'form': form,
-    }
-    return render(request, template, context)
+        template = 'listings/add_listing.html'
+        context = {
+            'games': games,
+            'nintendo_games': nintendo_games,
+            'sony_games': sony_games,
+            'sega_games': sega_games,
+            'atari_games': atari_games,
+            'form': form,
+        }
+        return render(request, template, context)
+    else:
+        messages.error(request, 'Sorry, only users with a storefront may \
+            upload a listing.')
+        template = 'storefronts/preamble.html'
+        return render(request, template)
 
 
 @login_required

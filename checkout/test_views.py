@@ -8,9 +8,9 @@ from django.contrib.messages import get_messages
 
 class TestCheckoutViews(TestCase):
     """
-    Tests that order models work correctly
+    Tests that the checkout views work correctly
     """
-    def test_checkout_view_get_handler(self):
+    def test_checkout_view_url(self):
         """
         Test that the checkout page URL exists
         """
