@@ -9,6 +9,7 @@ from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 
 from products.models import Game
+from storefronts.models import StoreFront
 
 from .models import Listing
 from .forms import ListingForm
@@ -43,8 +44,9 @@ def add_listing(request):
     else:
         form = ListingForm()
 
-    user = request.user
-    if user.storefront:
+    try:
+        user = request.user
+        storefront = StoreFront.objects.get(pk=user.storefront.id)
         games = Game.objects.all()
         nintendo_games = games.filter(publisher__name='Nintendo')
         sony_games = games.filter(publisher__name='Sony')
@@ -63,11 +65,9 @@ def add_listing(request):
             'form': form,
         }
         return render(request, template, context)
-    else:
-        messages.error(request, 'Sorry, only users with a storefront may \
-            upload a listing.')
-        template = 'storefronts/preamble.html'
-        return render(request, template)
+    except StoreFront.DoesNotExist:
+        messages.warning(request, "Sorry, only a storefront owner can do that")
+        return redirect(reverse('home'))
 
 
 @login_required
@@ -98,12 +98,18 @@ def add_listing_by_game(request, game_id):
     else:
         form = ListingForm()
 
-    template = 'listings/add_listing_by_game.html'
-    context = {
-        'game': game,
-        'form': form,
-    }
-    return render(request, template, context)
+    try:
+        user = request.user
+        storefront = StoreFront.objects.get(pk=user.storefront.id)
+        template = 'listings/add_listing_by_game.html'
+        context = {
+            'game': game,
+            'form': form,
+        }
+        return render(request, template, context)
+    except StoreFront.DoesNotExist:
+        messages.warning(request, "Sorry, only a storefront owner can do that")
+        return redirect(reverse('home'))
 
 
 @login_required
