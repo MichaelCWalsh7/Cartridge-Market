@@ -167,6 +167,11 @@ class TestListingViews(TestCase):
         self.client.force_login(self.test_user2)
         response = self.client.get(
             f'/listing/edit_listing/{self.test_listing.id}')
+        messages = list(get_messages(response.wsgi_request))
+        self.assertEqual(messages[0].tags, 'error')
+        self.assertEqual(
+            str(messages[0]), 'Sorry, only the storefront owner can \
+            do that.')
         self.assertEqual(response.status_code, 302)
         self.client.logout()
 
