@@ -300,9 +300,11 @@ def delete_game(request, game_id):
     """
     user = request.user
     game = get_object_or_404(Game, pk=game_id)
-    if not user.is_superuser:
+    if request.useruser.is_superuser:
+        game.delete()
+        messages.success(request, 'The game has been removed.')
+        return redirect(reverse('home'))
+    else:
         messages.error(request, "Sorry, only an admin is allowed to do that.")
         return reverse(redirect('home'))
-    game.delete()
-    messages.success(request, 'The game has been removed.')
-    return redirect(reverse('home'))
+    
