@@ -225,11 +225,15 @@ class TestProductViews(TestCase):
         response = self.client.get('/products/add_game/')
         self.assertEqual(response.status_code, 302)
 
-        # # Check if non superusers can add a game
-        # self.client.force_login(self.test_user2)
-        # response = self.client.get('/products/add_game/')
-        # self.assertEqual(response.status_code, 302)
-        # self.client.logout()
+        # Check if non superusers can add a game
+        self.client.force_login(self.test_user2)
+        response = self.client.get('/products/add_game/')
+        messages = list(get_messages(response.wsgi_request))
+        self.assertEqual(messages[0].tags, 'error')
+        self.assertEqual(
+            str(messages[0]), 'Sorry, only an admin is allowed to do that.')
+        self.assertEqual(response.status_code, 302)
+        self.client.logout()
 
         # Check if superusers can add a game
         self.client.force_login(self.test_user1)
@@ -245,12 +249,15 @@ class TestProductViews(TestCase):
         response = self.client.get(f'/products/edit_game/{self.test_game.id}')
         self.assertEqual(response.status_code, 302)
 
-        # # Check if non superusers can edit a game
-        # self.client.force_login(self.test_user2)
-        # response = self.client.get(
-        # f'/products/edit_game/{self.test_game.id}')
-        # self.assertEqual(response.status_code, 302)
-        # self.client.logout()
+        # Check if non superusers can edit a game
+        self.client.force_login(self.test_user2)
+        response = self.client.get(f'/products/edit_game/{self.test_game.id}')
+        messages = list(get_messages(response.wsgi_request))
+        self.assertEqual(messages[0].tags, 'error')
+        self.assertEqual(
+            str(messages[0]), 'Sorry, only an admin is allowed to do that.')
+        self.assertEqual(response.status_code, 302)
+        self.client.logout()
 
         # Check if superusers can edit a game
         self.client.force_login(self.test_user1)

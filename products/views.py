@@ -226,7 +226,7 @@ def add_game(request):
         }
         return render(request, template, context)
     else:
-        messages.error(request, 'Sorry, only an admin user can do that.')
+        messages.error(request, 'Sorry, only an admin is allowed to do that.')
         return redirect(reverse('home'))
 
 
@@ -289,7 +289,7 @@ def edit_game(request, game_id):
         }
         return render(request, template, context)
     else:
-        messages.error(request, 'Sorry, only an admin user can do that.')
+        messages.error(request, 'Sorry, only an admin is allowed to do that.')
         return redirect(reverse('home'))
 
 
@@ -298,13 +298,11 @@ def delete_game(request, game_id):
     """
     Allows users to delete games on the website.
     """
-    user = request.user
     game = get_object_or_404(Game, pk=game_id)
-    if request.useruser.is_superuser:
+    if request.user.is_superuser:
         game.delete()
         messages.success(request, 'The game has been removed.')
         return redirect(reverse('home'))
     else:
         messages.error(request, "Sorry, only an admin is allowed to do that.")
         return reverse(redirect('home'))
-    
