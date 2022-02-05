@@ -177,10 +177,6 @@ def add_game(request):
     """
     A view for users to create game on the site.
     """
-    user = request.user
-    if not user.is_superuser:
-        messages.error(request, "Sorry, only an admin is allowed to do that.")
-        return reverse(redirect('home'))
     if request.method == 'POST':
         form = GameForm(request.POST, request.FILES)
         publishers = Publisher.objects.all()
@@ -216,18 +212,22 @@ def add_game(request):
     else:
         form = GameForm()
 
-    games = Game.objects.all()
-    genres = Genre.objects.all()
-    publishers = Publisher.objects.all()
+    if request.user.is_superuser:
+        games = Game.objects.all()
+        genres = Genre.objects.all()
+        publishers = Publisher.objects.all()
 
-    template = 'products/add_game.html'
-    context = {
-        'games': games,
-        'genres': genres,
-        'publishers': publishers,
-        'form': form,
-    }
-    return render(request, template, context)
+        template = 'products/add_game.html'
+        context = {
+            'games': games,
+            'genres': genres,
+            'publishers': publishers,
+            'form': form,
+        }
+        return render(request, template, context)
+    else:
+        messages.error(request, 'Sorry, only an admin user can do that.')
+        return redirect(reverse('home'))
 
 
 @login_required
@@ -235,10 +235,6 @@ def edit_game(request, game_id):
     """
     A view for users to edit games on the site.
     """
-    user = request.user
-    if not user.is_superuser:
-        messages.error(request, "Sorry, only an admin is allowed to do that.")
-        return reverse(redirect('home'))
     game = get_object_or_404(Game, pk=game_id)
     if request.method == 'POST':
         form = GameForm(request.POST, request.FILES, instance=game)
@@ -280,17 +276,21 @@ def edit_game(request, game_id):
     else:
         form = GameForm(instance=game)
 
-    genres = Genre.objects.all()
-    publishers = Publisher.objects.all()
+    if request.user.is_superuser:
+        genres = Genre.objects.all()
+        publishers = Publisher.objects.all()
 
-    template = 'products/edit_game.html'
-    context = {
-        'game': game,
-        'genres': genres,
-        'publishers': publishers,
-        'form': form,
-    }
-    return render(request, template, context)
+        template = 'products/edit_game.html'
+        context = {
+            'game': game,
+            'genres': genres,
+            'publishers': publishers,
+            'form': form,
+        }
+        return render(request, template, context)
+    else:
+        messages.error(request, 'Sorry, only an admin user can do that.')
+        return redirect(reverse('home'))
 
 
 @login_required
