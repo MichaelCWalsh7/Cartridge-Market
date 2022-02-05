@@ -185,7 +185,7 @@ class TestListingViews(TestCase):
         self.assertEqual(response.status_code, 302)
         self.client.logout()
 
-        # Checks that non-registered users can't deletel listings.
+        # Checks that non-registered users can't delete listings.
         response = self.client.get(
             f'/listing/delete_listing/{self.test_listing.id}')
         self.assertIsInstance(self.test_listing, Listing)
