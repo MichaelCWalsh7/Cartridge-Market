@@ -50,7 +50,7 @@ An e-commerce marketplace where users can create storefronts, and buy and sell g
         - The burnt orange colour contrasts quite nicely, giving it an eye-catching pop in contrast to the dark grey's more muted tone.
         - Some pages in the site are specially coloured to match an accompanying developer. For example, when browsing the Nintendo games section
         of the site the backdrop to the games is the familiar Nintendo red, the same with the SEGA blue. 
-        - Sony's logo is more simpole black and white, difficult to make familiar, so instead the colour scheme is more reminiscent of the light grey 
+        - Sony's logo is more simple black and white, difficult to make familiar, so instead the colour scheme is more reminiscent of the light grey 
         of their Playstaion console.
         - For Atari, a similar approach was taken, the Atari logo has changed many times in colour of the years, and it's most popular iteration has a red
         that is too similar to the Nintendo red, so their backdrop is a light black, the same colour as the Atari 2600.
@@ -58,14 +58,14 @@ An e-commerce marketplace where users can create storefronts, and buy and sell g
     
     -   #### Typography
         - There are 3 main fonts in use on the site. 
-        - The first being Orbitron, which, while only really used once on the site, because it's used for the logo on the navbar, is somehting that the user is going to see a lot. It's quite a sharp, pointed font, which reflects the digital nature of the site. 
-        - The second font in use is Poppy. Poppy is the far and away the most common font on the site and is used for the vast majority of main body sections. It is of course not as sharp and pointed as Orbitron, which would give the site an overstylized and distracting quality, but it is still pointed enough to appear modern without distraction.  
-        - Finally in the footer and in the vast majority of the action buttons of the site Chakra Petch is used. It strikes a nice balance between the other two fonts, being more pointed and modern feeling than Poppy, wihtout quite reaching the level of Orbitron. 
+        - The first being Orbitron, which, while only really used once on the site, because it's used for the logo on the navbar, is something that the user is going to see a lot. It's quite a sharp, pointed font, which reflects the digital nature of the site. 
+        - The second font in use is Poppy. Poppy is the far and away the most common font on the site and is used for the vast majority of main body sections. It is of course not as sharp and pointed as Orbitron, which would give the site an over-stylized and distracting quality, but it is still pointed enough to appear modern without distraction.  
+        - Finally in the footer and in the vast majority of the action buttons of the site Chakra Petch is used. It strikes a nice balance between the other two fonts, being more pointed and modern feeling than Poppy, without quite reaching the level of Orbitron. 
 
     -   #### Imagery
         - Imagery is everything on a site like this. Video games are a visual medium, and merely communicating things via text doesn't grab the user's attention enough either for the listings on the site that a seller can post, or a game that buyers and sellers alike will be reading and viewing. 
         - While imagery is important in communication of concept, and the ability to catch the user's attention, as an e-commerce store there's also the marketing and brand recognition to consider. 
-            - On this point, that is why on the [Nintendo games page](https://mcw-cartridge-market.herokuapp.com/products/publisher/Nintendo/) you're greeted by the Nintendo logo and their classic red & white colour, on the [SEGA page](https://mcw-cartridge-market.herokuapp.com/products/publisher/Sega/) liekwise, and so on and so forth. Decisions about colour schemes used for Atari and Sony are discussed in the colour section above. 
+            - On this point, that is why on the [Nintendo games page](https://mcw-cartridge-market.herokuapp.com/products/publisher/Nintendo/) you're greeted by the Nintendo logo and their classic red & white colour, on the [SEGA page](https://mcw-cartridge-market.herokuapp.com/products/publisher/Sega/) likewise, and so on and so forth. Decisions about colour schemes used for Atari and Sony are discussed in the colour section above. 
             - Also important in marketing is the storefront owners own brand. This is particularly important when selling second-hand or collection edition items, where the quality can vary massively when buying the same product, and there is perhaps a heavier element of trust than in a normal e-commerce market. On this note, I thought it was important that each storefront has it's own image, that a potential or familiar customer could quickly identify. 
 *   ### Wireframes
 
@@ -93,14 +93,14 @@ An e-commerce marketplace where users can create storefronts, and buy and sell g
 
 -   Email verification for payment and user account actions
 
--   Users can set up ditital storefronts
+-   Users can set up digital storefronts
 
--   Images can be uploaded and edited by users for both lisitngs and their own personal storefront
+-   Images can be uploaded and edited by users for both listngs and their own personal storefront
 
 ## Planned Future Features
 
 - Payment Receipt
-    - Right now Stripe is set up to receive payment on the user end, but not to pay sellers of the site who have storefronts and listings. This was unforunately a bit ourtside of the scope of the project, but definitely a neccessary feature to be implemented in the future.
+    - Right now Stripe is set up to receive payment on the user end, but not to pay sellers of the site who have storefronts and listings. This was unfortunately a bit outside of the scope of the project, but definitely a necessary feature to be implemented in the future.
     - This type of feature may require a new app, or at least a separate admin page for storefront owners to view their revenue metrics and customize various specifics. 
 
 - Comments
@@ -108,11 +108,11 @@ An e-commerce marketplace where users can create storefronts, and buy and sell g
     - While I don't think that the scope of this idea is beyond me, timing was a massive issue with this project and comments were one of the things that got cut to avoid feature bloat. 
 
 - Suggested games
-    - This was a much less well-defined idea but one that I would really love to implement. The idea was as part of the user's profile various games or lisitngs would be suggested to them based on actions on the site they had taken in the past. 
-    - Obviously the potential scope of this in modern times can be gargantuan, especially in a world with things like YouTube algorithims and other similar metrics. However, my approach was going to be much more simple, for instance if you have bought a lot of games for the Nintendo 64 then perhaps you're recommended the most popular N64 game on the site that you haven't purchased.
+    - This was a much less well-defined idea but one that I would really love to implement. The idea was as part of the user's profile various games or listngs would be suggested to them based on actions on the site they had taken in the past. 
+    - Obviously the potential scope of this in modern times can be gargantuan, especially in a world with things like YouTube algorithms and other similar metrics. However, my approach was going to be much simpler, for instance if you have bought a lot of games for the Nintendo 64 then perhaps you're recommended the most popular N64 game on the site that you haven't purchased.
 
 - Rating
-    - The rating system was somehting that was axed fairly late into the project, going so far as even making it into the Game model (discussed below). The ability to9 rate various games or storefronts or even listings on the site isn't too difficult and if time was more on my side, even just an extra week or two this would have made the grade, but unfortunately it just didn't work out like that.
+    - The rating system was something that was axed fairly late into the project, going so far as even making it into the Game model (discussed below). The ability to9 rate various games or storefronts or even listings on the site isn't too difficult and if time was more on my side, even just an extra week or two this would have made the grade, but unfortunately it just didn't work out like that.
 
 - Console sorting
     - While games can be sorted on the site by a variety of metrics, one idea that was unfortunately shelved due to time was to have even more personalized pages based on the console in question, for example for the Super Nintendo or Sega Megadrive. Image and image url fields exist on the console models still to incorporate this feature in the near future.
@@ -143,7 +143,7 @@ An e-commerce marketplace where users can create storefronts, and buy and sell g
 1. [Font Awesome:](https://fontawesome.com/)
     - Font Awesome was used for a small minority of icons on the website.
 1. [jQuery:](https://jquery.com/)
-    - jQuery is used to incorporate many of the Materialize elements throughout the site, but is also used in other areas of the site for general Ux and design improvements..
+    - jQuery is used to incorporate many of the Materialize elements throughout the site, but is also used in other areas of the site for general Ux and design improvements.
 1. [Git](https://git-scm.com/)
     - Git was used for version control by utilizing the Gitpod terminal to commit to Git and Push to GitHub.
 1. [GitHub:](https://github.com/)
@@ -170,13 +170,13 @@ TESTING.md file.](https://github.com/MichaelCWalsh7/Yurt-Index/blob/main/TESTING
     1. Products
         - Starting off in the products app we have the Publisher model.
             - This merely has a name, an image, and an image url associated with it, and is mainly used for categorization.
-        - The next model in produts is Console
+        - The next model in products is Console
             - While this is also used mainly for categorical purposes, it has more fields to enable the addition of future consoles.
-            - It takes a foreign key for publishers, as every console will have a publisher/developer barnd attached to it. 
-            - It has a a name/description field for fairly axiomatic reasons.
+            - It takes a foreign key for publishers, as every console will have a publisher/developer brand attached to it. 
+            - It has a name/description field for fairly axiomatic reasons.
             - The consoles still have a sku and price available, that character and decimal fields respectively, these fields are here to allow the potential sale of consoles on the site, but as the consoles model ended up being mainly categorical, they are of course, optional. 
             - Consoles have an image, and an image url associated with them, for reasons discussed in future features (Console sorting) above.
-            - Each Console also has two additional integer fields to show the release year, and how many controllers can be plugged intyo the console.
+            - Each Console also has two additional integer fields to show the release year, and how many controllers can be plugged into the console.
         - The Genre model merely return a string name is purely categorical.
         - Finally, and most importantly here there is the Game model. 
             - This model has foreign keys for publisher, console and genre, given that every game will have one of each.
@@ -195,11 +195,11 @@ TESTING.md file.](https://github.com/MichaelCWalsh7/Yurt-Index/blob/main/TESTING
     
     3. Checkout
         - The checkout model is two-fold it has a model for an Order, and one for an OrderLineItem
-        - The order is not too dissimlar from thye UserProfile but it does have some extras
+        - The order is not too dissimilar from the UserProfile but it does have some extras
             - It returns a randomized order number using uuid
             - It has a foreign key to the UserProfile to help save the user's data
             - It has an email field for sending confirmation emails
-            - It has all of the same delivery data as in the UserProfile: phone number, streed address 1, street address 2,, town or city, county, postcode and country. 
+            - It has all of the same delivery data as in the UserProfile: phone number, street address 1, street address 2,, town or city, county, postcode and country. 
             - It has an order total and a grand total, in case any shipping or discounts are being applied.
             - Finally it has a stripe_pid field used to initilaize Stripe whe the user checks out.
         - The OrderLineItem model is much simpler and smaller
@@ -207,14 +207,14 @@ TESTING.md file.](https://github.com/MichaelCWalsh7/Yurt-Index/blob/main/TESTING
             - It returns an integer field for the quantity of the item in the cart and a decimal for it's price total.
 
     4. Storefronts
-        - The storefronts app was one of the big ways the projecy diverted from it's predecessor, Boutique Ado, in that every user can set up a store, and post a listing for any game that they had a copy of. 
+        - The storefronts app was one of the big ways the project diverted from it's predecessor, Boutique Ado, in that every user can set up a store, and post a listing for any game that they had a copy of. 
         - Each storefront returns a name and description for axiomatic reasons.
         - It has a OneToOne relationship with the User model.
-        - It has all of the same delivery data as in the UserProfile: phone number, streed address 1, street address 2,, town or city, county, postcode and country. Only this time used to display it's location for potential buyers.
+        - It has all of the same delivery data as in the UserProfile: phone number, streed address 1, street address 2, town or city, county, postcode and country. Only this time, used to display it's location for potential buyers.
         - It has an image, and an image url associated with it to display an image of the storefront.
     
     5. Listings
-        - The listings have a quite a lot of data attatched to them already, given that have a foreignkey games and storefronts already, they're very interconnected with the rest of the database.
+        - The listings have a quite a lot of data attached to them already, given that have a foreignkey games and storefronts already, they're very interconnected with the rest of the database.
         - They a decimal for the price, and an integer for how many copies are currently available.
         - They have a datetime field to show when they were uploaded.
         - They return a title/description for axiomatic reasons. 
@@ -275,15 +275,15 @@ Click [Here
 
 ### Code
 
--  [Materialize](https://materializecss.com/): The Materialize framework definitely earns a credit in this README as more than just a basic framework. Their easy-to-use and style, responsive 'card' objects are a defining part of the project. It was also enjoyable to try a different framework to Bootstrap to compare the two.
+-  [Bootstrap](https://getbootstrap.com/): Bootsrap's grid system permeates through the whole website, it was more than a simple framework to move things around but it provided the backbone for a lot of the css on the site.
 
--   [Luke Zhang](https://codepen.io/lukezhang/pen/JlImc): Big thanks Luke Zhang's great work on css tags, which was fundamental in my implementation of them in this project. It took some time just to style and recolur them so I can only imagine how many countless hours on the drawing board this CSS saved me.
+-   [W3 Schools](https://www.w3schools.com/howto/howto_css_hide_arrow_number.asp): Big thanks to this instructional guide here. The quick explanation on how to hide arrow buttons from number inputs saved me valuable time in figuring it out myself.
 
--   [Ankit Chaudhary/Stack Overflow](https://stackoverflow.com/questions/28034638/hide-div-on-certain-pages-using-jquery): This answer from Ankit Chaudhary on a Stack Overflow question from quite some time ago was very helpful in the JS that was used to change the Return to Home button on the home page so it took the user back to the top.  
+-   [Amy O'Shea](https://github.com/AmyOShea/MS4-ARTstop): On the advice of my mentor, the excellent practices when testing from this project were used when automating the tests for this project. In particular with more complex use of the Django TestCase class.  
 
--   [Diego Leme](https://codepen.io/diegoleme/pen/surIK): I used this very tidy little piece of code as the basis of my own script, to ensure that both passwords and email fields has functional comparative confirmation.
+-   [Stack Overflow](https://stackoverflow.com/questions/4851595/how-to-resolve-the-c-fakepath): The guys over at StackOverflow coming through as usual with some solid advice on how to grab an image_url that's been uploaded to a site using jQuery, which is used quite frequently in the project.
 
--   [Red Eyed Coder Club](https://www.youtube.com/channel/UCh_LSaTv2GeZ3woJNTGihew): The error handler code that I used to route to the 404 page was partially inspired by [this Youtube tutorial video](https://www.youtube.com/watch?v=OczLouzgJSc).
+-   [Richard Ash (link to github and not code used)](https://github.com/richardhenyash): Huge shoutout to fellow Code Institute alumni Richard Ash, who did great work with integrating the Boostrap 5 toasts into the django environment. 
 
 
 ### Content
@@ -299,12 +299,6 @@ Click [Here
     - Sega Corporation
     - Atari Interactive
 
-
-### Inspirations 
-
--   Overall this Website had a couple of predominant inspirations 
-    1. First of all, on a conceptual level, the two books of short stories published by RubberBandits member [Blindboy Boatclub](https://en.wikipedia.org/wiki/Blindboy_Boatclub).
-    1. Secondly the [Urban Dictionary](https://www.urbandictionary.com/) and the [Dictionary.com](https://www.dictionary.com/e/slang/) slang archive were both used as inspirations, but also metrics on how modern, popular, slang dictionaries designed their sites.
 
 ### Acknowledgements
 
