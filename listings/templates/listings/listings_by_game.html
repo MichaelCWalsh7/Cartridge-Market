@@ -26,7 +26,11 @@
                             {% endif %}
                         </a>
                         <div class="card-body listing-card-body">
-                            <p class="card-text">{{ listing.description }}</p>
+                            {% if listing.description %}
+                                <p class="card-text">{{ listing.description }}</p>
+                            {% else %}
+                                <p class="card-text"><em>No description available...</em></p>
+                            {% endif %}
                             <hr>
                             <h5 class="text-center">Game Details</h5>
                             <div class=" row">

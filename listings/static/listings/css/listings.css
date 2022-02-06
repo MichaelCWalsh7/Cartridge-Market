@@ -19,7 +19,8 @@ select option[value="game-placeholder"] {
 }
 
 .card-details {
-  max-height: 230px;
+  height: 230px;
+  overflow-y: auto;
 }
 
 .card-img-top {
@@ -56,12 +57,13 @@ select option[value="game-placeholder"] {
 
   .listing-card-body p {
     height: 100px;
+    overflow-y: auto;
   }
 }
 
 @media (min-width: 993px) {
   .listing-card {
-    margin-left: 6% !important;
+    margin-left: 4% !important;
   }
 }
 

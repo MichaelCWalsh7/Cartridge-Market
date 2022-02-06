@@ -122,7 +122,7 @@
                     <div class="row">
                         {% for listing in listings %}
                             {% if forloop.counter < 3 %}
-                                <div class="col-12 col-sm-5 offset-sm-1 card  mt-3 listing-card">
+                                <div class="col-12 col-sm-5 card mt-3 listing-card">
                                     <a href="{% url 'listing' listing.id %}">
                                         {% if listing.image %}
                                             <img class="w-100 px-1" src="{{ MEDIA_URL }}images/listing-images/{{ listing.image_url }}"
