@@ -5,7 +5,7 @@ from django.shortcuts import render, get_object_or_404
 from products.models import Game, Publisher
 
 
-def home(request):
+def index(request):
     """
     A view to return the index page and spme featured games
     """
