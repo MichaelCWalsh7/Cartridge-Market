@@ -98,7 +98,7 @@ class TestHomeView(TestCase):
 
     def test_home_view_url(self):
         """
-        Tests that the home page page URL exists
+        Tests that the home page URL exists
         """
         response = self.client.get('/')
         self.assertEqual(response.status_code, 200)
